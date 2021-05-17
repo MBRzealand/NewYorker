@@ -1,0 +1,68 @@
+
+# Disposition
+
+Gruppemedlemmer: Mikkel Boye Rasmussen, Fredrik Bille, Anders Hjordrup Larsen & Lasse J. Kongsdal.
+
+- **Indledning**
+  - *New-Yorker.dk er et firma der som de selv siger ” har en solid erfaring fra byggeri- og vinduesbranchen.” New-yorker.dk levere en klassisk rå Newyorker Glass væg som har et meget industrielt look. Newyorker står nu i den situation at de ønsker en app som kan hjælpe dem med at indhente salgsoverslag på deres glasvægge. Så de på denne måde nemme kan facilitere salg af deres produkter.*
+  - Igennem denne rapport vil vi vise hvilken metoder og fremgangsmåde vi vil bruge og har brugt, for at finde frem til en app der kan opfylde både new-yorker.dk´s ønske om en app der kan bruges til at indhente salgs overforslag, ydermere vil vi fremvisning de færdigheder vi har tillært os på det første år af datamatikerstudiet til førsteårs eksamen.
+  - Problemformulering: 
+    - Appen skal kunne tage imod nogle forskellig mål og på baggrund af disse informationer skabe et overslag over en muligløsning. 
+    - Appen skal kunne tage imod en brugeres data og vidder sende disse informationer til New-yorker.dk/samt deres samarbejdes partner. For dermed at give New-yorker.dk muligheden for at vende tilbage med et eventuelt salg. 
+    - Appen skal bevare den identitet som New-yorker.dk har i forvejen dermed skal den holde sig en neutrale samt mørke farver. 
+- **Metodebeskrivelse**
+  - Iterationsplan (UP)
+    - For klart overblik og formindske risikoer i projektet
+  - UML
+    - Vi vælger at bruge UML for at give et klart overblik over projektets problemdomæne herunder:
+    - Use cases
+    - Use case diagrams
+    - Domænemodeller
+    - Aktivitetsdiagrammer
+    - System sekvens diagrammer
+    - sekvens diagrammer
+    - Klassediagram
+  - FURPS+
+    - For at få styr over ikke funktionelle krav
+  - Visions dokumenter
+    - For at finde formålet med/for projektet
+  - Test
+    - Unit test
+      - For at teste den individuelle klasse
+    - System test
+      - For at teste om systemet virker som det skal samlet
+    - Brugertest
+      - For at få brugbart og meningsfuldt feedback
+  - MVC (Model-View-Controller)
+     - Clean architecture, løs kobling og høj sammenhørlighed for let adskillese og/eller ændring af view osv.
+  - BMC (Business Model Canvas)
+     - Til at give et klart overblik over virksomhedens value-proporsition både internt og externt
+  - MVP
+     - Hjælpe med at får tidlig feedback og dermed kunne bestemme om man skal fortsætte projektet
+ - **Analyse**
+  - Iterationsplan (UP)
+    - Igennem Github projects vil vi lave og holde styr over issues i projektet
+  - UML
+    - Ved brug af UML finder, analysere og designer vi på problemer og løsninger til de problemer tilhørende projektet
+  - FURPS+
+    - ?
+  - Visions dokumenter
+    - ?
+  - Test
+    - Unit test + System test
+      - Ved brug af Junit laves test af kode og klasser
+    - Brugertest
+      - Ved brug af mock-ups og prototype tester vi og får feedback på design og features
+  - MVC (Model-View-Controller)
+    - Ved opdeling af model, view og controller i hver deres pakker
+  - BMC (Business Model Canvas)
+    - ?
+  - MVP
+     - ?
+ - **Litteraturliste**
+   - https://www.new-yorker.dk/om-os/
+   - Rational Unified Process, Then - An Introduction af Philippe Kruchten 3rd edition
+   - Applying UML and Patterns - An Introduction to Object-Oriented Analysis and Design and Iterative Development af Craig Larman 3rd edition
+   - Introduction to Java Programming and Data Structures, Comprehensive Version, 11th Edition af Y. Daniel Liang, Georgia Southern University
+ - **For future development of disposition**
+  
