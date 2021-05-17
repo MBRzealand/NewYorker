@@ -48,9 +48,9 @@ Contains artifacts explaining the design structure of the project:
 <details><summary><strong>04 Implementation</strong></summary> <p>
   
 Contain the program implementation of the product:
-- Model Mappe
-- Persistence Mappe
-- View Mappe
+- Model Folder
+- Persistence Folder
+- View Folder
 
 </p>
 </details>
