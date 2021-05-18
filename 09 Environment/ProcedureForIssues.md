@@ -6,9 +6,9 @@
 
 Start "Big" not "small" when naming the issue.
 
-If the issue is about creating an artifakt or feature then use "Create" as the first word.
+If the issue is about creating an artifact or feature then use "Create" as the first word.
 
-If the artefakt or feature exists already then use "Update" as the first word.
+If the artefact or feature exists already then use "Update" as the first word.
 
 Give the issue a description if the title alone is not enough to describe what the issue is about and/or if the title is easy to misunderstand.
 
@@ -71,7 +71,7 @@ To create an issue fast then go into "Issues" and create a new issue, though you
 
 <br/>
 
-###### Exstra
+###### Extra
 
 
 - If you want to add Assignees to an issue then you can one (Privat) or more (Open) Assignees on the right side.
