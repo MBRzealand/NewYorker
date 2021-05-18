@@ -5,10 +5,10 @@ suit their pressing needs and wishes.
 Through meeting with our customers we wish to best understand
 the need they currently have to best create an app suited for
 their ideas and provide them with guidance and solutions
-aswell as problem solving, with long term support.
+as well as problem solving, with long term support.
 
 We offer a fresh perspective armed with engaged employees
-who like overcomming challenges and adding more tools to 
+who like overcoming challenges and adding more tools to 
 their arsenal of competences.
 
 As a small company we offer a more personal down to earth
