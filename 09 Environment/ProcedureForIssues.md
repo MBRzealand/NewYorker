@@ -8,7 +8,7 @@ Start "Big" not "small" when naming the issue.
 
 If the issue is about creating an artifact or feature then use "Create" as the first word.
 
-If the artefact or feature exists already then use "Update" as the first word.
+If the artifact or feature exists already then use "Update" as the first word.
 
 Give the issue a description if the title alone is not enough to describe what the issue is about and/or if the title is easy to misunderstand.
 
