@@ -11,7 +11,7 @@ We use the following metric to illustrate severity:
 
 |  Risk | Probability | Consequence | Priority | Revised Probability | Revised Consequence |
 | ------------------------------------ | ---------------------------------------------------- | --------- | --------- | ------------------ |--------- |
-| Unable to deliver complete app due to priorities | 3 | Unable to live up to client expectations | 5 | 2 | Unable to deliver report |
+| Unable to deliver complete app due to priorities | 3 | Unable to live up to client expectations | 5 | 2 | Less complete report |
 
 **Counter Strategy:**  
 Allocating less time to write the report would allow us more time for app development, which in turn would make us able to deliver a more functional app.
