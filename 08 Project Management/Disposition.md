@@ -27,10 +27,8 @@ Gruppemedlemmer: Mikkel Boye Rasmussen, Fredrik Bille, Anders Hjordrup Larsen & 
     - System sekvens diagrammer
     - sekvens diagrammer
     - Klassediagram
-  - FURPS+
-    - For at få styr over ikke funktionelle krav
-  - Visions dokumenter
-    - For at finde formålet med/for projektet
+  - Risikoanalyse 
+    - For at få et klart overblik over risikoer der er forbundet med dette projekt, samt hvilken imødelses stretegier der forhindre dem.     
   - Test
     - Unit test
       - For at teste den individuelle klasse
@@ -49,10 +47,8 @@ Gruppemedlemmer: Mikkel Boye Rasmussen, Fredrik Bille, Anders Hjordrup Larsen & 
     - Igennem Github projects vil vi lave og holde styr over issues i projektet
   - UML
     - Ved brug af UML finder, analysere og designer vi på problemer og løsninger til de problemer tilhørende projektet
-  - FURPS+
-    - ?
-  - Visions dokumenter
-    - ?
+  - Risikoanalyse 
+    - Ved analyse og indsamling af forskellige risikoer samt imødelgåelsesstregier vil vi formindske risikoer.  
   - Test
     - Unit test + System test
       - Ved brug af Junit laves test af kode og klasser
