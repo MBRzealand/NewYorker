@@ -10,7 +10,7 @@ Before you merge any pull request into the master branch you need to make sure t
 1. Pick Pull request in the menu bar at the top of the screen. 
 2. Choose the pull request you want to merge into the master branch. 
 3. Make sure that the pull request is up to date with the current branch. 
-4. If the pull request has not yet gotten a review make sure it gets one before merging it (In the case of a larger issue, 2 review has to be done). 
+4. If the pull request has not yet gotten a review make sure it gets one before merging it (In the case of a larger issue, 2 reviews has to be done). 
 5. To add a review press the add review button. 
 6. Review the document and add any comments were necessary. 
 7. If changes are necessary press the request change button and write down what changes needs to be made. 
