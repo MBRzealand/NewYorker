@@ -63,7 +63,7 @@ Gruppemedlemmer: Mikkel Boye Rasmussen, Fredrik Bille, Anders Hjordrup Larsen & 
   - BMC (Business Model Canvas)
     - Vi vil tage brug af BMC ved at analysere og indele vores fiktive firma i BMC´s kategorier. 
   - MVP (Minimal viarble product) 
-     - Vi vil løbende skabe MVP gennem hele projektet. 
+     - Vi vil løbende skabe MVP´er gennem hele projektet. 
  - **Litteraturliste**
    - https://www.new-yorker.dk/om-os/
    - Rational Unified Process, Then - An Introduction af Philippe Kruchten 3rd edition
