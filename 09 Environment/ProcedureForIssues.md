@@ -2,7 +2,7 @@
 # Procedure for creating issues
 
 
-### Naming
+## Naming
 
 Start "Big" not "small" when naming the issue.
 
@@ -13,6 +13,7 @@ If the artefakt or feature exists already then use "Update" as the first word.
 Give the issue a description if the title alone is not enough to describe what the issue is about and/or if the title is easy to misunderstand.
 
 <br>
+## Creating
 
 *Here you will find a guide on how to create issues for projects (iterations), and how you can connect them to pull requests. There is a short text and a step by step guide which is longer.*
 
