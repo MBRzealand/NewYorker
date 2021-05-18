@@ -65,5 +65,6 @@ Gruppemedlemmer: Mikkel Boye Rasmussen, Fredrik Bille, Anders Hjordrup Larsen & 
    - Rational Unified Process, Then - An Introduction af Philippe Kruchten 3rd edition
    - Applying UML and Patterns - An Introduction to Object-Oriented Analysis and Design and Iterative Development af Craig Larman 3rd edition
    - Introduction to Java Programming and Data Structures, Comprehensive Version, 11th Edition af Y. Daniel Liang, Georgia Southern University
+ - 
  - **For future development of disposition**
   
