@@ -2,10 +2,20 @@
 # Procedure for creating issues
 
 
+### Naming
+
+Start "Big" not "small" when naming the issue.
+
+If the issue is about creating an artifakt or feature then use "Create" as the first word.
+
+Give the issue a description if the title alone is not enough to describe what the issue is about and/or if the title is easy to misunderstand.
+
+<br><br>
+
 *Here you will find a guide on how to create issues for projects (iterations), and how you can connect them to pull requests. There is a short text and a step by step guide which is longer.*
 
 
-### Kort
+### Short
 
 
 To create an issue fast then go into "Issues" and create a new issue, though you have to remember to choose what project it should be placed on and what milestone it is to be connected to, or you can go into the project and create a new note and then convert it into an issue.
@@ -15,7 +25,7 @@ To create an issue fast then go into "Issues" and create a new issue, though you
 ### Guide
 
 
-#### There exits two methods for creating Issues
+#### There exists two methods for creating Issues
 
 
 1. **Add issue through Projects**
@@ -59,7 +69,7 @@ To create an issue fast then go into "Issues" and create a new issue, though you
 
 <br/>
 
-###### Ekstra
+###### Exstra
 
 
 - If you want to add Assignees to an issue then you can one (Privat) or more (Open) Assignees on the right side.
