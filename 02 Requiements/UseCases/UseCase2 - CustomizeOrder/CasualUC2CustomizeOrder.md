@@ -4,7 +4,7 @@
 Consultant
 
 **Main scenario:**  
-The application prompts the user to specify additional components.  
+The application presents the user with a template for additional components to the New Yorker wall.  
 A Consultant specifies if the New Yorker wall has a door.  
 &nbsp;&nbsp;&nbsp; **-** A Consultant specifies which door type the New Yorker wall has.  
 &nbsp;&nbsp;&nbsp; **-** A Consultant specifies if the New Yorker wall has a Lockbox.  
