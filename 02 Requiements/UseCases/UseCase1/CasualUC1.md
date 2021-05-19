@@ -1,13 +1,12 @@
 # Use case 1: Create Order 
 
 **Actors:**  
-Consultant. 
+Consultant
 
 **Main Succeses Scenario:**  
 
-The application prompts the user to specify the dimensions for the New Yorker wall.
+The application presents a form, that the Consultant user fills with the dimensions for the New Yorker wall.
 A Consultant specifies dimensions for New Yorker wall.
-A Consultant confirms dimensions for New Yorker wall.
 The application displays a slider for number of glass panels allowed vertically.
 The application displays a slider for number of glass panels allowed horizontally.
 A Consultant specifies the number of glass panels vertically.
