@@ -1,11 +1,17 @@
-Interest  analysis:
+# Vision
+
+The vision for our new NY-Builder system is to simplify the process, so it will be easy and fast for the consultant to get an overview of the potetntial cost of a New-Yorker wall.
+The program will have a raw and rustic feel/design which will make it simple for the consultants to use. This in turn can help the consultant to easily create a wall and show its potential price to the customer and send an order.
+
+
+### Interest  analysis:
 
 Partners of Byen Vinduer, Employees of Byen Vinduer, Byen Vinduer aPs, instructers of the underlying project.
 
 All partners and employees of Byens Vinduer aPs wishes for a simplified solution for making offers that fit customers specifications
 and if possible generate autocad files for production of said offer sent by email.
 
-Features:
+### Features:
 
 Generate offer:
   - takes height and width to generate a standard wall
