@@ -1,6 +1,6 @@
 # NewYorker
 
-**Link to report:**
+**Link to report:**  
 https://docs.google.com/document/d/17QU8Ws4IiytfppuZFsl66vBTYzPGY3jUD1Ek8ySvFNw/edit?usp=sharing
 
 <details><summary><strong>01 Business Modeling</strong></summary> <p>
