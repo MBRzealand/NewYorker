@@ -8,7 +8,7 @@ The program will have a raw and rustic feel/design which will make it simple for
 
 Partners of Byens Vinduer, Employees of Byens Vinduer, Byens Vinduer ApS, instructors of the underlying project.
 
-All partners and employees of Byens Vinduer ApS wishes for a simplified solution for making requests, that fit customers specifications, and if possible generate AutoCAD files for production of said request sent by email.
+All partners and employees of Byens Vinduer ApS wishes for a simplified solution for making offers, that fit customers specifications, and if possible generate AutoCAD files for production of said offer sent by email.
 
 ### Features:
 
