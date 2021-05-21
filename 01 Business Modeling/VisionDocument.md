@@ -6,23 +6,23 @@ The program will have a raw and rustic feel/design which will make it simple for
 
 ### Interest  analysis:
 
-Partners of Byen Vinduer, Employees of Byen Vinduer, Byen Vinduer aPs, instructors of the underlying project.
+Partners of Byens Vinduer, Employees of Byens Vinduer, Byens Vinduer ApS, instructors of the underlying project.
 
 All partners and employees of Byens Vinduer ApS wishes for a simplified solution for making offers that fit customers specifications
-and if possible generate autocad files for production of said offer sent by email.
+and if possible generate AutoCAD files for production of said offer sent by email.
 
 ### Features:
 
-Generate offer:
+Generate Request:
   - Takes height and width to generate a standard wall
     - Specifies how many panels the customer prefers
     - Adds potential extra features based on their needs
     - Calculates a price to offer the customer
   
 Preview product:
-    - An autocad file is created based on "Generate offer"
+    - An AutoCAD file is created based on "Generate Request"
       - Presents individual wall prices under the generated files
-      - An example is shown based on selected autocad file
+      - An example is shown based on selected AutoCAD file
     - Present total price for all walls
 
 Send Request:
