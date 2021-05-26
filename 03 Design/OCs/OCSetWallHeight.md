@@ -14,13 +14,13 @@ Wall wall exists.
 
 consultant specifies wall.
 
-wall.wallHeight exists.
+wallHeight exists.
 
-wall.wallHeight is a number.
+wallHeight is a number.
 
-wall.wallHeight is less than 250cm.
+wallHeight is less than 250cm.
 
-wall.wallHeight is greater or equal to 16cm.
+wallHeight is greater or equal to 16cm.
 
 #### Postconditions: 
 
