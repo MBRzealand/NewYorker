@@ -14,6 +14,12 @@ Customer customer exists.
 
 consultant specifies customer.
 
+customerZIPCode exists.
+
+customerZIPCode is numeric.
+
+customerZIPCode contains 4 characters.
+
 #### Postconditions: 
 
 costumer.customerZIPCode has been set to customerZIPCode. 
