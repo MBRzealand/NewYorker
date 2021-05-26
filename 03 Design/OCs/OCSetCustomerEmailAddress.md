@@ -14,9 +14,11 @@ Customer customer exists.
 
 consultant specifies customer.
 
-customerName exists.
+customerEmailAddress exists.
 
-customerName is numeric.
+customerEmailAddress contains one "@".
+
+customerEmailAddress contains atleast one ".".
 
 #### Postconditions: 
 
