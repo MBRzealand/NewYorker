@@ -14,6 +14,10 @@ Customer customer exists.
 
 consultant specifies customer.
 
+customerAddress exists.
+
+customerAddress does not contain special characters.
+
 #### Postconditions: 
 
 costumer.customerAddress has been set to customerAddress. 
