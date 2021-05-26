@@ -14,6 +14,10 @@ Customer customer exists.
 
 consultant specifies customer.
 
+customerName exists.
+
+customerName is numeric.
+
 #### Postconditions: 
 
 costumer.costumerEmailAddress has been set to costumerEmailAddress. 
