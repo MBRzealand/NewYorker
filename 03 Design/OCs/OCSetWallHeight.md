@@ -12,6 +12,8 @@ Consultant consultant exists.
 
 Wall wall exists. 
 
+consultant specifies wall.
+
 wall.wallHeight exists.
 
 wall.wallHeight is a number.
