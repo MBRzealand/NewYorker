@@ -12,6 +12,14 @@ Consultant consultant exists.
 
 Wall wall exists. 
 
+consultant specifies wall.
+
+wallWidth exists.
+
+wallWidth is a number.
+
+wallWidth is greater or equal to 16cm.
+
 #### Postconditions: 
 
 wall.wallWidth has been set to wallWidth. 
