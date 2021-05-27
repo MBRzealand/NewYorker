@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomizeOrderActivity">
+
+    <Spinner
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:id="@+id/spinner_doors"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/door_array"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_door"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_door" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/orange"
+        android:text="@string/vis_ordre"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/new_yorker_icon" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/tilpas_ordre"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <CheckBox
+        android:id="@+id/checkbox_door"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/doer"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        android:buttonTint="@color/orange"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
+    <CheckBox
+        android:id="@+id/checkbox_lockbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/laasekasse"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        android:buttonTint="@color/orange"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
+
+    <CheckBox
+        android:id="@+id/checkbox_handle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/haandtag"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        android:buttonTint="@color/orange"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_lockbox" />
+
+    <CheckBox
+        android:id="@+id/checkbox_wetroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/vaadrum"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        android:buttonTint="@color/orange"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_handle" />
+
+    <Spinner
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:id="@+id/spinner_handles"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/handle_array"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_handle"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/spinner_doors"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_handle" />
+
+    <Spinner
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:id="@+id/spinner_special_glass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/special_glass_array"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_special_glass"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/spinner_handles"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_special_glass" />
+
+    <CheckBox
+        android:id="@+id/checkbox_special_glass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/special_glas"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        android:buttonTint="@color/orange"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_wetroom" />
+
+    <CheckBox
+        android:id="@+id/checkbox_shower_wall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brusevaeg"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_wetroom"
+        app:layout_constraintStart_toStartOf="@+id/spinner_handles"
+        android:buttonTint="@color/orange"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_wetroom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
