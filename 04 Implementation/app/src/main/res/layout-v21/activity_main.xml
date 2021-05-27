@@ -22,13 +22,12 @@
         android:layout_width="175dp"
         android:layout_height="100dp"
         android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/new_yorker_icon" />
+        tools:srcCompat="@drawable/NewYorkerIcon" />
 
     <EditText
         android:id="@+id/height_editText"
@@ -94,7 +93,6 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
         android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toTopOf="@+id/slider_width"
         app:layout_constraintStart_toStartOf="parent" />
@@ -116,7 +114,6 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
         android:layout_marginBottom="52dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent" />
@@ -126,7 +123,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
         android:text="@string/panel_bredde"
         app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
         app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
@@ -146,7 +142,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
         android:text="@string/panel_hoejde"
         app:layout_constraintBaseline_toBaselineOf="@+id/height_slider_textView"
         app:layout_constraintStart_toEndOf="@+id/height_slider_textView" />
