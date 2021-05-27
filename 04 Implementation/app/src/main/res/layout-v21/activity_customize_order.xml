@@ -60,10 +60,10 @@
         android:id="@+id/checkbox_door"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
+        android:buttonTint="@color/orange"
         android:text="@string/doer"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        android:buttonTint="@color/orange"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 
@@ -71,30 +71,30 @@
         android:id="@+id/checkbox_lockbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:buttonTint="@color/orange"
         android:text="@string/laasekasse"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        android:buttonTint="@color/orange"
         app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
 
     <CheckBox
         android:id="@+id/checkbox_handle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:buttonTint="@color/orange"
         android:text="@string/haandtag"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        android:buttonTint="@color/orange"
         app:layout_constraintTop_toBottomOf="@+id/checkbox_lockbox" />
 
     <CheckBox
         android:id="@+id/checkbox_wetroom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:buttonTint="@color/orange"
         android:text="@string/vaadrum"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        android:buttonTint="@color/orange"
         app:layout_constraintTop_toBottomOf="@+id/checkbox_handle" />
 
     <Spinner
@@ -127,10 +127,10 @@
         android:id="@+id/checkbox_special_glass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:buttonTint="@color/orange"
         android:text="@string/special_glas"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        android:buttonTint="@color/orange"
         app:layout_constraintTop_toBottomOf="@+id/checkbox_wetroom" />
 
     <CheckBox
