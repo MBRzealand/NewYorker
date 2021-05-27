@@ -89,13 +89,13 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <SeekBar
-        android:thumbTint="@color/orange"
         android:id="@+id/slider_height"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginBottom="48dp"
+        android:thumbTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/slider_width"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -111,13 +111,13 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <SeekBar
-        android:thumbTint="@color/orange"
         android:id="@+id/slider_width"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginBottom="52dp"
+        android:thumbTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -40,14 +40,4 @@
         <item>Satin glas</item>
         <item>Lydglas</item>
     </string-array>
-
-    <string name="customer_navn">Navn</string>
-    <string name="send_ordre">Send Ordre</string>
-    <string name="customer_e_mail">E-Mail</string>
-    <string name="customer_telefon">Telefon</string>
-    <string name="customer_post_nr">Post Nr.</string>
-    <string name="customer_adress">Adress</string>
-    <string name="kunde_information_textview">Kunde information</string>
-    <string name="noter">Noter:</string>
-    <string name="customer_send_button">Send</string>
 </resources>
