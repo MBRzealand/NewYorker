@@ -18,4 +18,4 @@ An E-mail containing a processed request has been sent.
 
 An instance confirmation of Confirmation is created. 
 
-confirmation is presented.  
+confirmation is displayed.  
