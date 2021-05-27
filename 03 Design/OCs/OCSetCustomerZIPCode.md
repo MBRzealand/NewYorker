@@ -18,7 +18,7 @@ customerZIPCode exists.
 
 customerZIPCode is numeric.
 
-customerZIPCode contains 4 characters.
+customerZIPCode contains 4 digits.
 
 #### Postconditions: 
 
