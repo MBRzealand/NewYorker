@@ -7,12 +7,166 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="60dp"
+        android:text="Opret Ordre"
+        android:textSize="24sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/height_editText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Angiv højde"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/width_editText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Angiv bredde"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/height_editText"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <TextView
+        android:id="@+id/height_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Væg højde"
+        app:layout_constraintBottom_toTopOf="@+id/width_editText"
+        app:layout_constraintStart_toStartOf="@+id/width_editText" />
+
+    <TextView
+        android:id="@+id/width_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Væg bredde"
+        app:layout_constraintBottom_toTopOf="@+id/height_editText"
+        app:layout_constraintStart_toStartOf="@+id/height_editText" />
+
+    <TextView
+        android:id="@+id/width_slider_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Antal glaspaneler på tværs"
+        app:layout_constraintBottom_toTopOf="@+id/slider_width"
+        app:layout_constraintStart_toStartOf="@+id/slider_width"
+        app:layout_constraintTop_toBottomOf="@+id/slider_height"
+        app:layout_constraintVertical_bias="0.72" />
+
+    <SeekBar
+        android:id="@+id/slider_height"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/slider_width"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/height_slider_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Antal glaspaneler på langs"
+        app:layout_constraintBottom_toTopOf="@+id/slider_height"
+        app:layout_constraintStart_toStartOf="@+id/slider_height"
+        app:layout_constraintTop_toBottomOf="@+id/width_editText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SeekBar
+        android:id="@+id/slider_width"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/display_panel_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/panel_width_textView"
+        app:layout_constraintStart_toStartOf="@+id/panel_height_textView" />
+
+    <TextView
+        android:id="@+id/panel_width_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:text="Panel bredde:"
+        app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
+        app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
+
+    <TextView
+        android:id="@+id/display_panel_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="148dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/panel_width_textView" />
+
+    <TextView
+        android:id="@+id/panel_height_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginBottom="4dp"
+        android:text="Panel Højde:"
+        app:layout_constraintBottom_toTopOf="@+id/display_panel_height"
+        app:layout_constraintStart_toEndOf="@+id/height_slider_textView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/orange"
+        android:text="Næste"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
