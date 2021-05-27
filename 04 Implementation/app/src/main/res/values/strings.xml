@@ -12,6 +12,35 @@
     <string name="_60_cm">60 cm</string>
     <string name="panel_hoejde">Panel Højde:</string>
     <string name="naeste">Næste</string>
+    <string name="tilpas_ordre">Tilpas Ordre</string>
+    <string name="vis_ordre">Vis ordre</string>
+    <string name="doer">Dør</string>
+    <string name="laasekasse">Låsekasse</string>
+    <string name="haandtag">Håndtag</string>
+    <string name="vaadrum">Vådrum</string>
+    <string name="special_glas">Special glas</string>
+    <string name="brusevaeg">Brusevæg</string>
+
+
+    <string-array name="door_array">
+        <item>Enkeltdør</item>
+        <item>Dobbeltdør</item>
+        <item>Skydedør (enkelt)</item>
+        <item>Skydedør (dobbelt)</item>
+        <item>Skydedør (stor)</item>
+    </string-array>
+
+    <string-array name="handle_array">
+        <item>Messing langgreb</item>
+        <item>Sort langgreb</item>
+    </string-array>
+
+    <string-array name="special_glass_array">
+        <item>Akustikpanel</item>
+        <item>Satin glas</item>
+        <item>Lydglas</item>
+    </string-array>
+
     <string name="customer_navn">Navn</string>
     <string name="send_ordre">Send Ordre</string>
     <string name="customer_e_mail">E-Mail</string>
