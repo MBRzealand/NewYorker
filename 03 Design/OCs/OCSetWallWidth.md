@@ -16,7 +16,7 @@ consultant specifies wall.
 
 wallWidth exists.
 
-wallWidth is a number.
+wallWidth is numeric.
 
 wallWidth is greater or equal to 16cm.
 
