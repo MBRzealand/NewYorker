@@ -16,7 +16,7 @@ consultant specifies wall.
 
 wallHeight exists.
 
-wallHeight is a number.
+wallHeight is numeric.
 
 wallHeight is less than 250cm.
 
