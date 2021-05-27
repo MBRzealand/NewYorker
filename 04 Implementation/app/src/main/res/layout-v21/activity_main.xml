@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="goToCustomizeOrder"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,7 +16,7 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/height_editText"
+        app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
@@ -23,25 +24,24 @@
         android:id="@+id/imageView"
         android:layout_width="175dp"
         android:layout_height="100dp"
-        android:layout_marginStart="45dp"
         android:layout_marginTop="25dp"
+        android:src="@mipmap/new_yorker_icon"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/new_yorker_icon" />
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/height_editText"
-        android:layout_width="330dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="@string/angiv_hoejde"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
@@ -66,17 +66,18 @@
 
     <EditText
         android:id="@+id/width_editText"
-        android:layout_width="330dp"
+        android:layout_width="370dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/angiv_bredde"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/height_editText"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintVertical_bias="0.053" />
 
     <TextView
         android:id="@+id/width_slider_textView"
@@ -85,19 +86,18 @@
         android:layout_marginBottom="4dp"
         android:text="@string/antal_glaspaneler_paa_tvaers"
         app:layout_constraintBottom_toTopOf="@+id/slider_width"
-        app:layout_constraintStart_toStartOf="@+id/slider_width"
+        app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/slider_height"
         app:layout_constraintVertical_bias="1.0" />
 
     <SeekBar
-        android:thumbTint="@color/orange"
         android:id="@+id/slider_height"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
         android:layout_marginBottom="48dp"
+        android:thumbTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/slider_width"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/button" />
 
     <TextView
         android:id="@+id/height_slider_textView"
@@ -106,19 +106,18 @@
         android:layout_marginBottom="4dp"
         android:text="@string/antal_glaspaneler_paa_langs"
         app:layout_constraintBottom_toTopOf="@+id/slider_height"
-        app:layout_constraintStart_toStartOf="@+id/slider_height"
+        app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/width_editText"
         app:layout_constraintVertical_bias="1.0" />
 
     <SeekBar
-        android:thumbTint="@color/orange"
         android:id="@+id/slider_width"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
         android:layout_marginBottom="52dp"
+        android:thumbTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/button" />
 
     <TextView
         android:id="@+id/panel_width_textView"
@@ -127,6 +126,7 @@
         android:layout_marginStart="68dp"
         android:text="@string/panel_bredde"
         app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
+        app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
 
     <TextView
@@ -135,6 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="148dp"
         android:text="@string/_40_cm"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/panel_width_textView"
         app:layout_constraintTop_toBottomOf="@+id/panel_width_textView" />
@@ -146,6 +147,7 @@
         android:layout_marginStart="68dp"
         android:text="@string/panel_hoejde"
         app:layout_constraintBaseline_toBaselineOf="@+id/height_slider_textView"
+        app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintStart_toEndOf="@+id/height_slider_textView" />
 
     <TextView
@@ -154,16 +156,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="@string/_60_cm"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/panel_width_textView"
         app:layout_constraintStart_toStartOf="@+id/panel_height_textView"
         app:layout_constraintTop_toBottomOf="@+id/panel_height_textView" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="330dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/orange"
+        android:onClick="goToCustomizeOrder"
         android:text="@string/naeste"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
