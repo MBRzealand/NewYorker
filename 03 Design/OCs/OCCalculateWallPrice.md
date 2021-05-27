@@ -10,9 +10,9 @@ Use case 1: Send Request
 
 Wall wall exists.
 
-wall.wallHeight is known.
+wall.wallHeight has been set.
 
-wall.wallWidth is known.
+wall.wallWidth has been set.
 
 #### Postconditions:
 
