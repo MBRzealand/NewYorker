@@ -10,7 +10,7 @@ Use case 1: Send Request
 
 Specifications specifications exists. 
 
-Specifications.listOfWalls is not empty. 
+specifications.listOfWalls is not empty. 
 
 #### Postconditions: 
 
