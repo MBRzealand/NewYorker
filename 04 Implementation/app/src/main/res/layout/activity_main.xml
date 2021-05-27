@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/new_yorker_icon" />
+        android:src="@mipmap/new_yorker_icon" />
 
     <EditText
         android:id="@+id/height_editText"
