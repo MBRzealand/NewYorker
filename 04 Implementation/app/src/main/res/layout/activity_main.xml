@@ -15,6 +15,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/height_editText"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -24,11 +25,9 @@
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:src="@mipmap/new_yorker_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/new_yorker_icon" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/height_editText"
