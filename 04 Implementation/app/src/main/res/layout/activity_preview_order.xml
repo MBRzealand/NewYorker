@@ -199,10 +199,10 @@
         android:text="@string/total"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_next"
-        app:layout_constraintEnd_toStartOf="@+id/textView11" />
+        app:layout_constraintEnd_toStartOf="@+id/textview_price" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textview_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/zero"
@@ -219,8 +219,8 @@
         android:layout_height="wrap_content"
         android:text="@string/kr"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_price"
         app:layout_constraintEnd_toEndOf="@+id/button_next"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintTop_toTopOf="@+id/textview_price" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
