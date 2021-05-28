@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="goToCustomizeOrder"
     tools:context=".MainActivity">
 
     <TextView
@@ -18,6 +17,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <ImageView
@@ -26,8 +26,6 @@
         android:layout_height="100dp"
         android:layout_marginTop="25dp"
         android:src="@mipmap/new_yorker_icon"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toTopOf="parent" />
 

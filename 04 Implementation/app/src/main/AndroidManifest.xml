@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewYorker">
-        <activity android:name=".CustomizeOrderActivity"></activity>
-        <activity android:name=".Activity_Send_Requst"></activity>
+        <activity android:name=".PreviewOrderActivity"></activity>
+        <activity android:name=".CustomizeOrderActivity" />
+        <activity android:name=".SendRequestActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

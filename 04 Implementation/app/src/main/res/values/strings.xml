@@ -13,7 +13,6 @@
     <string name="panel_hoejde">Panel Højde:</string>
     <string name="naeste">Næste</string>
     <string name="tilpas_ordre">Tilpas Ordre</string>
-    <string name="vis_ordre">Vis ordre</string>
     <string name="doer">Dør</string>
     <string name="laasekasse">Låsekasse</string>
     <string name="haandtag">Håndtag</string>
@@ -42,15 +41,22 @@
     </string-array>
 
     <string name="customer_navn">Navn</string>
-    <string name="send_ordre">Send Ordre</string>
+    <string name="send_forespoergsel">Send Forespørgsel</string>
+    <string name="send_forespoergsel_newline">Send Forespørgsel\n</string>
     <string name="customer_e_mail">E-Mail</string>
     <string name="customer_telefon">Telefon</string>
     <string name="customer_post_nr">Post Nr.</string>
-    <string name="customer_adress">Adress</string>
+    <string name="customer_adress">Address</string>
     <string name="kunde_information_textview">Kunde information</string>
     <string name="noter">Noter:</string>
     <string name="customer_send_button">Send</string>
-
+    <string name="tilfoej_vaeg">Tilføj Væg</string>
+    <string name="vis_ordre">Vis ordre</string>
+    <string name="tegning">Tegning</string>
+    <string name="prisoversigt">Prisoversigt</string>
+    <string name="total">Total:   </string>
+    <string name="zero">0</string>
+    <string name="kr"> kr.</string>
 
 
 </resources>
