@@ -57,6 +57,9 @@
     <string name="total">Total:   </string>
     <string name="zero">0</string>
     <string name="kr"> kr.</string>
+    <string name="vaeg_3">væg 3</string>
+    <string name="vaeg_4">væg 4</string>
+    <string name="vaeg_1">væg 1</string>
 
 
 </resources>
