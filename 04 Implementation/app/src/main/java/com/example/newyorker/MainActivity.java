@@ -17,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
     public void goToCustomizeOrder(View view) {
 
         Intent intent = new Intent(this, CustomizeOrderActivity.class);
-
         startActivity(intent);
+
+
 
     }
 
