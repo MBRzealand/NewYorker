@@ -18,12 +18,6 @@ public class PreviewOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview_order);
 
-        totalPrice = findViewById(R.id.textview_price);
-        wallPrice =  getIntent().getDoubleExtra("wallPrice", wallPrice);
-
-
-        totalPrice.setText(String.valueOf((int)wallPrice));
-
     }
 
     public void goToMainActivity(View view) {
