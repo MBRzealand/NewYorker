@@ -20,6 +20,7 @@ public class SendRequestActivity extends AppCompatActivity {
     EditText customerEmailAddress;
     EditText customerAddress;
     EditText customerZIPCode;
+    EditText notes;
 
 
     @Override
@@ -48,7 +49,7 @@ public class SendRequestActivity extends AppCompatActivity {
 
 
 
-        startActivity(email.sendEmail("hjordrup96@live.dk", customer, specifications.getWall()));
+        startActivity(email.sendEmail("hjordrup96@live.dk", customer, specifications.getWall(), notes.getText().toString()));
 
     }
 
@@ -59,6 +60,7 @@ public class SendRequestActivity extends AppCompatActivity {
        customerEmailAddress = findViewById(R.id.editText_email_address);
        customerPhoneNumber = findViewById(R.id.editText_phone_number);
        customerZIPCode = findViewById(R.id.editText_zip_code);
+       notes = findViewById(R.id.editText_notes);
     }
     /*private void initializeListeners() {
 

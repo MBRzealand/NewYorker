@@ -12,7 +12,8 @@ public class Email {
     private final String emailType = "*/*";
     private final String subject = "Forespørgsel New Yorker væg";
 
-    public Intent sendEmail(String forhandler, Customer customer, Wall wall){
+
+    public Intent sendEmail(String forhandler, Customer customer, Wall wall, String note){
 
         String mailto = "mailto:" + forhandler + "?cc=" + toNewYorker;
 
@@ -23,10 +24,9 @@ public class Email {
                 "\nKunde Post Nr: " + customer.getCustomerZIPCode() +
                 "\nVæg Bredde: " + wall.getWallWidth() + " Cm." +
                 "\nVæg Højde: " + wall.getWallHeight() + " Cm." +
-                "\nVæg Pris: " + Math.round(wall.getWallPrice() * 100.0) / 100.0 + " Kr.";
-
-
-
+                "\nVæg Pris: " + Math.round(wall.getWallPrice() * 100.0) / 100.0 + " Kr." +
+                "\n\n" + "Kunde Noter: " +
+                "\n"+note;
 
 
         Intent email = new Intent(Intent.ACTION_SENDTO);
