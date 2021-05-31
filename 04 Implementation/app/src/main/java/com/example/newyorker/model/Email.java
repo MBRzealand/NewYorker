@@ -8,21 +8,24 @@ import android.net.Uri;
 
 
 public class Email {
-
-
     private final String toNewYorker = "fredrikbille@hotmail.com";
     private final String emailType = "*/*";
     private final String subject = "Forespørgsel New Yorker væg";
 
-    public Intent sendEmail(String forhandler, Customer customer){
+    public Intent sendEmail(String forhandler, Customer customer, Wall wall){
 
         String mailto = "mailto:" + forhandler + "?cc=" + toNewYorker;
 
         String body = "Kunde navn: " + customer.getCustomerName() +
-                "\nKunde E-mail: " + customer.getCustomerEmailAdress() +
+                "\nKunde E-mail: " + customer.getCustomerEmailAddress() +
                 "\nKunde Tlf: " + customer.getCustomerPhoneNumber() +
                 "\nKunde Adresse: " + customer.getCustomerAddress() +
-                "\nKunde Post Nr: " + customer.getCustomerZIPCode();
+                "\nKunde Post Nr: " + customer.getCustomerZIPCode() +
+                "\nVæg Bredde: " + wall.getWallWidth() + " Cm." +
+                "\nVæg Højde: " + wall.getWallHeight() + " Cm." +
+                "\nVæg Pris: " + Math.round(wall.getWallPrice() * 100.0) / 100.0 + " Kr.";
+
+
 
 
 

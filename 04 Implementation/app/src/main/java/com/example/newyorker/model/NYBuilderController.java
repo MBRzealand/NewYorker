@@ -27,7 +27,7 @@ public class NYBuilderController implements Serializable {
         customer.setCustomerName(customerName);
     }
     public void setCustomerEmailAddress(String customerEmailAddress) {
-        customer.setCustomerEmailAdress(customerEmailAddress);
+        customer.setCustomerEmailAddress(customerEmailAddress);
     }
     public void setCustomerPhoneNumber(String customerPhoneNumber) {
         customer.setCustomerPhoneNumber(customerPhoneNumber);

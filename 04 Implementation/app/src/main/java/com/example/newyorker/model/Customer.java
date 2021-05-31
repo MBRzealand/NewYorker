@@ -3,7 +3,7 @@ package com.example.newyorker.model;
 public class Customer {
 
     private String customerName;
-    private String customerEmailAdress;
+    private String customerEmailAddress;
     private String customerPhoneNumber;
     private String customerZIPCode;
     private String customerAddress;
@@ -18,12 +18,12 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public String getCustomerEmailAdress() {
-        return customerEmailAdress;
+    public String getCustomerEmailAddress() {
+        return customerEmailAddress;
     }
 
-    public void setCustomerEmailAdress(String customerEmailAdress) {
-        this.customerEmailAdress = customerEmailAdress;
+    public void setCustomerEmailAddress(String customerEmailAddress) {
+        this.customerEmailAddress = customerEmailAddress;
     }
 
     public String getCustomerPhoneNumber() {
