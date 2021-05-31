@@ -10,11 +10,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.newyorker.model.Observer;
+import com.example.newyorker.model.Specifications;
 import com.example.newyorker.model.Wall;
 
 public class CustomizeOrderActivity extends AppCompatActivity  {
 
     Wall wall;
+    Specifications specifications;
 
     CheckBox checkBoxDoor;
     CheckBox checkBoxLockbox;
@@ -40,10 +42,11 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         Intent intent = getIntent();
         wall = (Wall) intent.getSerializableExtra("wallObject");
 
+        specifications = new Specifications(wall);
         initializeUIElements();
         initializeListeners();
 
-        wall.addDataObserver(new Observer() {
+        specifications.getWall().addDataObserver(new Observer() {
             @Override
             public void update() {
                 textViewCustomizeActivityPrice.setText(String.valueOf(roundPrice(wall)));
@@ -132,9 +135,15 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
     public void goToPreviewActivity(View view) {
 
-        Intent intent = new Intent(this, PreviewOrderActivity.class);
 
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        specifications.getWall().removeObserver();
+
+
+        Intent intent = new Intent(this, PreviewOrderActivity.class);
+        intent.putExtra("Specifications", specifications);
         startActivity(intent);
+
 
     }
 }

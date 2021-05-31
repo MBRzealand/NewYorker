@@ -12,8 +12,6 @@ import com.example.newyorker.model.Observer;
 import com.example.newyorker.model.Wall;
 
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     EditText heightInput;
@@ -21,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     TextView textViewMainActivityPrice;
 
     Wall wall = new Wall();
-
 
 
     @Override
@@ -34,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         initializeListeners();
 
 
-        wall.addDataObserver(new Observer(){
+        wall.addDataObserver(new Observer() {
             @Override
             public void update() {
                 textViewMainActivityPrice.setText(String.valueOf(roundPrice(wall)));
@@ -42,26 +39,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initializeUIElements(){
+    private void initializeUIElements() {
         heightInput = findViewById(R.id.height_editText);
         widthInput = findViewById(R.id.width_editText);
         textViewMainActivityPrice = findViewById(R.id.textview_price_main_activity);
     }
 
-    private void initializeListeners(){
+    private void initializeListeners() {
 
         heightInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             public void onFocusChange(View view, boolean hasFocus) {
 
-                if(heightInput.getText() != null) {
+                if (heightInput.getText() != null) {
 
                     if (!hasFocus) {
                         wall.setWallHeight(Double.parseDouble(heightInput.getText().toString()));
                     }
 
-                    if ((!Double.isNaN(wall.getWallHeight())) && (!Double.isNaN(wall.getWallWidth()))){
-                        wall.calculateWallPrice(wall.getWallHeight(),wall.getWallWidth());
+                    if ((!Double.isNaN(wall.getWallHeight())) && (!Double.isNaN(wall.getWallWidth()))) {
+                        wall.calculateWallPrice(wall.getWallHeight(), wall.getWallWidth());
                     }
 
                 }
@@ -74,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
             public void onFocusChange(View view, boolean hasFocus) {
 
 
-                if(heightInput.getText() != null) {
+                if (heightInput.getText() != null) {
 
                     if (!hasFocus) {
                         wall.setWallWidth(Double.parseDouble(widthInput.getText().toString()));
                     }
 
-                    if ((!Double.isNaN(wall.getWallHeight())) && (!Double.isNaN(wall.getWallWidth()))){
-                        wall.calculateWallPrice(wall.getWallHeight(),wall.getWallWidth());
+                    if ((!Double.isNaN(wall.getWallHeight())) && (!Double.isNaN(wall.getWallWidth()))) {
+                        wall.calculateWallPrice(wall.getWallHeight(), wall.getWallWidth());
                     }
 
                 }
@@ -92,18 +89,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    public void clearFocus(){
+    public void clearFocus() {
         heightInput.clearFocus();
         widthInput.clearFocus();
     }
 
 
-    public double roundPrice(Wall wall){
+    public double roundPrice(Wall wall) {
         return Math.round(wall.getWallPrice() * 100.0) / 100.0;
     }
-
-
 
 
     public void goToCustomizeOrder(View view) {
@@ -113,14 +107,10 @@ public class MainActivity extends AppCompatActivity {
         wall.removeObserver();
 
 
-
-    Intent intent = new Intent(this, CustomizeOrderActivity.class);
-    intent.putExtra("wallObject", wall);
-    startActivity(intent);
+        Intent intent = new Intent(this, CustomizeOrderActivity.class);
+        intent.putExtra("wallObject", wall);
+        startActivity(intent);
     }
-
-
-
 
 
 }
