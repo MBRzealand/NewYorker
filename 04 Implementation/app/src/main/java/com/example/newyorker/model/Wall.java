@@ -1,31 +1,19 @@
 package com.example.newyorker.model;
 
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Wall implements Serializable {
-
-
-    private final ArrayList<Observer> COLLECTIONOFWALLOBSERVERS = new ArrayList<>();
-
-    private void notifyObservers() {
-        for (Observer observer : COLLECTIONOFWALLOBSERVERS) {
-            observer.update();
-        }
-    }
-
-    public void addDataObserver(Observer observer) {
-        if (!COLLECTIONOFWALLOBSERVERS.contains(observer))
-            COLLECTIONOFWALLOBSERVERS.add(observer);
-    }
+public class Wall  implements Serializable{
 
 
 
-    private static transient final double STANDARD_GLASS_HEIGHT = 60;
-    private static transient final double STANDARD_GLASS_WIDTH = 45;
-    private static transient final double DELIVERY_FEE = 800;
-    private static transient final double GLASS_PANEL_PRICE = 985;
 
+    transient private static final double STANDARD_GLASS_HEIGHT = 60;
+    transient private static final double STANDARD_GLASS_WIDTH = 45;
+    transient private static final double DELIVERY_FEE = 800;
+    transient private static final double GLASS_PANEL_PRICE = 985;
 
 
     private double wallHeight;
@@ -41,19 +29,15 @@ public class Wall implements Serializable {
     private boolean hasShowerWall;
 
 
+    public void calculateWallPrice(double height, double width) {
+        wallPrice = ((height / STANDARD_GLASS_HEIGHT) * (width / STANDARD_GLASS_WIDTH)) * GLASS_PANEL_PRICE + DELIVERY_FEE;
 
-
-
-    public void calculateWallPrice(double height, double width){
-        wallPrice = ((height/ STANDARD_GLASS_HEIGHT) * (width/ STANDARD_GLASS_WIDTH)) * GLASS_PANEL_PRICE + DELIVERY_FEE;
-
-        notifyObservers();
+       notifyObservers();
     }
 
     public double getWallPrice() {
         return wallPrice;
     }
-
 
 
     public double getWallHeight() {
@@ -63,9 +47,6 @@ public class Wall implements Serializable {
     public double getWallWidth() {
         return wallWidth;
     }
-
-
-
 
 
     public void setWallHeight(double wallHeight) {
@@ -79,7 +60,6 @@ public class Wall implements Serializable {
     public void setWallPrice(double wallPrice) {
         this.wallPrice = wallPrice;
     }
-
 
 
     // booleans
@@ -106,7 +86,30 @@ public class Wall implements Serializable {
 
     public void setHasShowerWall(boolean hasShowerWall) {
         this.hasShowerWall = hasShowerWall;
+
     }
 
 
+    //Observer implementation
+    private final ArrayList<Observer> COLLECTIONOFWALLOBSERVERS = new ArrayList<>();
+
+    private void notifyObservers() {
+        for (Observer observer : COLLECTIONOFWALLOBSERVERS) {
+            observer.update();
+        }
+    }
+
+    public void addDataObserver(Observer observer) {
+        if (!COLLECTIONOFWALLOBSERVERS.contains(observer))
+            COLLECTIONOFWALLOBSERVERS.add(observer);
+    }
+
+
+    public void removeObserver(){
+        COLLECTIONOFWALLOBSERVERS.remove(0);
+
+    }
 }
+
+
+

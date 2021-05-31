@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.newyorker.model.Observer;
 import com.example.newyorker.model.Wall;
 
-public class CustomizeOrderActivity extends AppCompatActivity {
+public class CustomizeOrderActivity extends AppCompatActivity  {
 
     Wall wall;
 
@@ -38,7 +38,6 @@ public class CustomizeOrderActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-
         wall = (Wall) intent.getSerializableExtra("wallObject");
 
         initializeUIElements();

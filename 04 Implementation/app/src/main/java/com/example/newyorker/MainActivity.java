@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,7 +11,8 @@ import android.widget.TextView;
 import com.example.newyorker.model.Observer;
 import com.example.newyorker.model.Wall;
 
-import static java.lang.Double.NaN;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         initializeListeners();
 
 
-        wall.addDataObserver(new Observer() {
+        wall.addDataObserver(new Observer(){
             @Override
             public void update() {
                 textViewMainActivityPrice.setText(String.valueOf(roundPrice(wall)));
@@ -108,16 +108,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToCustomizeOrder(View view) {
 
-        clearFocus();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        wall.removeObserver();
 
 
-        Intent intent = new Intent(this, CustomizeOrderActivity.class);
 
-        intent.putExtra("wallObject", wall);
-
-        startActivity(intent);
-
-
+    Intent intent = new Intent(this, CustomizeOrderActivity.class);
+    intent.putExtra("wallObject", wall);
+    startActivity(intent);
     }
 
 

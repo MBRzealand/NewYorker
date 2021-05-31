@@ -1,35 +1,46 @@
 package com.example.newyorker.model;
 
-import java.util.concurrent.ExecutionException;
 
-import uk.co.jakebreen.sendgridandroid.SendGrid;
-import uk.co.jakebreen.sendgridandroid.SendGridMail;
-import uk.co.jakebreen.sendgridandroid.SendGridResponse;
-import uk.co.jakebreen.sendgridandroid.SendTask;
+
+import android.content.Intent;
+import android.net.Uri;
+
+
 
 public class Email {
 
 
-    public void sendEmail() {
-        uk.co.jakebreen.sendgridandroid.SendGrid sendGrid = SendGrid.create("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");
-        SendGridMail mail = new SendGridMail();
-        mail.addRecipient("fredrikbille@hotmail.com", "Fredrik");
-        mail.setFrom("NYWallBuilder@gmail.com", "András");
-        mail.setSubject("Hej fra sendgrid");
-        mail.setContent("Hej, det virker nu. Måske.");
-        System.out.println("about to send");
-        SendTask task = new SendTask(sendGrid, mail);
-        try {
-            System.out.println("we in try");
-            SendGridResponse response = task.execute().get();
+    private final String toNewYorker = "fredrikbille@hotmail.com";
+    private final String emailType = "*/*";
+    private final String subject = "Forespørgsel New Yorker væg";
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (
-                ExecutionException e) {
-            e.printStackTrace();
-        }
+    public Intent sendEmail(String forhandler, Customer customer){
+
+        String mailto = "mailto:" + forhandler + "?cc=" + toNewYorker;
+
+        String body = "Kunde navn: " + customer.getCustomerName() +
+                "\nKunde E-mail: " + customer.getCustomerEmailAdress() +
+                "\nKunde Tlf: " + customer.getCustomerPhoneNumber() +
+                "\nKunde Adresse: " + customer.getCustomerAddress() +
+                "\nKunde Post Nr: " + customer.getCustomerZIPCode();
+
+
+
+        Intent email = new Intent(Intent.ACTION_SENDTO);
+        email.setType(emailType);
+        email.setData(Uri.parse(mailto));
+        email.putExtra(Intent.EXTRA_SUBJECT, subject);
+        email.putExtra(Intent.EXTRA_TEXT, body);
+        return email;
     }
+
+
+
+
+
+
+
+
 }
 
 

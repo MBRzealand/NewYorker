@@ -1,8 +1,9 @@
 package com.example.newyorker.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class NYBuilderController {
+public class NYBuilderController implements Serializable {
 
     Wall wall;
     Customer customer;
