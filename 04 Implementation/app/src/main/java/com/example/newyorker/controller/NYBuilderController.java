@@ -70,7 +70,7 @@ public class NYBuilderController implements Serializable {
         double width = Double.parseDouble(strWidth);
         try {
             if (strWidth.isEmpty()) {
-                throw new MissingWallWidthException("Mangler brdde");
+                throw new MissingWallWidthException("Mangler bredde");
             } else if (!isNumeric(String.valueOf(width))) {
                 throw new WallWidthNotNumericException("Der kan ikke stå bogstaver i bredden");
             } else if (width < 10.8) {
