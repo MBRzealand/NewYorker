@@ -1,4 +1,4 @@
-package com.example.newyorker.Exceptions;
+package com.example.newyorker.exceptions;
 
 public class MissingCustomerNameException extends RuntimeException {
     public MissingCustomerNameException(String message) {

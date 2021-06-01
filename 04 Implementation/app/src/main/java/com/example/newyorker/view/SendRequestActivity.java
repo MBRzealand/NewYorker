@@ -1,4 +1,4 @@
-package com.example.newyorker;
+package com.example.newyorker.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.newyorker.model.Customer;
+import com.example.newyorker.R;
 import com.example.newyorker.model.Email;
-import com.example.newyorker.model.NYBuilderController;
-import com.example.newyorker.model.Specifications;
+import com.example.newyorker.controller.NYBuilderController;
 
 public class SendRequestActivity extends AppCompatActivity {
 

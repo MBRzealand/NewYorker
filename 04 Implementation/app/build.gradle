@@ -28,9 +28,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES' // TODO Denne linje er noget magi jeg ikke helt forstår, men det virker ikke uden
-    }
+    
 
 }
 
@@ -42,7 +40,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.github.jakebreen:android-sendgrid:1.2.3'
-    implementation 'com.sendgrid:sendgrid-java:4.0.1'
+
 
 }

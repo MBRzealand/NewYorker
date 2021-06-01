@@ -1,4 +1,4 @@
-package com.example.newyorker;
+package com.example.newyorker.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,9 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.newyorker.model.NYBuilderController;
+import com.example.newyorker.R;
+import com.example.newyorker.controller.NYBuilderController;
 import com.example.newyorker.model.Observer;
-import com.example.newyorker.model.Specifications;
-import com.example.newyorker.model.Wall;
 
 public class CustomizeOrderActivity extends AppCompatActivity  {
 
@@ -128,7 +127,6 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         //Empty list of observers before serializing the object, so we can pass it on to the other activities.
         controller.removeWallObservers();
-
 
         Intent intent = new Intent(this, PreviewOrderActivity.class);
         intent.putExtra("controller", controller);

@@ -1,7 +1,8 @@
 package com.example.newyorker.model;
 
-public class Customer {
+import java.io.Serializable;
 
+public class Customer implements Serializable {
     private String customerName;
     private String customerEmailAddress;
     private String customerPhoneNumber;

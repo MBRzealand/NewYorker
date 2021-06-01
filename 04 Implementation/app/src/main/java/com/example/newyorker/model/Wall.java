@@ -109,6 +109,8 @@ public class Wall  implements Serializable{
     public void removeAllObservers(){
         COLLECTIONOFWALLOBSERVERS.removeAll(COLLECTIONOFWALLOBSERVERS);
     }
+
+
     //</editor-fold>
 
 }

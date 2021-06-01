@@ -1,4 +1,4 @@
-package com.example.newyorker;
+package com.example.newyorker.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,11 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.newyorker.Exceptions.MissingWallHeightException;
-import com.example.newyorker.Exceptions.MissingWallWidthException;
-import com.example.newyorker.model.NYBuilderController;
+import com.example.newyorker.R;
+import com.example.newyorker.controller.NYBuilderController;
 import com.example.newyorker.model.Observer;
-import com.example.newyorker.model.Wall;
 
 
 public class MainActivity extends AppCompatActivity {

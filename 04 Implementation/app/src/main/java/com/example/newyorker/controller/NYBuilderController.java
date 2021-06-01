@@ -1,6 +1,10 @@
-package com.example.newyorker.model;
+package com.example.newyorker.controller;
 
-import com.example.newyorker.Exceptions.*;
+import com.example.newyorker.exceptions.*;
+import com.example.newyorker.model.Customer;
+import com.example.newyorker.model.Observer;
+import com.example.newyorker.model.Specifications;
+import com.example.newyorker.model.Wall;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,7 +29,8 @@ public class NYBuilderController implements Serializable {
     }
 
     public Wall getWall(int index) {
-        return specifications.getWall(index);
+       // return specifications.getWall(index);
+        return this.wall;
     }
 
     public Customer getCustomer() {
@@ -229,4 +234,7 @@ public class NYBuilderController implements Serializable {
         wall.removeAllObservers();
     }
 
+    public void removeObservers() {
+        observerList.remove(0);
+    }
 }

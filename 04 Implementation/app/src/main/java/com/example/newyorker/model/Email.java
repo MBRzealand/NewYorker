@@ -1,13 +1,11 @@
 package com.example.newyorker.model;
-
-
-
 import android.content.Intent;
 import android.net.Uri;
 
+import java.io.Serializable;
 
 
-public class Email {
+public class Email implements Serializable {
     private final String toNewYorker = "fredrikbille@hotmail.com";
     private final String emailType = "*/*";
     private final String subject = "Forespørgsel New Yorker væg";
