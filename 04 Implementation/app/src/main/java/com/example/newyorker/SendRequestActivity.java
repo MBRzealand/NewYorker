@@ -8,12 +8,12 @@ import android.widget.EditText;
 
 import com.example.newyorker.model.Customer;
 import com.example.newyorker.model.Email;
+import com.example.newyorker.model.NYBuilderController;
 import com.example.newyorker.model.Specifications;
 
 public class SendRequestActivity extends AppCompatActivity {
 
-    Specifications specifications;
-    Customer customer;
+    NYBuilderController controller;
     Email email = new Email();
     EditText customerName;
     EditText customerPhoneNumber;
@@ -22,34 +22,28 @@ public class SendRequestActivity extends AppCompatActivity {
     EditText customerZIPCode;
     EditText notes;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__send__request);
+
         Intent intent = getIntent();
-        specifications = (Specifications) intent.getSerializableExtra("Specifications");
-        customer = new Customer();
+        controller = (NYBuilderController) intent.getSerializableExtra("controller");
         initializeUIElements();
         // initializeListeners();
-
-
-
 
     }
 
 
 
     public void sendRequest(View view) {
-        customer.setCustomerName(customerName.getText().toString());
-        customer.setCustomerZIPCode(customerZIPCode.getText().toString());
-        customer.setCustomerEmailAddress(customerEmailAddress.getText().toString());
-        customer.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
-        customer.setCustomerAddress(customerAddress.getText().toString());
-
-
-
-        startActivity(email.sendEmail("hjordrup96@live.dk", customer, specifications.getWall(), notes.getText().toString()));
+        controller.setCustomerName(customerName.getText().toString());
+        controller.setCustomerZIPCode(customerZIPCode.getText().toString());
+        controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
+        controller.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
+        controller.setCustomerAddress(customerAddress.getText().toString());
+        
+        startActivity(email.sendEmail("hjordrup96@live.dk", controller.getCustomer(), controller.getWall(0), notes.getText().toString()));
 
     }
 
@@ -62,6 +56,7 @@ public class SendRequestActivity extends AppCompatActivity {
        customerZIPCode = findViewById(R.id.editText_zip_code);
        notes = findViewById(R.id.editText_notes);
     }
+
     /*private void initializeListeners() {
 
         customerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {

@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.newyorker.Exceptions.MissingWallHeightException;
+import com.example.newyorker.Exceptions.MissingWallWidthException;
+import com.example.newyorker.model.NYBuilderController;
 import com.example.newyorker.model.Observer;
 import com.example.newyorker.model.Wall;
 
@@ -18,23 +21,22 @@ public class MainActivity extends AppCompatActivity {
     EditText widthInput;
     TextView textViewMainActivityPrice;
 
-    Wall wall = new Wall();
-
+    NYBuilderController controller = new NYBuilderController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         initializeUIElements();
         initializeListeners();
 
+        controller.newWall();
 
-        wall.addDataObserver(new Observer() {
+        controller.addWallDataObserver(new Observer() {
             @Override
             public void update() {
-                textViewMainActivityPrice.setText(String.valueOf(roundPrice(wall)));
+                textViewMainActivityPrice.setText(String.valueOf(controller.getWallPrice()));
             }
         });
     }
@@ -54,13 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 if (heightInput.getText() != null) {
 
                     if (!hasFocus) {
-                        wall.setWallHeight(Double.parseDouble(heightInput.getText().toString()));
+                        controller.setWallHeight(heightInput.getText().toString());
                     }
 
-                    if ((!Double.isNaN(wall.getWallHeight())) && (!Double.isNaN(wall.getWallWidth()))) {
-                        wall.calculateWallPrice(wall.getWallHeight(), wall.getWallWidth());
-                    }
-
+                    controller.calculateWallPrice();
                 }
 
             }
@@ -70,17 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
             public void onFocusChange(View view, boolean hasFocus) {
 
-
-                if (heightInput.getText() != null) {
-
+                if (widthInput.getText() != null) {
                     if (!hasFocus) {
-                        wall.setWallWidth(Double.parseDouble(widthInput.getText().toString()));
+                        controller.setWallWidth(widthInput.getText().toString());
                     }
 
-                    if ((!Double.isNaN(wall.getWallHeight())) && (!Double.isNaN(wall.getWallWidth()))) {
-                        wall.calculateWallPrice(wall.getWallHeight(), wall.getWallWidth());
-                    }
-
+                    controller.calculateWallPrice();
                 }
 
             }
@@ -88,31 +82,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     public void clearFocus() {
         heightInput.clearFocus();
         widthInput.clearFocus();
     }
 
 
-    public double roundPrice(Wall wall) {
-        return Math.round(wall.getWallPrice() * 100.0) / 100.0;
-    }
-
 
     public void goToCustomizeOrder(View view) {
-
 
         clearFocus();
 
         //Empty list of observers before serializing the object, so we can pass it on to the other activities.
-        wall.removeObserver();
-
+        controller.removeWallObservers();
 
         Intent intent = new Intent(this, CustomizeOrderActivity.class);
-        intent.putExtra("wallObject", wall);
+        intent.putExtra("controller", controller);
         startActivity(intent);
     }
-
 
 }

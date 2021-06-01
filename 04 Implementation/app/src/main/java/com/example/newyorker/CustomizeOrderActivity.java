@@ -9,14 +9,14 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.newyorker.model.NYBuilderController;
 import com.example.newyorker.model.Observer;
 import com.example.newyorker.model.Specifications;
 import com.example.newyorker.model.Wall;
 
 public class CustomizeOrderActivity extends AppCompatActivity  {
 
-    Wall wall;
-    Specifications specifications;
+    NYBuilderController controller;
 
     CheckBox checkBoxDoor;
     CheckBox checkBoxLockbox;
@@ -31,33 +31,29 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
     TextView textViewCustomizeActivityPrice;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customize_order);
 
-
-
         Intent intent = getIntent();
-        wall = (Wall) intent.getSerializableExtra("wallObject");
+        controller = (NYBuilderController) intent.getSerializableExtra("controller");
 
-        specifications = new Specifications(wall);
         initializeUIElements();
         initializeListeners();
 
-        specifications.getWall().addDataObserver(new Observer() {
+        controller.addWallDataObserver(new Observer() {
             @Override
             public void update() {
-                textViewCustomizeActivityPrice.setText(String.valueOf(roundPrice(wall)));
+                textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
             }
         });
 
-        textViewCustomizeActivityPrice.setText(String.valueOf(roundPrice(wall)));
+        textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
 
     }
 
-    private void initializeUIElements(){
+    private void initializeUIElements() {
         checkBoxDoor = findViewById(R.id.checkbox_door);
         checkBoxLockbox = findViewById(R.id.checkbox_lockbox);
         checkBoxHandle = findViewById(R.id.checkbox_handle);
@@ -72,13 +68,12 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         textViewCustomizeActivityPrice = findViewById(R.id.textview_price_customize_activity);
     }
 
-
-    private void  initializeListeners(){
+    private void  initializeListeners() {
         checkBoxDoor.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                wall.setHasDoor(checkBoxDoor.isChecked());
+                controller.customizeWall((byte) 1, checkBoxDoor.isChecked());
             }
 
         });
@@ -87,7 +82,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                wall.setHasLockbox(checkBoxLockbox.isChecked());
+                controller.customizeWall((byte) 2, checkBoxLockbox.isChecked());
             }
 
         });
@@ -96,7 +91,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                wall.setHasHandle(checkBoxHandle.isChecked());
+                controller.customizeWall((byte) 3, checkBoxHandle.isChecked());
             }
 
         });
@@ -105,7 +100,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                wall.setHasWetroom(checkBoxWetRoom.isChecked());
+                controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
             }
 
         });
@@ -114,7 +109,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                wall.setHasSpecialGlass(checkBoxSpecialGlass.isChecked());
+                controller.customizeWall((byte) 5, checkBoxSpecialGlass.isChecked());
             }
 
         });
@@ -123,27 +118,21 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                wall.setHasShowerWall(checkBoxShowerWall.isChecked());
+                controller.customizeWall((byte) 6, checkBoxShowerWall.isChecked());
             }
 
         });
     }
 
-    public double roundPrice(Wall wall){
-        return Math.round(wall.getWallPrice() * 100.0) / 100.0;
-    }
-
     public void goToPreviewActivity(View view) {
 
-
         //Empty list of observers before serializing the object, so we can pass it on to the other activities.
-        specifications.getWall().removeObserver();
+        controller.removeWallObservers();
 
 
         Intent intent = new Intent(this, PreviewOrderActivity.class);
-        intent.putExtra("Specifications", specifications);
+        intent.putExtra("controller", controller);
         startActivity(intent);
-
 
     }
 }
