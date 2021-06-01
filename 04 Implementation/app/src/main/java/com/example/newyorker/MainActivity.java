@@ -103,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
     public void goToCustomizeOrder(View view) {
 
 
+        clearFocus();
+
         //Empty list of observers before serializing the object, so we can pass it on to the other activities.
         wall.removeObserver();
 
