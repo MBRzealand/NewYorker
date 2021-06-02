@@ -18,6 +18,8 @@ List listOfHandles exists.
 
 wall.hasDoor is true.
 
+wall.hasHandle is true.
+
 chosenHandle exists.
 
 #### Postconditions: 
