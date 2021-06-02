@@ -10,10 +10,10 @@ Use case 1: Send Request
 
 Wall wall exists.
 
-List wall.listOfHandles exists. 
+wall.listOfHandles exists. 
 
 View view exists. 
 
 #### Postconditions: 
 
-view.listOfHandles is presented. 
+wall.listOfHandles is presented in view. 
