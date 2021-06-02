@@ -16,4 +16,4 @@ View view exists.
 
 #### Postconditions: 
 
-wall.listOfDoors is presented. 
+wall.listOfDoors is presented in view. 
