@@ -168,6 +168,12 @@ public class NYBuilderController implements Serializable {
 
     }
 
+    public void setCustomerNotes(String  customerNotes){
+        customer.setCustomerNotes(customerNotes);
+    }
+
+
+
     public void setCustomerAddress(String customerAddress) {
 
         try {

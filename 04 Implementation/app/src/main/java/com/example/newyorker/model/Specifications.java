@@ -10,6 +10,7 @@ public class Specifications implements Serializable {
     private double totalPrice;
     private ArrayList<Wall> listOfWalls = new ArrayList<>();
 
+
     public void setChosenStore(String chosenStore) {
         this.chosenStore = chosenStore;
     }
@@ -31,5 +32,7 @@ public class Specifications implements Serializable {
     public Wall getWall(int index) {
         return listOfWalls.get(index);
     }
+
+
 
 }
