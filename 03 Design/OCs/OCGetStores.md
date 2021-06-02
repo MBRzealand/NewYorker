@@ -10,10 +10,10 @@ Use case 1: Send Request
 
 Specifications specifications exists.
 
-List specifications.listOfStores exists. 
+specifications.listOfStores exists. 
 
 View view exists. 
 
 #### Postconditions: 
 
-view.listOfStores is presented. 
+specifications.listOfStores is presented in view. 
