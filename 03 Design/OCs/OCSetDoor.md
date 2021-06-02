@@ -14,6 +14,8 @@ Wall wall exists.
 
 List listOfDoors exists. 
 
+wall.hasDoor is true.
+
 chosenDoor exists.
 
 #### Postconditions: 
