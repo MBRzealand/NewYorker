@@ -8,9 +8,9 @@ Use case 1: Send Request
 
 #### Preconditions: 
 
-Model model exists.
+Specifications specifications exists.
 
-List listOfStores exists. 
+List specifications.listOfStores exists. 
 
 View view exists. 
 
