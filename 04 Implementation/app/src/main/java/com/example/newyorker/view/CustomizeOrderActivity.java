@@ -41,6 +41,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         initializeUIElements();
         initializeListeners();
 
+
         controller.addWallDataObserver(new Observer() {
             @Override
             public void update() {
@@ -54,15 +55,26 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
     private void initializeUIElements() {
         checkBoxDoor = findViewById(R.id.checkbox_door);
-        checkBoxLockbox = findViewById(R.id.checkbox_lockbox);
-        checkBoxHandle = findViewById(R.id.checkbox_handle);
         checkBoxWetRoom = findViewById(R.id.checkbox_wetroom);
         checkBoxSpecialGlass = findViewById(R.id.checkbox_special_glass);
+
+        checkBoxLockbox = findViewById(R.id.checkbox_lockbox);
+        checkBoxLockbox.setEnabled(false);
+
+        checkBoxHandle = findViewById(R.id.checkbox_handle);
+        checkBoxHandle.setEnabled(false);
+
         checkBoxShowerWall = findViewById(R.id.checkbox_shower_wall);
+        checkBoxShowerWall.setEnabled(false);
 
         spinnerDoors = findViewById(R.id.spinner_doors);
+        spinnerDoors.setEnabled(false);
+
         spinnerHandles = findViewById(R.id.spinner_handles);
+        spinnerHandles.setEnabled(false);
+
         spinnerSpecialGlass = findViewById(R.id.spinner_special_glass);
+        spinnerSpecialGlass.setEnabled(false);
 
         textViewCustomizeActivityPrice = findViewById(R.id.textview_price_customize_activity);
     }
@@ -72,13 +84,25 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
+                if (!spinnerDoors.isEnabled())
+                    { spinnerDoors.setEnabled(true);
+                    checkBoxLockbox.setEnabled(true);
+                    checkBoxHandle.setEnabled(true); }
+                else { spinnerDoors.setEnabled(false);
+                    checkBoxLockbox.setEnabled(false);
+                    checkBoxLockbox.setChecked(false);
+                    checkBoxHandle.setEnabled(false);
+                    checkBoxHandle.setChecked(false);
+                    spinnerHandles.setEnabled(false);}
+
+
                 controller.customizeWall((byte) 1, checkBoxDoor.isChecked());
+
             }
 
         });
 
         checkBoxLockbox.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 controller.customizeWall((byte) 2, checkBoxLockbox.isChecked());
@@ -90,6 +114,11 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
+                if (spinnerHandles.isEnabled()){
+                    spinnerHandles.setEnabled(false);
+                }else{
+                    spinnerHandles.setEnabled(true);
+                }
                 controller.customizeWall((byte) 3, checkBoxHandle.isChecked());
             }
 
@@ -99,6 +128,13 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
+                if (checkBoxShowerWall.isEnabled()){
+                    checkBoxShowerWall.setEnabled(false);
+                    checkBoxShowerWall.setChecked(false);
+                }else{
+                    checkBoxShowerWall.setEnabled(true);
+                }
+
                 controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
             }
 
@@ -108,6 +144,11 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
+                if (spinnerSpecialGlass.isEnabled()){
+                    spinnerSpecialGlass.setEnabled(false);
+                }else{
+                    spinnerSpecialGlass.setEnabled(true);
+                }
                 controller.customizeWall((byte) 5, checkBoxSpecialGlass.isChecked());
             }
 
