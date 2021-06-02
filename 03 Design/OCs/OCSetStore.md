@@ -12,7 +12,7 @@ Consultant consultant exists.
 
 Specifictions specifications exists. 
 
-List listOfStores exists. 
+specifications.listOfStores exists. 
 
 chosenStore exists.
 

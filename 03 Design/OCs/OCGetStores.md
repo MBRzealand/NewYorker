@@ -8,12 +8,12 @@ Use case 1: Send Request
 
 #### Preconditions: 
 
-Model model exists.
+Specifications specifications exists.
 
-List listOfStores exists. 
+specifications.listOfStores exists. 
 
 View view exists. 
 
 #### Postconditions: 
 
-view.listOfStores is presented. 
+specifications.listOfStores is presented in view. 
