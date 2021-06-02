@@ -8,6 +8,7 @@ public class Customer implements Serializable {
     private String customerPhoneNumber;
     private String customerZIPCode;
     private String customerAddress;
+    private String customerNotes;
 
 
 
@@ -52,6 +53,13 @@ public class Customer implements Serializable {
     }
 
 
+    public void setCustomerNotes(String customerNotes){
+        this.customerNotes = customerNotes;
+    }
+
+    public String getCustomerNotes(){
+        return this.customerNotes;
+    }
 
 
 

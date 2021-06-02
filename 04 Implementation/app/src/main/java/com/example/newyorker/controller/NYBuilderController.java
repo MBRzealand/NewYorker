@@ -168,17 +168,23 @@ public class NYBuilderController implements Serializable {
 
     }
 
+    public void setCustomerNotes(String  customerNotes){
+        customer.setCustomerNotes(customerNotes);
+    }
+
+
+
     public void setCustomerAddress(String customerAddress) {
 
         try {
             if (customerAddress.isEmpty()) {
                 throw new MissingCustomerAddressException("Kunde adresse er tom");
-            } else if (!doesNotContainSpecialCharacters(customerAddress)) {
+            } else if (containsSpecialCharacters(customerAddress)) {
                 throw new CustomerAddressContainsSpecialCharacterException("Kunde adresse indeholder specielle tegn");
-            } else {
+            }else {
                 customer.setCustomerAddress(customerAddress);
             }
-        } catch (MissingCustomerAddressException mcae) {
+       } catch (MissingCustomerAddressException mcae) {
 
         } catch (CustomerAddressContainsSpecialCharacterException cacsce) {
 
@@ -207,7 +213,7 @@ public class NYBuilderController implements Serializable {
 
     private final Pattern SPECIALCHARACTERPATTERN = Pattern.compile("[^a-zA-Z0-9ÆØÅæøå]");
 
-    public boolean doesNotContainSpecialCharacters(String str) {
+    public boolean containsSpecialCharacters(String str) {
         if (str == null) {
             return false;
         }
