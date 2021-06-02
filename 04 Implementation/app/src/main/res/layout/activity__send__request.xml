@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SendRequestActivity">
+    tools:context=".view.SendRequestActivity">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -80,7 +80,7 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/customer_post_nr"
-        android:inputType="textPostalAddress"
+        android:inputType="phone"
         app:layout_constraintStart_toStartOf="@+id/button_send"
         app:layout_constraintTop_toBottomOf="@+id/editText_phone_number" />
 
@@ -144,6 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/orange"
+        android:onClick="sendRequest"
         android:text="@string/send_forespoergsel"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -2,8 +2,8 @@
     <string name="app_name">NYBuilder</string>
     <string name="opret_ordre">Opret Ordre</string>
     <string name="angiv_hoejde">Angiv højde</string>
-    <string name="vaeg_bredde">Væg bredde</string>
-    <string name="vaeg_hoejde">Væg højde</string>
+    <string name="vaeg_bredde">Væg bredde (cm)</string>
+    <string name="vaeg_hoejde">Væg højde (cm)</string>
     <string name="angiv_bredde">Angiv bredde</string>
     <string name="antal_glaspaneler_paa_tvaers">Antal glaspaneler på tværs</string>
     <string name="antal_glaspaneler_paa_langs">Antal glaspaneler på langs</string>
@@ -54,7 +54,7 @@
     <string name="vis_ordre">Vis ordre</string>
     <string name="tegning">Tegning</string>
     <string name="prisoversigt">Prisoversigt</string>
-    <string name="total">Total:   </string>
+    <string name="total">Total:   </string>
     <string name="zero">0</string>
     <string name="kr"> kr.</string>
     <string name="vaeg_3">væg 3</string>
