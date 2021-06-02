@@ -10,10 +10,10 @@ Use case 1: Send Request
 
 Wall wall exists.
 
-List wall.listOfSpecialGlass exists. 
+wall.listOfSpecialGlass exists. 
 
 View view exists. 
 
 #### Postconditions: 
 
-view.listOfSpecialGlass is presented. 
+wall.listOfSpecialGlass is presented in view. 
