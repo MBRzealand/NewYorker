@@ -14,7 +14,7 @@ Consultant consultant exists.
 
 Wall wall exists. 
 
-List wall.listOfHandles exists. 
+wall.listOfHandles exists. 
 
 wall.hasDoor is true.
 
