@@ -12,7 +12,7 @@ Consultant consultant exists.
 
 Wall wall exists. 
 
-List wall.listOfDoors exists. 
+wall.listOfDoors exists. 
 
 wall.hasDoor is true.
 
