@@ -11,7 +11,7 @@ public class Email implements Serializable {
     private final String subject = "Forespørgsel New Yorker væg";
 
 
-    public Intent sendEmail(String forhandler, Customer customer, Wall wall, String note){
+    public Intent sendEmail(String forhandler, Customer customer, Wall wall){
 
         String mailto = "mailto:" + forhandler + "?cc=" + toNewYorker;
 
@@ -24,7 +24,7 @@ public class Email implements Serializable {
                 "\nVæg Højde: " + wall.getWallHeight() + " Cm." +
                 "\nVæg Pris: " + Math.round(wall.getWallPrice() * 100.0) / 100.0 + " Kr." +
                 "\n\n" + "Kunde Noter: " +
-                "\n"+note;
+                "\n"+customer.getCustomerNotes();
 
 
         Intent email = new Intent(Intent.ACTION_SENDTO);
