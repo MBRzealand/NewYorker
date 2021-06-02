@@ -10,7 +10,7 @@ Use case 1: Send Request
 
 Wall wall exists.
 
-List listOfDoors exists. 
+List wall.listOfDoors exists. 
 
 View view exists. 
 
