@@ -12,7 +12,7 @@ Consultant consultant exists.
 
 Wall wall exists. 
 
-List wall.listOfSpecialGlass exists. 
+wall.listOfSpecialGlass exists. 
 
 wall.hasSpecialGlass is true.
 
