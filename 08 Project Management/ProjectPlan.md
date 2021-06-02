@@ -40,7 +40,7 @@ List of the stuff to be done in this iteration.
 
 #### Iteration 2  
 The second iteration of the elaboration phase or the third overall iteration runs from 31/05/2021 to 06/06/2021.
-In this iteration we plan to make the exceptions checks and customize feature which will require us to update a lot of our artefacts. The SSD, DOM, AD, OCs, SDs, DCD are all updated and new OCs and SDs are created. Besides exceptions and customize feature, we also plan to create the .csv export feature and database for the stores. All this will create our second prototype. After creating the second prototype we also plan to test it with unit- and system test, including code-coverage plus test it in the meeting planned on 04/06/2021 for feedback.  
+In this iteration we plan to make the exceptions checks and customize feature which will require us to update a lot of our artefacts. The SSD, DOM, AD, OCs, SDs, DCD are all updated and new OCs and SDs are created. Besides exceptions and customize feature, we also plan to create the .csv export feature and database for the stores. All this will create our second prototype. After creating the second prototype we also plan to test it with unit- and system test, including code-coverage, plus test it in the meeting planned on 04/06/2021 for feedback.  
 List of the stuff to be done in this iteration.  
 - UML artefacts.
 - Exceptions check.
