@@ -19,8 +19,8 @@ public class Wall  implements Serializable{
     transient private static final double LOCKBOX_PRICE = 500;
     transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
     transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
-    transient private static final double lARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
-    transient private static final double lARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
+    transient private static final double LARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
+    transient private static final double LARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
     transient private static final double SINGLE_DOOR_PRICE = 2000;
     transient private static final double DOUBLE_DOOR_PRICE = 4000;
     transient private static final double BRASS_HANDLE_PRICE = 500;
