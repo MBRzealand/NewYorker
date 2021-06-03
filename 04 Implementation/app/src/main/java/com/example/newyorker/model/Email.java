@@ -7,13 +7,14 @@ import java.io.Serializable;
 
 public class Email implements Serializable {
     private final String toNewYorker = "fredrikbille@hotmail.com";
-    private final String emailType = "*/*";
+
     private final String subject = "Forespørgsel New Yorker væg";
 
 
     public Intent sendEmail(String forhandler, Customer customer, Wall wall){
 
-        String mailto = "mailto:" + forhandler + "?cc=" + toNewYorker;
+
+        String[] to = {forhandler, toNewYorker};
 
         String body = "Kunde navn: " + customer.getCustomerName() +
                 "\nKunde E-mail: " + customer.getCustomerEmailAddress() +
@@ -29,8 +30,8 @@ public class Email implements Serializable {
 
         Intent email = new Intent(Intent.ACTION_SENDTO);
         email.setData(Uri.parse("mailto:")); // only email apps should handle this
-        email.putExtra(Intent.EXTRA_EMAIL, toNewYorker);
-        email.putExtra(Intent.EXTRA_CC, forhandler);
+        email.putExtra(Intent.EXTRA_EMAIL, to);
+       // email.putExtra(Intent.EXTRA_CC, forhandler);
         email.putExtra(Intent.EXTRA_SUBJECT, subject);
         email.putExtra(Intent.EXTRA_TEXT, body);
         return email;
