@@ -7,6 +7,29 @@
     tools:context=".view.MainActivity">
 
     <TextView
+        android:id="@+id/textview_height_exception2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/width_textView"
+        app:layout_constraintEnd_toEndOf="@+id/height_editText"
+        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintStart_toEndOf="@+id/width_textView"
+        app:layout_constraintTop_toTopOf="@+id/width_textView" />
+
+    <TextView
+        android:id="@+id/textview_width_exception"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/height_textView"
+        app:layout_constraintEnd_toEndOf="@+id/width_editText"
+        app:layout_constraintStart_toEndOf="@+id/height_textView"
+        app:layout_constraintTop_toTopOf="@+id/height_textView" />
+
+    <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
