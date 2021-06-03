@@ -12,19 +12,36 @@ public class Wall  implements Serializable{
     transient private static final double STANDARD_GLASS_WIDTH = 45;
     transient private static final double DELIVERY_FEE = 800;
     transient private static final double GLASS_PANEL_PRICE = 985;
+
+
+    transient private static final double WETROOM_PRICE = 480;
+    transient private static final double SHOWERWALL_PRICE = 3160;
+    transient private static final double LOCKBOX_PRICE = 500;
+    transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
+    transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
+    transient private static final double LARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
+    transient private static final double LARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
+    transient private static final double SINGLE_DOOR_PRICE = 2000;
+    transient private static final double DOUBLE_DOOR_PRICE = 4000;
+    transient private static final double BRASS_HANDLE_PRICE = 500;
+    transient private static final double BLACK_HANDLE_PRICE = 250;
+    transient private static final double SATIN_GLASS_PRICE = 70;
+    transient private static final double SOUNDPROOF_GLASS_PRICE = 95;
+    transient private static final double ACOUSTIC_PANEL_PRICE = 318;
     //</editor-fold>
+
 
     private double wallHeight;
     private double wallWidth;
     private double wallPrice;
 
     //<editor-folddesc="Customize variables">
-    private boolean hasDoor;
-    private boolean hasLockbox;
-    private boolean hasHandle;
-    private boolean hasWetroom;
-    private boolean hasSpecialGlass;
-    private boolean hasShowerWall;
+    private boolean hasDoor = false;
+    private boolean hasLockbox = false;
+    private boolean hasHandle = false;
+    private boolean hasWetroom = false;
+    private boolean hasSpecialGlass = false;
+    private boolean hasShowerWall = false;
     //</editor-fold>
 
     public void calculateWallPrice() {
@@ -89,6 +106,16 @@ public class Wall  implements Serializable{
         this.hasShowerWall = hasShowerWall;
     }
     //</editor-fold>
+
+
+
+
+
+
+
+
+
+
 
     //<editor-folddesc="Observer implementation">
     //Observer implementation
