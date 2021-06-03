@@ -38,54 +38,53 @@ public class NYBuilderController implements Serializable {
     }
 
     //<editor-folddesc="Setters">
-    public void setWallHeight(String strHeight) {
+    public String setWallHeight(String strHeight) {
 
-        double height = Double.parseDouble(strHeight);
         try {
             if (strHeight.isEmpty()) {
                 throw new MissingWallHeightException("Mangler højde");
-            } else if (!isNumeric(String.valueOf(height))) {
+            } else if (!isNumeric(strHeight)) {
                 throw new WallHeightNotNumericException("Der kan ikke stå bogstaver i højden");
-            } else if (height < 10.8) {
+            } else if (Double.parseDouble(strHeight) < 10.8) {
                 throw new WallHeightTooSmallException("Højden er for lille, min: 10.8 max: 250");
-            } else if (height > 250) {
+            } else if (Double.parseDouble(strHeight) > 250) {
                 throw new WallHeightTooHighException("Højden er for stor, min: 10.8 max: 250");
             } else {
-                wall.setWallHeight(height);
+                wall.setWallHeight(Double.parseDouble(strHeight));
             }
         } catch (MissingWallHeightException mwhe) {
+            return mwhe.getMessage();
 
         } catch (WallHeightNotNumericException whne) {
-
+            return whne.getMessage();
         } catch (WallHeightTooSmallException whtse) {
-
+            return whtse.getMessage();
         } catch (WallHeightTooHighException whthe) {
-
+            return whthe.getMessage();
         }
-
+        return "";
     }
 
-    public void setWallWidth(String strWidth) {
+    public String setWallWidth(String strWidth) {
 
-        double width = Double.parseDouble(strWidth);
         try {
             if (strWidth.isEmpty()) {
                 throw new MissingWallWidthException("Mangler bredde");
-            } else if (!isNumeric(String.valueOf(width))) {
+            } else if (!isNumeric(strWidth)) {
                 throw new WallWidthNotNumericException("Der kan ikke stå bogstaver i bredden");
-            } else if (width < 10.8) {
+            } else if (Double.parseDouble(strWidth) < 10.8) {
                 throw new WallWidthTooSmallException("Bredden er for lille, min: 10.8 max: 250");
             } else {
-                wall.setWallWidth(width);
+                wall.setWallWidth(Double.parseDouble(strWidth));
             }
         } catch (MissingWallWidthException mwwe) {
-
+            return mwwe.getMessage();
         } catch (WallWidthNotNumericException wwnne) {
-
+            return wwnne.getMessage();
         } catch (WallWidthTooSmallException wwtse) {
-
+            return wwtse.getMessage();
         }
-
+        return "";
     }
 
     public void setCustomerName(String customerName) {
