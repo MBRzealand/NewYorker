@@ -32,13 +32,13 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class Espresso_Test_04 {
+public class Espresso_Test_06 {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void espresso_Test_04() {
+    public void espresso_Test_05() {
         ViewInteraction appCompatEditText = onView(
                 allOf(withId(R.id.height_editText),
                         childAtPosition(
@@ -47,10 +47,10 @@ public class Espresso_Test_04 {
                                         0),
                                 7),
                         isDisplayed()));
-        appCompatEditText.perform(replaceText("10.7"), closeSoftKeyboard());
+        appCompatEditText.perform(replaceText("250.1"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.height_editText), withText("10.7"),
+                allOf(withId(R.id.height_editText), withText("250.1"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

@@ -32,38 +32,38 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class Espresso_Test_04 {
+public class Espresso_Test_05 {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void espresso_Test_04() {
+    public void mainActivityTest() {
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.height_editText),
+                allOf(withId(R.id.width_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
                                         0),
-                                7),
+                                10),
                         isDisplayed()));
         appCompatEditText.perform(replaceText("10.7"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.height_editText), withText("10.7"),
+                allOf(withId(R.id.width_editText), withText("10.7"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
                                         0),
-                                7),
+                                10),
                         isDisplayed()));
         appCompatEditText2.perform(pressImeActionButton());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textview_height_exception2),
+                allOf(withId(R.id.textview_width_exception),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
-        textView.check(matches(withText("Højden er for lille, min: 10.8 max: 250")));
+        textView.check(matches(withText("Bredden er for lille, min: 10.8 max: 250")));
     }
 
     private static Matcher<View> childAtPosition(
