@@ -20,9 +20,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
-import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -32,13 +31,13 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class Espresso_Test_04 {
+public class Espresso_Test_07 {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void espresso_Test_04() {
+    public void espresso_Test_07() {
         ViewInteraction appCompatEditText = onView(
                 allOf(withId(R.id.height_editText),
                         childAtPosition(
@@ -47,10 +46,10 @@ public class Espresso_Test_04 {
                                         0),
                                 7),
                         isDisplayed()));
-        appCompatEditText.perform(replaceText("10.7"), closeSoftKeyboard());
+        appCompatEditText.perform(click());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.height_editText), withText("10.7"),
+                allOf(withId(R.id.height_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -60,10 +59,10 @@ public class Espresso_Test_04 {
         appCompatEditText2.perform(pressImeActionButton());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textview_height_exception),
+                allOf(withId(R.id.textview_height_exception), withText("Mangler højde"),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
-        textView.check(matches(withText("Højden er for lille, min: 10.8 max: 250")));
+        textView.check(matches(withText("Mangler højde")));
     }
 
     private static Matcher<View> childAtPosition(

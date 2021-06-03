@@ -7,14 +7,15 @@
     tools:context=".view.MainActivity">
 
     <TextView
-        android:id="@+id/textview_height_exception2"
+        android:id="@+id/textview_height_exception"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:textColor="#FF0000"
         app:layout_constraintBottom_toBottomOf="@+id/width_textView"
         app:layout_constraintEnd_toEndOf="@+id/height_editText"
-        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/width_textView"
         app:layout_constraintTop_toTopOf="@+id/width_textView" />
 
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:textColor="#FF0000"
         app:layout_constraintBottom_toBottomOf="@+id/height_textView"
         app:layout_constraintEnd_toEndOf="@+id/width_editText"
         app:layout_constraintStart_toEndOf="@+id/height_textView"

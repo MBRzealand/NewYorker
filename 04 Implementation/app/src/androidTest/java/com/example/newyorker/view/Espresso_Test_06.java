@@ -60,7 +60,7 @@ public class Espresso_Test_06 {
         appCompatEditText2.perform(pressImeActionButton());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textview_height_exception2),
+                allOf(withId(R.id.textview_height_exception),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
         textView.check(matches(withText("Højden er for lille, min: 10.8 max: 250")));
