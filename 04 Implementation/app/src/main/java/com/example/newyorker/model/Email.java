@@ -28,8 +28,9 @@ public class Email implements Serializable {
 
 
         Intent email = new Intent(Intent.ACTION_SENDTO);
-//        email.setType(emailType);
-        email.setData(Uri.parse(mailto));
+        email.setData(Uri.parse("mailto:")); // only email apps should handle this
+        email.putExtra(Intent.EXTRA_EMAIL, toNewYorker);
+        email.putExtra(Intent.EXTRA_CC, forhandler);
         email.putExtra(Intent.EXTRA_SUBJECT, subject);
         email.putExtra(Intent.EXTRA_TEXT, body);
         return email;
