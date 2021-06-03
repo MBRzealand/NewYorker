@@ -1,6 +1,9 @@
-package com.example.newyorker.model;
+package com.example.newyorker.view;
 import android.content.Intent;
 import android.net.Uri;
+
+import com.example.newyorker.model.Customer;
+import com.example.newyorker.model.Wall;
 
 import java.io.Serializable;
 
