@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.newyorker.R;
-import com.example.newyorker.model.Email;
 import com.example.newyorker.controller.NYBuilderController;
 
 public class SendRequestActivity extends AppCompatActivity {
