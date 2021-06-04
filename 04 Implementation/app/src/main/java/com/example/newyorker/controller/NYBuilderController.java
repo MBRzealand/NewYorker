@@ -223,11 +223,17 @@ public class NYBuilderController implements Serializable {
     public void customizeWall(byte option, boolean checked) {
         switch (option) {
             case 1: wall.setHasDoor(checked);
+            break;
             case 2: wall.setHasLockbox(checked);
+            break;
             case 3: wall.setHasHandle(checked);
+            break;
             case 4: wall.setHasWetroom(checked);
+            break;
             case 5: wall.setHasSpecialGlass(checked);
+            break;
             case 6: wall.setHasShowerWall(checked);
+            break;
         }
     }
 
