@@ -4,6 +4,7 @@ package com.example.newyorker.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Wall  implements Serializable{
 
@@ -127,6 +128,10 @@ public class Wall  implements Serializable{
 
     public void calculateWindowPanelsHeight(double wallHeight){
 
+        listOfPanelCountHeight.clear();
+        listOfPanelSizesHeight.clear();
+        finalListOfPanelSizesHeight.clear();
+
         for (int i = 10; i < wallHeight ; i ++) {
 
             if (wallHeight % i == 0){
@@ -159,10 +164,17 @@ public class Wall  implements Serializable{
             }
         }
 
+        Collections.reverse(finalListOfPanelSizesHeight);
+        Collections.reverse(listOfPanelCountHeight);
+
     }
 
 
     public void calculateWindowPanelsWidth(double wallWidth){
+
+        listOfPanelCountWidth.clear();
+        listOfPanelSizesWidth.clear();
+        finalListOfPanelSizesWidth.clear();
 
         for (int i = 10; i < wallWidth ; i ++) {
 
@@ -195,6 +207,9 @@ public class Wall  implements Serializable{
                 listOfPanelCountWidth.remove(i);
             }
         }
+
+        Collections.reverse(finalListOfPanelSizesWidth);
+        Collections.reverse(listOfPanelCountWidth);
 
     }
 
@@ -270,6 +285,23 @@ public class Wall  implements Serializable{
     public void setHasShowerWall(boolean hasShowerWall) {
         this.hasShowerWall = hasShowerWall;
     }
+
+    public void setFinalListOfPanelSizesHeight(ArrayList<Double> finalListOfPanelSizesHeight) {
+        this.finalListOfPanelSizesHeight = finalListOfPanelSizesHeight;
+    }
+
+    public void setListOfPanelCountHeight(ArrayList<Double> listOfPanelCountHeight) {
+        this.listOfPanelCountHeight = listOfPanelCountHeight;
+    }
+
+    public void setFinalListOfPanelSizesWidth(ArrayList<Double> finalListOfPanelSizesWidth) {
+        this.finalListOfPanelSizesWidth = finalListOfPanelSizesWidth;
+    }
+
+    public void setListOfPanelCountWidth(ArrayList<Double> listOfPanelCountWidth) {
+        this.listOfPanelCountWidth = listOfPanelCountWidth;
+    }
+
     //</editor-fold>
 
     //<editor-folddesc="Observer implementation">

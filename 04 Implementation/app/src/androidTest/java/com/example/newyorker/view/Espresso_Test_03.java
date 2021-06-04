@@ -40,7 +40,7 @@ public class Espresso_Test_03 {
     @Test
     public void espresso_Test_03() {
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.height_editText),
+                allOf(withId(R.id.width_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -50,7 +50,7 @@ public class Espresso_Test_03 {
         appCompatEditText.perform(replaceText("250"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.height_editText), withText("250"),
+                allOf(withId(R.id.width_editText), withText("250"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -60,7 +60,7 @@ public class Espresso_Test_03 {
         appCompatEditText2.perform(pressImeActionButton());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.width_editText),
+                allOf(withId(R.id.height_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -70,7 +70,7 @@ public class Espresso_Test_03 {
         appCompatEditText3.perform(replaceText("100"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText4 = onView(
-                allOf(withId(R.id.width_editText), withText("100"),
+                allOf(withId(R.id.height_editText), withText("100"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

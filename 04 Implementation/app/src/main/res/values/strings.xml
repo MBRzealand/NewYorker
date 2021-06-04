@@ -5,12 +5,10 @@
     <string name="vaeg_bredde">Væg bredde (cm)</string>
     <string name="vaeg_hoejde">Væg højde (cm)</string>
     <string name="angiv_bredde">Angiv bredde</string>
-    <string name="antal_glaspaneler_paa_tvaers">Antal glaspaneler på tværs:</string>
-    <string name="antal_glaspaneler_paa_langs">Antal glaspaneler på langs:</string>
-    <string name="panel_bredde">Panel bredde:</string>
-    <string name="_40_cm">40 cm</string>
-    <string name="_60_cm">60 cm</string>
-    <string name="panel_hoejde">Panel Højde:</string>
+    <string name="antal_glaspaneler_paa_tvaers">Antal glas i bredden:</string>
+    <string name="antal_glaspaneler_paa_langs">Antal glas i højden:</string>
+    <string name="panel_bredde">Glas bredde:</string>
+    <string name="panel_hoejde">Glas højde:</string>
     <string name="naeste">Næste</string>
     <string name="tilpas_ordre">Tilpas Ordre</string>
     <string name="doer">Dør</string>

@@ -7,27 +7,27 @@
     tools:context=".view.MainActivity">
 
     <TextView
-        android:id="@+id/textview_height_exception"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="#FF0000"
-        app:layout_constraintBottom_toBottomOf="@+id/width_textView"
-        app:layout_constraintEnd_toEndOf="@+id/height_editText"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/width_textView"
-        app:layout_constraintTop_toTopOf="@+id/width_textView" />
-
-    <TextView
         android:id="@+id/textview_width_exception"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toBottomOf="@+id/height_textView"
+        app:layout_constraintBottom_toBottomOf="@+id/width_textView"
         app:layout_constraintEnd_toEndOf="@+id/width_editText"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/width_textView"
+        app:layout_constraintTop_toTopOf="@+id/width_textView" />
+
+    <TextView
+        android:id="@+id/textview_height_exception"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toBottomOf="@+id/height_textView"
+        app:layout_constraintEnd_toEndOf="@+id/height_editText"
         app:layout_constraintStart_toEndOf="@+id/height_textView"
         app:layout_constraintTop_toTopOf="@+id/height_textView" />
 
@@ -87,12 +87,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/height_editText"
+        android:id="@+id/width_editText"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="@string/angiv_hoejde"
+        android:hint="@string/angiv_bredde"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintHorizontal_bias="1.0"
@@ -103,57 +103,37 @@
         android:id="@+id/width_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vaeg_hoejde"
-        app:layout_constraintBottom_toTopOf="@+id/height_editText"
+        android:text="@string/vaeg_bredde"
+        app:layout_constraintBottom_toTopOf="@+id/width_editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.003"
-        app:layout_constraintStart_toStartOf="@+id/height_editText" />
+        app:layout_constraintStart_toStartOf="@+id/width_editText" />
 
     <TextView
         android:id="@+id/height_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vaeg_bredde"
-        app:layout_constraintBottom_toTopOf="@+id/width_editText"
+        android:text="@string/vaeg_hoejde"
+        app:layout_constraintBottom_toTopOf="@+id/height_editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/width_editText" />
+        app:layout_constraintStart_toStartOf="@+id/height_editText" />
 
     <EditText
-        android:id="@+id/width_editText"
+        android:id="@+id/height_editText"
         android:layout_width="370dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="@string/angiv_bredde"
+        android:hint="@string/angiv_hoejde"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/height_editText"
+        app:layout_constraintTop_toBottomOf="@+id/width_editText"
         app:layout_constraintVertical_bias="0.053" />
-
-    <TextView
-        android:id="@+id/width_slider_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/antal_glaspaneler_paa_tvaers"
-        app:layout_constraintBottom_toTopOf="@+id/slider_width"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/slider_height"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <SeekBar
-        android:id="@+id/slider_height"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:thumbTint="@color/orange"
-        app:layout_constraintBottom_toTopOf="@+id/slider_width"
-        app:layout_constraintStart_toStartOf="@+id/button" />
 
     <TextView
         android:id="@+id/height_slider_textView"
@@ -163,37 +143,37 @@
         android:text="@string/antal_glaspaneler_paa_langs"
         app:layout_constraintBottom_toTopOf="@+id/slider_height"
         app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/width_editText"
+        app:layout_constraintTop_toBottomOf="@+id/slider_width"
         app:layout_constraintVertical_bias="1.0" />
 
     <SeekBar
         android:id="@+id/slider_width"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:thumbTint="@color/orange"
+        app:layout_constraintBottom_toTopOf="@+id/slider_height"
+        app:layout_constraintStart_toStartOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/width_slider_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/antal_glaspaneler_paa_tvaers"
+        app:layout_constraintBottom_toTopOf="@+id/slider_width"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/height_editText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SeekBar
+        android:id="@+id/slider_height"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:thumbTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="@+id/button" />
-
-    <TextView
-        android:id="@+id/panel_width_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:text="@string/panel_bredde"
-        app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
-
-    <TextView
-        android:id="@+id/display_panel_width"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="148dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/panel_width_textView"
-        app:layout_constraintTop_toBottomOf="@+id/panel_width_textView" />
 
     <TextView
         android:id="@+id/panel_height_textView"
@@ -209,11 +189,31 @@
         android:id="@+id/display_panel_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="148dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/panel_width_textView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/panel_height_textView"
         app:layout_constraintTop_toBottomOf="@+id/panel_height_textView" />
+
+    <TextView
+        android:id="@+id/panel_width_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:text="@string/panel_bredde"
+        app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
+
+    <TextView
+        android:id="@+id/display_panel_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/panel_height_textView"
+        app:layout_constraintStart_toStartOf="@+id/panel_width_textView"
+        app:layout_constraintTop_toBottomOf="@+id/panel_width_textView" />
 
     <Button
         android:id="@+id/button"
@@ -231,16 +231,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/display_panel_count_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/height_slider_textView"
-        app:layout_constraintStart_toEndOf="@+id/height_slider_textView" />
-
-    <TextView
         android:id="@+id/display_panel_count_width"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -249,5 +239,15 @@
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
         app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
+
+    <TextView
+        android:id="@+id/display_panel_count_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/height_slider_textView"
+        app:layout_constraintStart_toEndOf="@+id/height_slider_textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
