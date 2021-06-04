@@ -47,6 +47,7 @@ public class Wall  implements Serializable{
     private double wallHeight;
     private double wallWidth;
     private double wallPrice;
+    private double numberOfPanels;
 
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
@@ -105,6 +106,11 @@ public class Wall  implements Serializable{
         notifyObservers();
     }
 
+    public void totalPanels(int panelsInHeight, int panelsInWidth){
+
+        numberOfPanels = panelsInHeight * panelsInWidth;
+
+    }
 
 
     //<editor-folddesc="Getters">
