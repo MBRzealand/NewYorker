@@ -68,8 +68,7 @@ public class Wall  implements Serializable{
 
     public void calculateWallPrice() {
         if (wallHeight > 0 && wallWidth > 0) {
-            wallPrice = ((wallHeight / STANDARD_GLASS_HEIGHT) * (wallWidth / STANDARD_GLASS_WIDTH)) * GLASS_PANEL_PRICE + DELIVERY_FEE;
-
+            wallPrice = numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE;
             notifyObservers();
         }
     }
@@ -79,7 +78,7 @@ public class Wall  implements Serializable{
     public void calculateWallPrice(int doorIndex, int handleIndex, int glassIndex) {
 
         if (wallHeight > 0 && wallWidth > 0) {
-            wallPrice = ((wallHeight / STANDARD_GLASS_HEIGHT) * (wallWidth / STANDARD_GLASS_WIDTH)) * GLASS_PANEL_PRICE + DELIVERY_FEE;
+            wallPrice = numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE;
         }
 
         if (hasDoor) {
@@ -122,6 +121,7 @@ public class Wall  implements Serializable{
     public void totalPanels(int panelsInHeight, int panelsInWidth){
 
         numberOfPanels = panelsInHeight * panelsInWidth;
+        calculateWallPrice();
 
     }
 
@@ -199,7 +199,6 @@ public class Wall  implements Serializable{
     }
 
 
-
     //<editor-folddesc="Getters">
     public double getWallPrice() {
         return wallPrice;
@@ -272,9 +271,6 @@ public class Wall  implements Serializable{
         this.hasShowerWall = hasShowerWall;
     }
     //</editor-fold>
-
-
-
 
     //<editor-folddesc="Observer implementation">
     //Observer implementation

@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeUIElements() {
+
         heightInput = findViewById(R.id.height_editText);
         widthInput = findViewById(R.id.width_editText);
         textViewMainActivityPrice = findViewById(R.id.textview_price_main_activity);
@@ -137,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
                 display_panel_height.setText(Math.floor(controller.getWall(0).getFinalListOfPanelSizesHeight().get(slider_height.getProgress()) * 10.0) / 10.0 +" CM");
                 int removeCommaFromDouble =  controller.getWall(0).getListOfPanelCountHeight().get(slider_height.getProgress()).intValue();
                 display_panel_count_height.setText(String.valueOf(removeCommaFromDouble));
+                if (!widthInput.getText().toString().isEmpty() && !heightInput.getText().toString().isEmpty()) {
+                    controller.getWall(0).totalPanels(Integer.parseInt(display_panel_count_height.getText().toString()), Integer.parseInt(display_panel_count_width.getText().toString()));
+                }
             }
 
             @Override
@@ -156,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
                 display_panel_width.setText(Math.floor(controller.getWall(0).getFinalListOfPanelSizesWidth().get(slider_width.getProgress()) * 10.0) / 10.0 +" CM");
                 int removeCommaFromDouble =  controller.getWall(0).getListOfPanelCountWidth().get(slider_width.getProgress()).intValue();
                 display_panel_count_width.setText(String.valueOf(removeCommaFromDouble));
+                if (!widthInput.getText().toString().isEmpty() && !heightInput.getText().toString().isEmpty()) {
+                    controller.getWall(0).totalPanels(Integer.parseInt(display_panel_count_height.getText().toString()), Integer.parseInt(display_panel_count_width.getText().toString()));
+                }
             }
 
             @Override

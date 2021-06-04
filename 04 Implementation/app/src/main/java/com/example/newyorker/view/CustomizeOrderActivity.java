@@ -81,6 +81,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
     }
 
     private void  initializeListeners() {
+
         checkBoxDoor.setOnClickListener(new View.OnClickListener() {
 
             @Override
