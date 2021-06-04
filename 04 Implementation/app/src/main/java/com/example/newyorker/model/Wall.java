@@ -28,6 +28,19 @@ public class Wall  implements Serializable{
     transient private static final double SATIN_GLASS_PRICE = 70;
     transient private static final double SOUNDPROOF_GLASS_PRICE = 95;
     transient private static final double ACOUSTIC_PANEL_PRICE = 318;
+    transient private static final double[] DOOR_TYPE = {SINGLE_DOOR_PRICE
+                                                            , DOUBLE_DOOR_PRICE
+                                                            , SINGLE_SLIDING_DOOR_PRICE
+                                                            , DOUBLE_SLIDING_DOOR_PRICE
+                                                            , LARGE_SINGLE_SLIDING_DOOR_PRICE
+                                                            , LARGE_DOUBLE_SLIDING_DOOR_PRICE};
+
+    transient private static final double[] HANDLE_TYPE = {BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
+
+    transient private static final double[] GLASS_TYPE = {ACOUSTIC_PANEL_PRICE
+                                                            ,SATIN_GLASS_PRICE
+                                                            ,SOUNDPROOF_GLASS_PRICE};
+
     //</editor-fold>
 
 
@@ -47,9 +60,52 @@ public class Wall  implements Serializable{
     public void calculateWallPrice() {
         if (wallHeight > 0 && wallWidth > 0) {
             wallPrice = ((wallHeight / STANDARD_GLASS_HEIGHT) * (wallWidth / STANDARD_GLASS_WIDTH)) * GLASS_PANEL_PRICE + DELIVERY_FEE;
+
             notifyObservers();
         }
     }
+
+
+
+    public void calculateWallPrice(int doorIndex, int handleIndex, int glassIndex) {
+
+        if (wallHeight > 0 && wallWidth > 0) {
+            wallPrice = ((wallHeight / STANDARD_GLASS_HEIGHT) * (wallWidth / STANDARD_GLASS_WIDTH)) * GLASS_PANEL_PRICE + DELIVERY_FEE;
+        }
+
+        if (hasDoor) {
+
+            wallPrice += DOOR_TYPE[doorIndex];
+
+            if (hasHandle) {
+                wallPrice += HANDLE_TYPE[handleIndex];
+            }
+
+            if (hasLockbox) {
+                if (doorIndex == 1 ||doorIndex == 3 ||doorIndex == 5) {
+                    wallPrice += (LOCKBOX_PRICE * 2);
+                }
+
+                else {
+                    wallPrice += LOCKBOX_PRICE;
+                }
+            }
+        }
+
+        if (hasSpecialGlass) {
+            wallPrice += (GLASS_TYPE[glassIndex] * numberOfPanels);
+        }
+
+        if (hasWetroom) {
+            wallPrice += (WETROOM_PRICE * numberOfPanels);
+            if (hasShowerWall) {
+                wallPrice += SHOWERWALL_PRICE;
+            }
+        }
+        notifyObservers();
+    }
+
+
 
     //<editor-folddesc="Getters">
     public double getWallPrice() {
@@ -106,9 +162,6 @@ public class Wall  implements Serializable{
         this.hasShowerWall = hasShowerWall;
     }
     //</editor-fold>
-
-
-
 
 
 
