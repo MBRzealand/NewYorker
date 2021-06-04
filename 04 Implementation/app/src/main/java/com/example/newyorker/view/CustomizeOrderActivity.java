@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -97,7 +98,9 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
 
                 controller.customizeWall((byte) 1, checkBoxDoor.isChecked());
-
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                                                                , spinnerHandles.getSelectedItemPosition()
+                                                                , spinnerSpecialGlass.getSelectedItemPosition());
             }
 
         });
@@ -106,6 +109,9 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 controller.customizeWall((byte) 2, checkBoxLockbox.isChecked());
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
             }
 
         });
@@ -120,6 +126,9 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
                     spinnerHandles.setEnabled(true);
                 }
                 controller.customizeWall((byte) 3, checkBoxHandle.isChecked());
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
             }
 
         });
@@ -136,6 +145,9 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
                 }
 
                 controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
             }
 
         });
@@ -150,6 +162,9 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
                     spinnerSpecialGlass.setEnabled(true);
                 }
                 controller.customizeWall((byte) 5, checkBoxSpecialGlass.isChecked());
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
             }
 
         });
@@ -159,8 +174,53 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 controller.customizeWall((byte) 6, checkBoxShowerWall.isChecked());
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
             }
 
+        });
+
+        spinnerDoors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinnerSpecialGlass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinnerHandles.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
     }
 

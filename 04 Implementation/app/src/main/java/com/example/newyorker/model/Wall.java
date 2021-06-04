@@ -87,7 +87,12 @@ public class Wall  implements Serializable{
             wallPrice += DOOR_TYPE[doorIndex];
 
             if (hasHandle) {
-                wallPrice += HANDLE_TYPE[handleIndex];
+                if (doorIndex == 1 ||doorIndex == 3 ||doorIndex == 5) {
+                    wallPrice += (HANDLE_TYPE[handleIndex] * 2);
+                }
+                else {
+                    wallPrice += HANDLE_TYPE[handleIndex];
+                }
             }
 
             if (hasLockbox) {
