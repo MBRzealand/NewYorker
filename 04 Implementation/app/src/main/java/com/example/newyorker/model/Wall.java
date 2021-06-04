@@ -157,7 +157,7 @@ public class Wall  implements Serializable{
     }
 
 
-    public void calculateWindowPanelWidth(double wallWidth){
+    public void calculateWindowPanelsWidth(double wallWidth){
 
         for (int i = 10; i < wallWidth ; i ++) {
 
@@ -208,6 +208,23 @@ public class Wall  implements Serializable{
     public double getWallWidth() {
         return wallWidth;
     }
+
+    public ArrayList<Double> getFinalListOfPanelSizesHeight() {
+        return finalListOfPanelSizesHeight;
+    }
+
+    public ArrayList<Double> getListOfPanelCountHeight() {
+        return listOfPanelCountHeight;
+    }
+
+    public ArrayList<Double> getFinalListOfPanelSizesWidth() {
+        return finalListOfPanelSizesWidth;
+    }
+
+    public ArrayList<Double> getListOfPanelCountWidth() {
+        return listOfPanelCountWidth;
+    }
+
     //</editor-fold>
 
     //<editor-folddesc="Setters">
@@ -250,10 +267,6 @@ public class Wall  implements Serializable{
         this.hasShowerWall = hasShowerWall;
     }
     //</editor-fold>
-
-
-
-
 
 
 

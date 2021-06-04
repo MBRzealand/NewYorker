@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.newyorker.R;
@@ -26,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textview_height_exception;
     TextView textview_width_exception;
+
+    TextView display_panel_height;
+    TextView display_panel_width;
+    TextView display_panel_count_height;
+    TextView display_panel_count_width;
+
+    SeekBar slider_height;
+    SeekBar slider_width;
 
     InputMethodManager imm;
 
@@ -59,6 +67,15 @@ public class MainActivity extends AppCompatActivity {
         textViewMainActivityPrice = findViewById(R.id.textview_price_main_activity);
         textview_height_exception = findViewById(R.id.textview_height_exception);
         textview_width_exception = findViewById(R.id.textview_width_exception);
+
+        slider_height = findViewById(R.id.slider_height);
+        slider_width = findViewById(R.id.slider_width);
+
+        display_panel_height = findViewById(R.id.display_panel_height);
+        display_panel_width = findViewById(R.id.display_panel_width);
+        display_panel_count_height = findViewById(R.id.display_panel_count_height);
+        display_panel_count_width = findViewById(R.id.display_panel_count_width);
+
     }
 
     private void initializeListeners() {
@@ -71,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!hasFocus) {
                         textview_height_exception.setText(controller.setWallHeight(heightInput.getText().toString()));
+                        controller.getWall(0).calculateWindowPanelsHeight(controller.getWall(0).getWallHeight());
+                        setUpSeekbarHeight();
                     }
 
                     controller.calculateWallPrice();
@@ -86,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
                 if (widthInput.getText() != null) {
                     if (!hasFocus) {
                         textview_width_exception.setText(controller.setWallWidth(widthInput.getText().toString()));
+                        controller.getWall(0).calculateWindowPanelsWidth(controller.getWall(0).getWallWidth());
+                        setUpSeekbarWidth();
                     }
 
                     controller.calculateWallPrice();
@@ -110,6 +131,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        slider_height.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                display_panel_height.setText(Math.floor(controller.getWall(0).getFinalListOfPanelSizesHeight().get(slider_height.getProgress()) * 10.0) / 10.0 +" CM");
+                int removeCommaFromDouble =  controller.getWall(0).getListOfPanelCountHeight().get(slider_height.getProgress()).intValue();
+                display_panel_count_height.setText(String.valueOf(removeCommaFromDouble));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        slider_width.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                display_panel_width.setText(Math.floor(controller.getWall(0).getFinalListOfPanelSizesWidth().get(slider_width.getProgress()) * 10.0) / 10.0 +" CM");
+                int removeCommaFromDouble =  controller.getWall(0).getListOfPanelCountWidth().get(slider_width.getProgress()).intValue();
+                display_panel_count_width.setText(String.valueOf(removeCommaFromDouble));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
     }
@@ -119,6 +177,25 @@ public class MainActivity extends AppCompatActivity {
         widthInput.clearFocus();
     }
 
+
+
+    public void setUpSeekbarHeight(){
+
+        int maxProgress = controller.getWall(0).getListOfPanelCountHeight().size();
+
+        slider_height.setProgress(1);
+        slider_height.setMax(maxProgress-1);
+
+    }
+
+    public void setUpSeekbarWidth(){
+
+        int maxProgress = controller.getWall(0).getListOfPanelCountWidth().size();
+
+        slider_width.setProgress(1);
+        slider_width.setMax(maxProgress-1);
+
+    }
 
 
     public void goToCustomizeOrder(View view) {

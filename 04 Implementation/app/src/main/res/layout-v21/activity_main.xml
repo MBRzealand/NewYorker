@@ -190,7 +190,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="148dp"
-        android:text="@string/_40_cm"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/panel_width_textView"
@@ -211,7 +210,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="@string/_60_cm"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/panel_width_textView"
         app:layout_constraintStart_toStartOf="@+id/panel_height_textView"
@@ -231,5 +229,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/display_panel_count_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/height_slider_textView"
+        app:layout_constraintStart_toEndOf="@+id/height_slider_textView" />
+
+    <TextView
+        android:id="@+id/display_panel_count_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
+        app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
