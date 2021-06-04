@@ -40,8 +40,16 @@ public class Wall  implements Serializable{
     transient private static final double[] GLASS_TYPE = {ACOUSTIC_PANEL_PRICE
                                                             ,SATIN_GLASS_PRICE
                                                             ,SOUNDPROOF_GLASS_PRICE};
+    //</editor-fold
 
-    //</editor-fold>
+    ArrayList<Double> listOfPanelSizesHeight = new ArrayList<>();
+    ArrayList<Double> finalListOfPanelSizesHeight = new ArrayList<>();
+    ArrayList<Double> listOfPanelCountHeight = new ArrayList<>();
+    double actualHeight;
+    ArrayList<Double> listOfPanelSizesWidth = new ArrayList<>();
+    ArrayList<Double> finalListOfPanelSizesWidth = new ArrayList<>();
+    ArrayList<Double> listOfPanelCountWidth = new ArrayList<>();
+    double actualWidth;
 
 
     private double wallHeight;
@@ -111,6 +119,80 @@ public class Wall  implements Serializable{
         numberOfPanels = panelsInHeight * panelsInWidth;
 
     }
+
+    public void calculateWindowPanelsHeight(double wallHeight){
+
+        for (int i = 10; i < wallHeight ; i ++) {
+
+            if (wallHeight % i == 0){
+
+                listOfPanelSizesHeight.add((double) i);
+
+            }
+
+        }
+
+        for (int i = 0; i < listOfPanelSizesHeight.size(); i++) {
+
+            listOfPanelCountHeight.add( wallHeight/ listOfPanelSizesHeight.get(i));
+
+        }
+
+
+        for (int i = 0; i < listOfPanelSizesHeight.size(); i++) {
+
+            actualHeight = wallHeight - ((listOfPanelCountHeight.get(i)-1) * 0.8);
+
+            finalListOfPanelSizesHeight.add(actualHeight / listOfPanelCountHeight.get(i));
+
+        }
+
+        for (int i = 0; i < finalListOfPanelSizesHeight.size(); i++) {
+            if (finalListOfPanelSizesHeight.get(i)< 10 ){
+                finalListOfPanelSizesHeight.remove(i);
+                listOfPanelCountHeight.remove(i);
+            }
+        }
+
+    }
+
+
+    public void calculateWindowPanelWidth(double wallWidth){
+
+        for (int i = 10; i < wallWidth ; i ++) {
+
+            if (wallWidth % i == 0){
+
+                listOfPanelSizesWidth.add((double) i);
+
+            }
+
+        }
+
+        for (int i = 0; i < listOfPanelSizesWidth.size(); i++) {
+
+            listOfPanelCountWidth.add( wallWidth/ listOfPanelSizesWidth.get(i));
+
+        }
+
+
+        for (int i = 0; i < listOfPanelSizesWidth.size(); i++) {
+
+            actualWidth = wallWidth - ((listOfPanelCountWidth.get(i)-1) * 0.8);
+
+            finalListOfPanelSizesWidth.add(actualWidth / listOfPanelCountWidth.get(i));
+
+        }
+
+        for (int i = 0; i < finalListOfPanelSizesWidth.size(); i++) {
+            if (finalListOfPanelSizesWidth.get(i)< 10 ){
+                finalListOfPanelSizesWidth.remove(i);
+                listOfPanelCountWidth.remove(i);
+            }
+        }
+
+    }
+
 
 
     //<editor-folddesc="Getters">
