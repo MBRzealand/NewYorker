@@ -27,6 +27,7 @@
         <item>Skydedør (enkelt)</item>
         <item>Skydedør (dobbelt)</item>
         <item>Skydedør (stor)</item>
+        <item>Skydedør (stor dobbelt)</item>
     </string-array>
 
     <string-array name="handle_array">
