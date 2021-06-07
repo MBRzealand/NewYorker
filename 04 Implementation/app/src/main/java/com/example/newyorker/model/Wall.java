@@ -4,6 +4,7 @@ package com.example.newyorker.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Wall  implements Serializable{
 
@@ -28,12 +29,34 @@ public class Wall  implements Serializable{
     transient private static final double SATIN_GLASS_PRICE = 70;
     transient private static final double SOUNDPROOF_GLASS_PRICE = 95;
     transient private static final double ACOUSTIC_PANEL_PRICE = 318;
-    //</editor-fold>
+    transient private static final double[] DOOR_TYPE = {SINGLE_DOOR_PRICE
+                                                            , DOUBLE_DOOR_PRICE
+                                                            , SINGLE_SLIDING_DOOR_PRICE
+                                                            , DOUBLE_SLIDING_DOOR_PRICE
+                                                            , LARGE_SINGLE_SLIDING_DOOR_PRICE
+                                                            , LARGE_DOUBLE_SLIDING_DOOR_PRICE};
+
+    transient private static final double[] HANDLE_TYPE = {BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
+
+    transient private static final double[] GLASS_TYPE = {ACOUSTIC_PANEL_PRICE
+                                                            ,SATIN_GLASS_PRICE
+                                                            ,SOUNDPROOF_GLASS_PRICE};
+    //</editor-fold
+
+    ArrayList<Double> listOfPanelSizesHeight = new ArrayList<>();
+    ArrayList<Double> finalListOfPanelSizesHeight = new ArrayList<>();
+    ArrayList<Double> listOfPanelCountHeight = new ArrayList<>();
+    double actualHeight;
+    ArrayList<Double> listOfPanelSizesWidth = new ArrayList<>();
+    ArrayList<Double> finalListOfPanelSizesWidth = new ArrayList<>();
+    ArrayList<Double> listOfPanelCountWidth = new ArrayList<>();
+    double actualWidth;
 
 
     private double wallHeight;
     private double wallWidth;
     private double wallPrice;
+    private double numberOfPanels;
 
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
@@ -46,10 +69,150 @@ public class Wall  implements Serializable{
 
     public void calculateWallPrice() {
         if (wallHeight > 0 && wallWidth > 0) {
-            wallPrice = ((wallHeight / STANDARD_GLASS_HEIGHT) * (wallWidth / STANDARD_GLASS_WIDTH)) * GLASS_PANEL_PRICE + DELIVERY_FEE;
+            wallPrice = numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE;
             notifyObservers();
         }
     }
+
+
+
+    public void calculateWallPrice(int doorIndex, int handleIndex, int glassIndex) {
+
+        if (wallHeight > 0 && wallWidth > 0) {
+            wallPrice = numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE;
+        }
+
+        if (hasDoor) {
+
+            wallPrice += DOOR_TYPE[doorIndex];
+
+            if (hasHandle) {
+                if (doorIndex == 1 ||doorIndex == 3 ||doorIndex == 5) {
+                    wallPrice += (HANDLE_TYPE[handleIndex] * 2);
+                }
+                else {
+                    wallPrice += HANDLE_TYPE[handleIndex];
+                }
+            }
+
+            if (hasLockbox) {
+                if (doorIndex == 1 ||doorIndex == 3 ||doorIndex == 5) {
+                    wallPrice += (LOCKBOX_PRICE * 2);
+                }
+
+                else {
+                    wallPrice += LOCKBOX_PRICE;
+                }
+            }
+        }
+
+        if (hasSpecialGlass) {
+            wallPrice += (GLASS_TYPE[glassIndex] * numberOfPanels);
+        }
+
+        if (hasWetroom) {
+            wallPrice += (WETROOM_PRICE * numberOfPanels);
+            if (hasShowerWall) {
+                wallPrice += SHOWERWALL_PRICE;
+            }
+        }
+        notifyObservers();
+    }
+
+    public void totalPanels(int panelsInHeight, int panelsInWidth){
+
+        numberOfPanels = panelsInHeight * panelsInWidth;
+        calculateWallPrice();
+
+    }
+
+    public void calculateWindowPanelsHeight(double wallHeight){
+
+        listOfPanelCountHeight.clear();
+        listOfPanelSizesHeight.clear();
+        finalListOfPanelSizesHeight.clear();
+
+        for (int i = 10; i < wallHeight ; i ++) {
+
+            if (wallHeight % i == 0){
+
+                listOfPanelSizesHeight.add((double) i);
+
+            }
+
+        }
+
+        for (int i = 0; i < listOfPanelSizesHeight.size(); i++) {
+
+            listOfPanelCountHeight.add( wallHeight/ listOfPanelSizesHeight.get(i));
+
+        }
+
+
+        for (int i = 0; i < listOfPanelSizesHeight.size(); i++) {
+
+            actualHeight = wallHeight - ((listOfPanelCountHeight.get(i)-1) * 0.8);
+
+            finalListOfPanelSizesHeight.add(actualHeight / listOfPanelCountHeight.get(i));
+
+        }
+
+        for (int i = 0; i < finalListOfPanelSizesHeight.size(); i++) {
+            if (finalListOfPanelSizesHeight.get(i)< 10 ){
+                finalListOfPanelSizesHeight.remove(i);
+                listOfPanelCountHeight.remove(i);
+            }
+        }
+
+        Collections.reverse(finalListOfPanelSizesHeight);
+        Collections.reverse(listOfPanelCountHeight);
+
+    }
+
+
+    public void calculateWindowPanelsWidth(double wallWidth){
+
+        listOfPanelCountWidth.clear();
+        listOfPanelSizesWidth.clear();
+        finalListOfPanelSizesWidth.clear();
+
+        for (int i = 10; i < wallWidth ; i ++) {
+
+            if (wallWidth % i == 0){
+
+                listOfPanelSizesWidth.add((double) i);
+
+            }
+
+        }
+
+        for (int i = 0; i < listOfPanelSizesWidth.size(); i++) {
+
+            listOfPanelCountWidth.add( wallWidth/ listOfPanelSizesWidth.get(i));
+
+        }
+
+
+        for (int i = 0; i < listOfPanelSizesWidth.size(); i++) {
+
+            actualWidth = wallWidth - ((listOfPanelCountWidth.get(i)-1) * 0.8);
+
+            finalListOfPanelSizesWidth.add(actualWidth / listOfPanelCountWidth.get(i));
+
+        }
+
+        for (int i = 0; i < finalListOfPanelSizesWidth.size(); i++) {
+            if (finalListOfPanelSizesWidth.get(i)< 10 ){
+                finalListOfPanelSizesWidth.remove(i);
+                listOfPanelCountWidth.remove(i);
+            }
+        }
+
+        Collections.reverse(finalListOfPanelSizesWidth);
+        Collections.reverse(listOfPanelCountWidth);
+
+    }
+
 
     //<editor-folddesc="Getters">
     public double getWallPrice() {
@@ -64,6 +227,23 @@ public class Wall  implements Serializable{
     public double getWallWidth() {
         return wallWidth;
     }
+
+    public ArrayList<Double> getFinalListOfPanelSizesHeight() {
+        return finalListOfPanelSizesHeight;
+    }
+
+    public ArrayList<Double> getListOfPanelCountHeight() {
+        return listOfPanelCountHeight;
+    }
+
+    public ArrayList<Double> getFinalListOfPanelSizesWidth() {
+        return finalListOfPanelSizesWidth;
+    }
+
+    public ArrayList<Double> getListOfPanelCountWidth() {
+        return listOfPanelCountWidth;
+    }
+
     //</editor-fold>
 
     //<editor-folddesc="Setters">
@@ -105,17 +285,24 @@ public class Wall  implements Serializable{
     public void setHasShowerWall(boolean hasShowerWall) {
         this.hasShowerWall = hasShowerWall;
     }
+
+    public void setFinalListOfPanelSizesHeight(ArrayList<Double> finalListOfPanelSizesHeight) {
+        this.finalListOfPanelSizesHeight = finalListOfPanelSizesHeight;
+    }
+
+    public void setListOfPanelCountHeight(ArrayList<Double> listOfPanelCountHeight) {
+        this.listOfPanelCountHeight = listOfPanelCountHeight;
+    }
+
+    public void setFinalListOfPanelSizesWidth(ArrayList<Double> finalListOfPanelSizesWidth) {
+        this.finalListOfPanelSizesWidth = finalListOfPanelSizesWidth;
+    }
+
+    public void setListOfPanelCountWidth(ArrayList<Double> listOfPanelCountWidth) {
+        this.listOfPanelCountWidth = listOfPanelCountWidth;
+    }
+
     //</editor-fold>
-
-
-
-
-
-
-
-
-
-
 
     //<editor-folddesc="Observer implementation">
     //Observer implementation

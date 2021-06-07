@@ -13,7 +13,7 @@
         android:layout_marginTop="56dp"
         android:text="@string/opret_ordre"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/height_editText"
+        app:layout_constraintEnd_toEndOf="@+id/width_editText"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/height_editText"
+        android:id="@+id/width_editText"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -47,23 +47,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vaeg_bredde"
-        app:layout_constraintBottom_toTopOf="@+id/height_editText"
+        app:layout_constraintBottom_toTopOf="@+id/width_editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.003"
-        app:layout_constraintStart_toStartOf="@+id/height_editText" />
+        app:layout_constraintStart_toStartOf="@+id/width_editText" />
 
     <TextView
         android:id="@+id/height_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vaeg_hoejde"
-        app:layout_constraintBottom_toTopOf="@+id/width_editText"
+        app:layout_constraintBottom_toTopOf="@+id/height_editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/width_editText" />
+        app:layout_constraintStart_toStartOf="@+id/height_editText" />
 
     <EditText
-        android:id="@+id/width_editText"
+        android:id="@+id/height_editText"
         android:layout_width="330dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
@@ -73,44 +73,44 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/height_editText"
+        app:layout_constraintTop_toBottomOf="@+id/width_editText"
         app:layout_constraintVertical_bias="0.056" />
-
-    <TextView
-        android:id="@+id/width_slider_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/antal_glaspaneler_paa_tvaers"
-        app:layout_constraintBottom_toTopOf="@+id/slider_width"
-        app:layout_constraintStart_toStartOf="@+id/slider_width"
-        app:layout_constraintTop_toBottomOf="@+id/slider_height"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <SeekBar
-        android:id="@+id/slider_height"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginBottom="48dp"
-        android:thumbTint="@color/orange"
-        app:layout_constraintBottom_toTopOf="@+id/slider_width"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/height_slider_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="@string/antal_glaspaneler_paa_langs"
+        android:text="@string/antal_glaspaneler_paa_tvaers"
         app:layout_constraintBottom_toTopOf="@+id/slider_height"
         app:layout_constraintStart_toStartOf="@+id/slider_height"
-        app:layout_constraintTop_toBottomOf="@+id/width_editText"
+        app:layout_constraintTop_toBottomOf="@+id/slider_width"
         app:layout_constraintVertical_bias="1.0" />
 
     <SeekBar
         android:id="@+id/slider_width"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginBottom="48dp"
+        android:thumbTint="@color/orange"
+        app:layout_constraintBottom_toTopOf="@+id/slider_height"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/width_slider_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/antal_glaspaneler_paa_langs"
+        app:layout_constraintBottom_toTopOf="@+id/slider_width"
+        app:layout_constraintStart_toStartOf="@+id/slider_width"
+        app:layout_constraintTop_toBottomOf="@+id/height_editText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SeekBar
+        android:id="@+id/slider_height"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -121,32 +121,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/panel_width_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:text="@string/panel_bredde"
-        app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
-        app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
-
-    <TextView
-        android:id="@+id/display_panel_width"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="148dp"
-        android:text="@string/_40_cm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/panel_width_textView"
-        app:layout_constraintTop_toBottomOf="@+id/panel_width_textView" />
-
-    <TextView
         android:id="@+id/panel_height_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
-        android:text="@string/panel_hoejde"
+        android:text="@string/panel_bredde"
         app:layout_constraintBaseline_toBaselineOf="@+id/height_slider_textView"
         app:layout_constraintStart_toEndOf="@+id/height_slider_textView" />
 
@@ -154,11 +134,29 @@
         android:id="@+id/display_panel_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/_60_cm"
-        app:layout_constraintBottom_toTopOf="@+id/panel_width_textView"
+        android:layout_marginBottom="148dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/panel_height_textView"
         app:layout_constraintTop_toBottomOf="@+id/panel_height_textView" />
+
+    <TextView
+        android:id="@+id/panel_width_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:text="@string/panel_hoejde"
+        app:layout_constraintBaseline_toBaselineOf="@+id/width_slider_textView"
+        app:layout_constraintStart_toEndOf="@+id/width_slider_textView" />
+
+    <TextView
+        android:id="@+id/display_panel_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/panel_height_textView"
+        app:layout_constraintStart_toStartOf="@+id/panel_width_textView"
+        app:layout_constraintTop_toBottomOf="@+id/panel_width_textView" />
 
     <Button
         android:id="@+id/button"
