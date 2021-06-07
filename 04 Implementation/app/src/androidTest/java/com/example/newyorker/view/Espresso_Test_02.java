@@ -41,7 +41,7 @@ public class Espresso_Test_02 {
     @Test
     public void espresso_Test_02() {
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.height_editText),
+                allOf(withId(R.id.width_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -51,7 +51,7 @@ public class Espresso_Test_02 {
         appCompatEditText.perform(click());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.height_editText),
+                allOf(withId(R.id.width_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -61,7 +61,7 @@ public class Espresso_Test_02 {
         appCompatEditText2.perform(replaceText("10.8"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.height_editText), withText("10.8"),
+                allOf(withId(R.id.width_editText), withText("10.8"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -71,7 +71,7 @@ public class Espresso_Test_02 {
         appCompatEditText3.perform(pressImeActionButton());
 
         ViewInteraction appCompatEditText4 = onView(
-                allOf(withId(R.id.width_editText),
+                allOf(withId(R.id.height_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -81,7 +81,7 @@ public class Espresso_Test_02 {
         appCompatEditText4.perform(replaceText("10.8"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText5 = onView(
-                allOf(withId(R.id.width_editText), withText("10.8"),
+                allOf(withId(R.id.height_editText), withText("10.8"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

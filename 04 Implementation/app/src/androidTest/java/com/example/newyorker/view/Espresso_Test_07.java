@@ -39,7 +39,7 @@ public class Espresso_Test_07 {
     @Test
     public void espresso_Test_07() {
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.height_editText),
+                allOf(withId(R.id.width_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -49,7 +49,7 @@ public class Espresso_Test_07 {
         appCompatEditText.perform(click());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.height_editText),
+                allOf(withId(R.id.width_editText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -59,7 +59,7 @@ public class Espresso_Test_07 {
         appCompatEditText2.perform(pressImeActionButton());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textview_height_exception), withText("Mangler højde"),
+                allOf(withId(R.id.textview_width_exception), withText("Mangler højde"),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
         textView.check(matches(withText("Mangler højde")));
