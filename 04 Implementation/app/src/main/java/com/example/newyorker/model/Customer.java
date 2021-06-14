@@ -10,8 +10,10 @@ public class Customer implements Serializable {
     private String customerAddress;
     private String customerNotes;
 
-
-
+    /**
+     * This method returns a String containing the customerName
+     * @return customerName
+     */
     public String getCustomerName() {
         return customerName;
     }

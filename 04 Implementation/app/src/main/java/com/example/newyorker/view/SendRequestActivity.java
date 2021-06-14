@@ -28,8 +28,6 @@ public class SendRequestActivity extends AppCompatActivity {
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
         initializeUIElements();
-        // initializeListeners();
-
     }
 
 
@@ -55,55 +53,5 @@ public class SendRequestActivity extends AppCompatActivity {
        customerZIPCode = findViewById(R.id.editText_zip_code);
        notes = findViewById(R.id.editText_notes);
     }
-
-    /*private void initializeListeners() {
-
-        customerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerName.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerName(customerName.getText().toString());
-                    }
-                }
-            }
-        });
-        customerPhoneNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerPhoneNumber.getText() != null) {
-                    if (!hasFocus) {
-                       customer.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
-                    }
-                }
-            }
-        });
-        customerZIPCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerZIPCode.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerZIPCode(customerZIPCode.getText().toString());
-                    }
-                }
-            }
-        });
-        customerEmailAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerEmailAddress.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerEmailAddress(customerEmailAddress.getText().toString());
-                    }
-                }
-            }
-        });
-        customerAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerAddress.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerAddress(customerAddress.getText().toString());
-                    }
-                }
-            }
-        });
-    }
-*/
 
 }

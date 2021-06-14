@@ -1,72 +1,26 @@
 package com.example.newyorker.view;
-import android.content.Intent;
-import android.net.Uri;
-
-
 import com.example.newyorker.model.Customer;
 import com.example.newyorker.model.Wall;
-
+import com.sendgrid.*;
+import java.io.IOException;
 import java.io.Serializable;
-import java.util.Properties;
 
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 
 public class Email implements Serializable {
     private final String toNewYorker = "NYWallBuilder@gmail.com";
-    private final String passWord = "cdXpu5LFJsaWTRi";
-
     private final String subject = "Forespørgsel New Yorker væg";
-
-    private Message prepareMessage(Session session, String myAccountEmail, String recepient, String body){
-
-        try {
-
-
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(myAccountEmail));
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("this shit is jank AF");
-            message.setText(body);
-            return message;
+    private final String API_KEY = "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";
 
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public void sendEmail(String forhandler, Customer customer, Wall wall) throws Exception {
-
-        Properties properties = new Properties();
-
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
-
-        Session session = Session.getInstance(properties, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(toNewYorker, passWord);
-            }
-        });
+    public void sendEmail(String forhandler, Customer customer, Wall wall) throws IOException {
 
 
 
 
-        /*String[] to = {forhandler};
-        String[] cc = {toNewYorker};*/
+        String[] to = {forhandler};
+        String[] cc = {toNewYorker};
 
         String body = "Kunde navn: " + customer.getCustomerName() +
                 "\nKunde E-mail: " + customer.getCustomerEmailAddress() +
@@ -79,9 +33,27 @@ public class Email implements Serializable {
                 "\n\n" + "Kunde Noter: " +
                 "\n"+customer.getCustomerNotes();
 
-        Message message = prepareMessage(session, toNewYorker, forhandler, "body");
-        Transport.send(message);
 
+
+        com.sendgrid.Email from = new com.sendgrid.Email(forhandler);
+        String subject = "Sending with SendGrid is Fun";
+        com.sendgrid.Email til = new com.sendgrid.Email("hjordrup96@live.dk");
+        Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+        Mail mail = new Mail(from, subject, til, content);
+
+        SendGrid sg = new SendGrid(API_KEY);
+        Request request = new Request();
+        try {
+            request.setMethod(Method.POST);
+            request.setEndpoint("mail/send");
+            request.setBody(mail.build());
+            Response response = sg.api(request);
+            System.out.println(response.getStatusCode());
+            System.out.println(response.getBody());
+            System.out.println(response.getHeaders());
+        } catch (IOException ex) {
+            throw ex;
+        }
 
         /*Intent email = new Intent(Intent.ACTION_SENDTO);
         email.setData(Uri.parse("mailto:")); // only email apps should handle this
