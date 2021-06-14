@@ -215,4 +215,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToCatalogue(View view) {    // delete this shit
+
+        clearFocus();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, CatalogueActivity.class);
+        intent.putExtra("controller", controller);
+        startActivity(intent);
+
+    }
 }
