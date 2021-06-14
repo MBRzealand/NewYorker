@@ -34,7 +34,7 @@ public class SendRequestActivity extends AppCompatActivity {
 
 
 
-    public void sendRequest(View view) {
+    public void sendRequest(View view) throws Exception {
         controller.setCustomerName(customerName.getText().toString());
         controller.setCustomerZIPCode(customerZIPCode.getText().toString());
         controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
@@ -42,7 +42,7 @@ public class SendRequestActivity extends AppCompatActivity {
         controller.setCustomerAddress(customerAddress.getText().toString());
         controller.setCustomerNotes(notes.getText().toString());
         
-        startActivity(email.sendEmail("hjordrup96@live.dk", controller.getCustomer(), controller.getWall(0)));
+        email.sendEmail("hjordrup96@live.dk", controller.getCustomer(), controller.getWall(0));
 
     }
 
