@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     InputMethodManager imm;
 
-    NYBuilderController controller = new NYBuilderController();
+    NYBuilderController controller;
 
 
 
@@ -50,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
 
         initializeUIElements();
         initializeListeners();
+
+        /* It gets an intent from previewOrder if the user adds a new wall.
+           If an intent is null, then it is the beginning of the app.*/
+        if (getIntent().getSerializableExtra("controller") != null) {
+            Intent intent = getIntent();
+            controller = (NYBuilderController) intent.getSerializableExtra("controller");
+        } else {
+            controller = new NYBuilderController();
+        }
 
         controller.newWall();
 

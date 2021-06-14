@@ -33,6 +33,10 @@ public class NYBuilderController implements Serializable {
         return this.wall;
     }
 
+    public int getSizeOfListOfWalls() {
+        return specifications.getSizeOfListOfWalls();
+    }
+
     public Customer getCustomer() {
         return customer;
     }
@@ -198,6 +202,10 @@ public class NYBuilderController implements Serializable {
 
     public double getWallPrice() {
         return Math.round(wall.getWallPrice() * 100.0) / 100.0;
+    }
+
+    public double getTotalPrice() {
+        return Math.round(specifications.getTotalPrice() * 100.0) / 100.0;
     }
 
     //<editor-folddesc="Regex">
