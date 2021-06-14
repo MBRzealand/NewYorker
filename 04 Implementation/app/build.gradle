@@ -44,5 +44,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.test:rules:1.4.0-beta01'
     implementation 'com.sendgrid:sendgrid-java:4.0.1'
+    implementation files('libs/additionnal.jar')
+    implementation files('libs/activation.jar')
+    implementation files('libs/mail.jar')
 
 }
