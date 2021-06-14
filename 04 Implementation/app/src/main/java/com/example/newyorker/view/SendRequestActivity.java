@@ -28,19 +28,21 @@ public class SendRequestActivity extends AppCompatActivity {
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
         initializeUIElements();
+        // initializeListeners();
+
     }
 
 
 
-    public void sendRequest(View view) throws Exception {
-        controller.setCustomerName(customerName.getText().toString());
+    public void sendRequest(View view) {
+        /*controller.setCustomerName(customerName.getText().toString());
         controller.setCustomerZIPCode(customerZIPCode.getText().toString());
         controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
         controller.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
         controller.setCustomerAddress(customerAddress.getText().toString());
-        controller.setCustomerNotes(notes.getText().toString());
+        controller.setCustomerNotes(notes.getText().toString());*/
         
-        email.sendEmail("hjordrup96@live.dk", controller.getCustomer(), controller.getWall(0));
+        email.sendEmail();
 
     }
 
@@ -53,5 +55,55 @@ public class SendRequestActivity extends AppCompatActivity {
        customerZIPCode = findViewById(R.id.editText_zip_code);
        notes = findViewById(R.id.editText_notes);
     }
+
+    /*private void initializeListeners() {
+
+        customerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (customerName.getText() != null) {
+                    if (!hasFocus) {
+                        customer.setCustomerName(customerName.getText().toString());
+                    }
+                }
+            }
+        });
+        customerPhoneNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (customerPhoneNumber.getText() != null) {
+                    if (!hasFocus) {
+                       customer.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
+                    }
+                }
+            }
+        });
+        customerZIPCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (customerZIPCode.getText() != null) {
+                    if (!hasFocus) {
+                        customer.setCustomerZIPCode(customerZIPCode.getText().toString());
+                    }
+                }
+            }
+        });
+        customerEmailAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (customerEmailAddress.getText() != null) {
+                    if (!hasFocus) {
+                        customer.setCustomerEmailAddress(customerEmailAddress.getText().toString());
+                    }
+                }
+            }
+        });
+        customerAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (customerAddress.getText() != null) {
+                    if (!hasFocus) {
+                        customer.setCustomerAddress(customerAddress.getText().toString());
+                    }
+                }
+            }
+        });
+    }
+*/
 
 }
