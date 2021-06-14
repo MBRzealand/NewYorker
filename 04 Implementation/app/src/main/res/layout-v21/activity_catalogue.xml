@@ -7,7 +7,7 @@
     tools:context=".view.CatalogueActivity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/Button_select_wall"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -26,7 +26,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
         android:gravity="bottom"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/Button_select_wall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -71,6 +71,7 @@
                     android:id="@+id/doer_m_6_glas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="SelectDoer6Glas"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/doer_m_6_glas" />
 
