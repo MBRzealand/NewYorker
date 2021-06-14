@@ -19,6 +19,14 @@ public class CatalogueActivity extends AppCompatActivity {
     ImageView to_fag_8_glas;
     ImageView to_fag_6_glas;
     ImageView doer_6_glas;
+    ImageView dobbeltdoer_m_12_glas;
+    ImageView skydedoer_m_6_glas;
+    ImageView tre_fag_m_enkeltdoer_m_12_glas;
+    ImageView fire_fag_m_dobbeltdoer_m_16_glas;
+    ImageView fem_fag_m_enkeltdoer_m_20_glas;
+    ImageView seks_fag_m_enkeltdoer_m_24_glas;
+
+
     Button Button_select_wall;
 
     @Override
@@ -34,10 +42,16 @@ public class CatalogueActivity extends AppCompatActivity {
         to_fag_8_glas = findViewById(R.id.to_fag_8_glas);
         to_fag_6_glas = findViewById(R.id.to_fag_6_glas);
         doer_6_glas = findViewById(R.id.doer_m_6_glas);
+        dobbeltdoer_m_12_glas = findViewById(R.id.dobbeltdoer_m_12_glas);
+        skydedoer_m_6_glas = findViewById(R.id.skydedoer_m_6_glas);
+        tre_fag_m_enkeltdoer_m_12_glas = findViewById(R.id.tre_fag_m_enkeltdoer_m_12_glas);
+        fire_fag_m_dobbeltdoer_m_16_glas = findViewById(R.id.fire_fag_m_dobbeltdoer_m_16_glas);
+        fem_fag_m_enkeltdoer_m_20_glas = findViewById(R.id.fem_fag_m_enkeltdoer_m_20_glas);
+        seks_fag_m_enkeltdoer_m_24_glas = findViewById(R.id.seks_fag_m_enkeltdoer_m_24_glas);
+
         Button_select_wall = findViewById(R.id.Button_select_wall);
 
-        Button_select_wall.setBackgroundColor(getResources().getColor(R.color.grey));
-        Button_select_wall.setEnabled(false);
+        disableNavigationButton();
 
     }
 
@@ -48,6 +62,29 @@ public class CatalogueActivity extends AppCompatActivity {
         to_fag_8_glas.setImageResource(R.mipmap.to_fag_m_8_glas);
         to_fag_6_glas.setImageResource(R.mipmap.to_fag_m_6_glas);
         doer_6_glas.setImageResource(R.mipmap.doer_m_6_glas);
+        dobbeltdoer_m_12_glas.setImageResource(R.mipmap.dobbeltdoer_m_12_glas);
+        skydedoer_m_6_glas.setImageResource(R.mipmap.skydedoer_m_6_glas);
+        tre_fag_m_enkeltdoer_m_12_glas.setImageResource(R.mipmap.tre_fag_m_12_glas_m_enkeltdoer);
+        fire_fag_m_dobbeltdoer_m_16_glas.setImageResource(R.mipmap.fire_fag_m_16_glas_m_dobbeltdoer);
+        fem_fag_m_enkeltdoer_m_20_glas.setImageResource(R.mipmap.fem_fag_m_20_glas_m_enkeltdoer);
+        seks_fag_m_enkeltdoer_m_24_glas.setImageResource(R.mipmap.seks_fag_m_24_glas_m_enkeltdoer);
+
+        et_fag_4_glas.setClickable(true);
+        to_fag_8_glas.setClickable(true);
+        to_fag_6_glas.setClickable(true);
+        doer_6_glas.setClickable(true);
+        dobbeltdoer_m_12_glas.setClickable(true);
+        skydedoer_m_6_glas.setClickable(true);
+        tre_fag_m_enkeltdoer_m_12_glas.setClickable(true);
+        fire_fag_m_dobbeltdoer_m_16_glas.setClickable(true);
+        fem_fag_m_enkeltdoer_m_20_glas.setClickable(true);
+        seks_fag_m_enkeltdoer_m_24_glas.setClickable(true);
+
+    }
+
+    public void disableNavigationButton(){
+        Button_select_wall.setBackgroundColor(getResources().getColor(R.color.grey));
+        Button_select_wall.setEnabled(false);
     }
 
     public void enableNavigationButton(){
@@ -57,6 +94,8 @@ public class CatalogueActivity extends AppCompatActivity {
 
     public void selectEtFag4Glas(View view) {
         clearImageHighlights();
+
+        et_fag_4_glas.setClickable(false);
         et_fag_4_glas.setImageResource(R.mipmap.et_fag_m_4_glas_highlighted);
 
         enableNavigationButton();
@@ -64,6 +103,8 @@ public class CatalogueActivity extends AppCompatActivity {
 
     public void SelectToFag8Glas(View view) {
         clearImageHighlights();
+
+        to_fag_8_glas.setClickable(false);
         to_fag_8_glas.setImageResource(R.mipmap.to_fag_m_8_glas_highlighted);
 
         enableNavigationButton();
@@ -71,6 +112,8 @@ public class CatalogueActivity extends AppCompatActivity {
 
     public void SelectToFag6Glas(View view) {
         clearImageHighlights();
+
+        to_fag_6_glas.setClickable(false);
         to_fag_6_glas.setImageResource(R.mipmap.to_fag_m_6_glas_highlighted);
 
         enableNavigationButton();
@@ -78,7 +121,63 @@ public class CatalogueActivity extends AppCompatActivity {
 
     public void SelectDoer6Glas(View view) {
         clearImageHighlights();
+
+        doer_6_glas.setClickable(false);
         doer_6_glas.setImageResource(R.mipmap.doer_m_6_glas_highlighted);
+
+        enableNavigationButton();
+    }
+
+    public void SelectDobbeltdoer12Glas(View view) {
+        clearImageHighlights();
+
+        dobbeltdoer_m_12_glas.setClickable(false);
+        dobbeltdoer_m_12_glas.setImageResource(R.mipmap.dobbeltdoer_m_12_glas_highlighted);
+
+        enableNavigationButton();
+    }
+
+    public void SelectSkydedoer6Glas(View view) {
+        clearImageHighlights();
+
+        skydedoer_m_6_glas.setClickable(false);
+        skydedoer_m_6_glas.setImageResource(R.mipmap.skydedoer_m_6_glas_highlighted);
+
+        enableNavigationButton();
+    }
+
+    public void SelectTreFagEnkeltdoer12Glas(View view) {
+        clearImageHighlights();
+
+        tre_fag_m_enkeltdoer_m_12_glas.setClickable(false);
+        tre_fag_m_enkeltdoer_m_12_glas.setImageResource(R.mipmap.tre_fag_m_12_glas_m_enkeltdoer_highlighted);
+
+        enableNavigationButton();
+    }
+
+    public void SelectFireFagDobbeltdoer16Glas(View view) {
+        clearImageHighlights();
+
+        fire_fag_m_dobbeltdoer_m_16_glas.setClickable(false);
+        fire_fag_m_dobbeltdoer_m_16_glas.setImageResource(R.mipmap.fire_fag_m_16_glas_m_dobbeltdoer_highlighted);
+
+        enableNavigationButton();
+    }
+
+    public void SelectFemFagEnkeltdoer20Glas(View view) {
+        clearImageHighlights();
+
+        fem_fag_m_enkeltdoer_m_20_glas.setClickable(false);
+        fem_fag_m_enkeltdoer_m_20_glas.setImageResource(R.mipmap.fem_fag_m_20_glas_m_enkeltdoer_highlighted);
+
+        enableNavigationButton();
+    }
+
+    public void SelectSeksFagEnkeltdoer24Glas(View view) {
+        clearImageHighlights();
+
+        seks_fag_m_enkeltdoer_m_24_glas.setClickable(false);
+        seks_fag_m_enkeltdoer_m_24_glas.setImageResource(R.mipmap.seks_fag_m_24_glas_m_enkeltdoer_highlighted);
 
         enableNavigationButton();
     }

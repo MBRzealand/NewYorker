@@ -79,6 +79,7 @@
                     android:id="@+id/dobbeltdoer_m_12_glas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="SelectDobbeltdoer12Glas"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/dobbeltdoer_m_12_glas" />
 
@@ -86,6 +87,7 @@
                     android:id="@+id/skydedoer_m_6_glas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="SelectSkydedoer6Glas"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/skydedoer_m_6_glas" />
 
@@ -93,6 +95,7 @@
                     android:id="@+id/tre_fag_m_enkeltdoer_m_12_glas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="SelectTreFagEnkeltdoer12Glas"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/tre_fag_m_12_glas_m_enkeltdoer" />
 
@@ -100,6 +103,7 @@
                     android:id="@+id/fire_fag_m_dobbeltdoer_m_16_glas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="SelectFireFagDobbeltdoer16Glas"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/fire_fag_m_16_glas_m_dobbeltdoer" />
 
@@ -107,6 +111,7 @@
                     android:id="@+id/fem_fag_m_enkeltdoer_m_20_glas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="SelectFemFagEnkeltdoer20Glas"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/fem_fag_m_20_glas_m_enkeltdoer" />
 
@@ -114,6 +119,7 @@
                     android:id="@+id/seks_fag_m_enkeltdoer_m_24_glas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="SelectSeksFagEnkeltdoer24Glas"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/seks_fag_m_24_glas_m_enkeltdoer" />
 
