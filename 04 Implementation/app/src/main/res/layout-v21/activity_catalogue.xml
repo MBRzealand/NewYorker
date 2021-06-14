@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CatalogueActivity">
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/orange"
+        android:text="vælg væg"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
+        app:iconTint="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="370dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/et_fag_4_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="selectEtFag4Glas"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/et_fag_m_4_glas" />
+
+                <ImageView
+                    android:id="@+id/to_fag_8_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="SelectToFag8Glas"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/to_fag_m_8_glas" />
+
+                <ImageView
+                    android:id="@+id/to_fag_6_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="SelectToFag6Glas"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/to_fag_m_6_glas" />
+
+                <ImageView
+                    android:id="@+id/doer_m_6_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/doer_m_6_glas" />
+
+                <ImageView
+                    android:id="@+id/dobbeltdoer_m_12_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/dobbeltdoer_m_12_glas" />
+
+                <ImageView
+                    android:id="@+id/skydedoer_m_6_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/skydedoer_m_6_glas" />
+
+                <ImageView
+                    android:id="@+id/tre_fag_m_enkeltdoer_m_12_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/tre_fag_m_12_glas_m_enkeltdoer" />
+
+                <ImageView
+                    android:id="@+id/fire_fag_m_dobbeltdoer_m_16_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/fire_fag_m_16_glas_m_dobbeltdoer" />
+
+                <ImageView
+                    android:id="@+id/fem_fag_m_enkeltdoer_m_20_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/fem_fag_m_20_glas_m_enkeltdoer" />
+
+                <ImageView
+                    android:id="@+id/seks_fag_m_enkeltdoer_m_24_glas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/seks_fag_m_24_glas_m_enkeltdoer" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
