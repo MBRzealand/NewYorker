@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
+import com.example.newyorker.model.Email;
 
 public class SendRequestActivity extends AppCompatActivity {
 
@@ -35,14 +36,14 @@ public class SendRequestActivity extends AppCompatActivity {
 
 
     public void sendRequest(View view) {
-        /*controller.setCustomerName(customerName.getText().toString());
+        controller.setCustomerName(customerName.getText().toString());
         controller.setCustomerZIPCode(customerZIPCode.getText().toString());
         controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
         controller.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
         controller.setCustomerAddress(customerAddress.getText().toString());
-        controller.setCustomerNotes(notes.getText().toString());*/
+        controller.setCustomerNotes(notes.getText().toString());
         
-        email.sendEmail();
+        email.sendEmail(controller.getCustomer(), controller.getWall(0));
 
     }
 
