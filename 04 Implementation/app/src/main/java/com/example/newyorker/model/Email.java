@@ -1,5 +1,6 @@
 package com.example.newyorker.model;
 
+
 import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
 import uk.co.jakebreen.sendgridandroid.SendGrid;
@@ -12,7 +13,7 @@ public class Email implements Serializable {
     private final String toNewYorker = "hjordrup96@live.dk";
 
 
-    public void sendEmail(Customer customer, Wall wall){
+    public void sendEmail(Customer customer, Wall wall) {
 
 
         String body = "Kunde navn: " + customer.getCustomerName() +
@@ -31,28 +32,18 @@ public class Email implements Serializable {
         mail.addRecipient("fredrikbille@hotmail.com", "Bitch");
         mail.addRecipientCarbonCopy(toNewYorker, "NewYorker");
         mail.setFrom("NYWallBuilder@gmail.com", "NewYorkerApp");
-        mail.setSubject("Forespørgsel New Yorker væg");
+        mail.setSubject("Forespørgsel på New Yorker væg");
         mail.setContent(body);
 
         SendTask task = new SendTask(sendGrid, mail);
-
-
-        /*try {
+        try {
             SendGridResponse response = task.execute().get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
     }
-
-
-
-
-
-
-
-
 }
 
 

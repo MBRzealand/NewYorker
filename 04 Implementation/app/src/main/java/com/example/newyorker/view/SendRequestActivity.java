@@ -10,6 +10,8 @@ import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
 import com.example.newyorker.model.Email;
 
+import java.io.IOException;
+
 public class SendRequestActivity extends AppCompatActivity {
 
     NYBuilderController controller;
@@ -35,7 +37,7 @@ public class SendRequestActivity extends AppCompatActivity {
 
 
 
-    public void sendRequest(View view) {
+    public void sendRequest(View view) throws IOException {
         controller.setCustomerName(customerName.getText().toString());
         controller.setCustomerZIPCode(customerZIPCode.getText().toString());
         controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
