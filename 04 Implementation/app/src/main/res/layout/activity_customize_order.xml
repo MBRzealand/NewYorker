@@ -67,24 +67,14 @@
 
 
     <CheckBox
-        android:id="@+id/checkbox_lockbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Låsekasse"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        android:buttonTint="@color/orange"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
-
-    <CheckBox
         android:id="@+id/checkbox_handle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="75dp"
+        android:buttonTint="@color/orange"
         android:text="Håndtag"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        android:buttonTint="@color/orange"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_lockbox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
 
     <CheckBox
         android:id="@+id/checkbox_wetroom"

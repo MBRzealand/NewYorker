@@ -100,26 +100,16 @@
         android:text="@string/doer"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-    
-    <CheckBox
-        android:id="@+id/checkbox_lockbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:buttonTint="@color/orange"
-        android:text="@string/laasekasse"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
 
     <CheckBox
         android:id="@+id/checkbox_handle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="75dp"
         android:buttonTint="@color/orange"
         android:text="@string/haandtag"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_lockbox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
 
     <CheckBox
         android:id="@+id/checkbox_wetroom"

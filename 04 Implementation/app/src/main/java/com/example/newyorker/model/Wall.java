@@ -16,20 +16,27 @@ public class Wall  implements Serializable{
 
 
     transient private static final double WETROOM_PRICE = 480;
-    transient private static final double LOCKBOX_PRICE = 500;
     transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
     transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
+    transient private static final double SINGLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE = 2980;
+    transient private static final double DOUBLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE = 5460;
     transient private static final double SINGLE_DOOR_PRICE = 2000;
     transient private static final double DOUBLE_DOOR_PRICE = 4000;
+    transient private static final double SINGLE_DOOR_WITH_LOCKBOX_PRICE = 2500;
+    transient private static final double DOUBLE_DOOR_WITH_LOCKBOX_PRICE = 5000;
     transient private static final double BRASS_HANDLE_PRICE = 500;
     transient private static final double BLACK_HANDLE_PRICE = 250;
     transient private static final double SATIN_GLASS_PRICE = 70;
     transient private static final double SOUNDPROOF_GLASS_PRICE = 95;
     transient private static final double ACOUSTIC_PANEL_PRICE = 318;
     transient private static final double[] DOOR_TYPE = {SINGLE_DOOR_PRICE
+                                                            ,SINGLE_DOOR_WITH_LOCKBOX_PRICE
                                                             , DOUBLE_DOOR_PRICE
+                                                            ,DOUBLE_DOOR_WITH_LOCKBOX_PRICE
                                                             , SINGLE_SLIDING_DOOR_PRICE
-                                                            , DOUBLE_SLIDING_DOOR_PRICE};
+                                                            ,SINGLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE
+                                                            , DOUBLE_SLIDING_DOOR_PRICE
+                                                            ,DOUBLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE};
 
     transient private static final double[] HANDLE_TYPE = {BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
 
@@ -55,7 +62,6 @@ public class Wall  implements Serializable{
 
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
-    private boolean hasLockbox = false;
     private boolean hasHandle = false;
     private boolean hasWetroom = false;
     private boolean hasSpecialGlass = false;
@@ -86,16 +92,6 @@ public class Wall  implements Serializable{
                 }
                 else {
                     wallPrice += HANDLE_TYPE[handleIndex];
-                }
-            }
-
-            if (hasLockbox) {
-                if (doorIndex == 1 ||doorIndex == 3 ||doorIndex == 5) {
-                    wallPrice += (LOCKBOX_PRICE * 2);
-                }
-
-                else {
-                    wallPrice += LOCKBOX_PRICE;
                 }
             }
         }
@@ -256,10 +252,6 @@ public class Wall  implements Serializable{
 
     public void setHasDoor(boolean hasDoor) {
         this.hasDoor = hasDoor;
-    }
-
-    public void setHasLockbox(boolean hasLockbox) {
-        this.hasLockbox = hasLockbox;
     }
 
     public void setHasHandle(boolean hasHandle) {

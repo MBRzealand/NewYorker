@@ -224,8 +224,6 @@ public class NYBuilderController implements Serializable {
         switch (option) {
             case 1: wall.setHasDoor(checked);
             break;
-            case 2: wall.setHasLockbox(checked);
-            break;
             case 3: wall.setHasHandle(checked);
             break;
             case 4: wall.setHasWetroom(checked);

@@ -19,7 +19,6 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
     NYBuilderController controller;
 
     CheckBox checkBoxDoor;
-    CheckBox checkBoxLockbox;
     CheckBox checkBoxHandle;
     CheckBox checkBoxWetRoom;
     CheckBox checkBoxSpecialGlass;
@@ -59,8 +58,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         checkBoxWetRoom = findViewById(R.id.checkbox_wetroom);
         checkBoxSpecialGlass = findViewById(R.id.checkbox_special_glass);
 
-        checkBoxLockbox = findViewById(R.id.checkbox_lockbox);
-        checkBoxLockbox.setEnabled(false);
+
 
         checkBoxHandle = findViewById(R.id.checkbox_handle);
         checkBoxHandle.setEnabled(false);
@@ -85,11 +83,8 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 if (!spinnerDoors.isEnabled())
                     { spinnerDoors.setEnabled(true);
-                    checkBoxLockbox.setEnabled(true);
                     checkBoxHandle.setEnabled(true); }
                 else { spinnerDoors.setEnabled(false);
-                    checkBoxLockbox.setEnabled(false);
-                    checkBoxLockbox.setChecked(false);
                     checkBoxHandle.setEnabled(false);
                     checkBoxHandle.setChecked(false);
                     spinnerHandles.setEnabled(false);}
@@ -103,16 +98,6 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         });
 
-        checkBoxLockbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.customizeWall((byte) 2, checkBoxLockbox.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
-                        , spinnerHandles.getSelectedItemPosition()
-                        , spinnerSpecialGlass.getSelectedItemPosition());
-            }
-
-        });
 
         checkBoxHandle.setOnClickListener(new View.OnClickListener() {
 
