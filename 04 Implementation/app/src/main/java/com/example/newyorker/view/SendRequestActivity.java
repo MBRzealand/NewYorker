@@ -71,6 +71,7 @@ public class SendRequestActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
             uris.add(data.getData());
+
         }
     }
   */
