@@ -10,7 +10,7 @@ import android.widget.EditText;
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
 import com.example.newyorker.model.Email;
-import com.sendgrid.Attachments;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class SendRequestActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE = 0;
+
     NYBuilderController controller;
     Email email = new Email();
     EditText customerName;
@@ -39,7 +39,7 @@ public class SendRequestActivity extends AppCompatActivity {
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
         initializeUIElements();
-        // initializeListeners();
+
 
     }
 

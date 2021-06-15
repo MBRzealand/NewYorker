@@ -20,8 +20,8 @@ public class Wall  implements Serializable{
     transient private static final double LOCKBOX_PRICE = 500;
     transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
     transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
-    transient private static final double LARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
-    transient private static final double LARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
+    //transient private static final double LARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
+    //transient private static final double LARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
     transient private static final double SINGLE_DOOR_PRICE = 2000;
     transient private static final double DOUBLE_DOOR_PRICE = 4000;
     transient private static final double BRASS_HANDLE_PRICE = 500;
@@ -32,9 +32,7 @@ public class Wall  implements Serializable{
     transient private static final double[] DOOR_TYPE = {SINGLE_DOOR_PRICE
                                                             , DOUBLE_DOOR_PRICE
                                                             , SINGLE_SLIDING_DOOR_PRICE
-                                                            , DOUBLE_SLIDING_DOOR_PRICE
-                                                            , LARGE_SINGLE_SLIDING_DOOR_PRICE
-                                                            , LARGE_DOUBLE_SLIDING_DOOR_PRICE};
+                                                            , DOUBLE_SLIDING_DOOR_PRICE};
 
     transient private static final double[] HANDLE_TYPE = {BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
 
