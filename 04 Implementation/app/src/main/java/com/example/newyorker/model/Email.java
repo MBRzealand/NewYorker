@@ -1,7 +1,13 @@
 package com.example.newyorker.model;
 
 
+import android.content.Context;
+import android.net.Uri;
+
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import uk.co.jakebreen.sendgridandroid.SendGrid;
 import uk.co.jakebreen.sendgridandroid.SendGridMail;
@@ -11,10 +17,12 @@ import uk.co.jakebreen.sendgridandroid.SendTask;
 
 public class Email implements Serializable {
     private final String toNewYorker = "hjordrup96@live.dk";
+    private final List<Uri> uris = new ArrayList<>();
 
 
-    public void sendEmail(Customer customer, Wall wall) {
 
+
+    public void sendEmail(Customer customer, Wall wall, List<Uri> uris , Context context) {
 
         String body = "Kunde navn: " + customer.getCustomerName() +
                 "\nKunde E-mail: " + customer.getCustomerEmailAddress() +
@@ -34,6 +42,18 @@ public class Email implements Serializable {
         mail.setFrom("NYWallBuilder@gmail.com", "NewYorkerApp");
         mail.setSubject("Forespørgsel på New Yorker væg");
         mail.setContent(body);
+
+
+       /* try {
+            if (!uris.isEmpty())
+                for (Uri uri : uris)
+                    mail.addAttachment(context.getApplicationContext(), uri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
+
+
 
         SendTask task = new SendTask(sendGrid, mail);
         try {
