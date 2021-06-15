@@ -23,7 +23,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
     CheckBox checkBoxHandle;
     CheckBox checkBoxWetRoom;
     CheckBox checkBoxSpecialGlass;
-    CheckBox checkBoxShowerWall;
+
 
     Spinner spinnerDoors;
     Spinner spinnerHandles;
@@ -64,9 +64,6 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         checkBoxHandle = findViewById(R.id.checkbox_handle);
         checkBoxHandle.setEnabled(false);
-
-        checkBoxShowerWall = findViewById(R.id.checkbox_shower_wall);
-        checkBoxShowerWall.setEnabled(false);
 
         spinnerDoors = findViewById(R.id.spinner_doors);
         spinnerDoors.setEnabled(false);
@@ -134,24 +131,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         });
 
-        checkBoxWetRoom.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                if (checkBoxShowerWall.isEnabled()){
-                    checkBoxShowerWall.setEnabled(false);
-                    checkBoxShowerWall.setChecked(false);
-                }else{
-                    checkBoxShowerWall.setEnabled(true);
-                }
-
-                controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
-                        , spinnerHandles.getSelectedItemPosition()
-                        , spinnerSpecialGlass.getSelectedItemPosition());
-            }
-
-        });
 
         checkBoxSpecialGlass.setOnClickListener(new View.OnClickListener() {
 
@@ -170,17 +150,6 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         });
 
-        checkBoxShowerWall.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                controller.customizeWall((byte) 6, checkBoxShowerWall.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
-                        , spinnerHandles.getSelectedItemPosition()
-                        , spinnerSpecialGlass.getSelectedItemPosition());
-            }
-
-        });
 
         spinnerDoors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -232,8 +232,6 @@ public class NYBuilderController implements Serializable {
             break;
             case 5: wall.setHasSpecialGlass(checked);
             break;
-            case 6: wall.setHasShowerWall(checked);
-            break;
         }
     }
 

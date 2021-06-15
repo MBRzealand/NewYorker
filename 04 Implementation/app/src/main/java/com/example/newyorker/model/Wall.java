@@ -16,12 +16,9 @@ public class Wall  implements Serializable{
 
 
     transient private static final double WETROOM_PRICE = 480;
-    transient private static final double SHOWERWALL_PRICE = 3160;
     transient private static final double LOCKBOX_PRICE = 500;
     transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
     transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
-    //transient private static final double LARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
-    //transient private static final double LARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
     transient private static final double SINGLE_DOOR_PRICE = 2000;
     transient private static final double DOUBLE_DOOR_PRICE = 4000;
     transient private static final double BRASS_HANDLE_PRICE = 500;
@@ -62,7 +59,6 @@ public class Wall  implements Serializable{
     private boolean hasHandle = false;
     private boolean hasWetroom = false;
     private boolean hasSpecialGlass = false;
-    private boolean hasShowerWall = false;
     //</editor-fold>
 
     public void calculateWallPrice() {
@@ -110,9 +106,7 @@ public class Wall  implements Serializable{
 
         if (hasWetroom) {
             wallPrice += (WETROOM_PRICE * numberOfPanels);
-            if (hasShowerWall) {
-                wallPrice += SHOWERWALL_PRICE;
-            }
+
         }
         notifyObservers();
     }
@@ -280,9 +274,7 @@ public class Wall  implements Serializable{
         this.hasSpecialGlass = hasSpecialGlass;
     }
 
-    public void setHasShowerWall(boolean hasShowerWall) {
-        this.hasShowerWall = hasShowerWall;
-    }
+
 
     public void setFinalListOfPanelSizesHeight(ArrayList<Double> finalListOfPanelSizesHeight) {
         this.finalListOfPanelSizesHeight = finalListOfPanelSizesHeight;
