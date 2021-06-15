@@ -58,5 +58,14 @@
     <string name="vaeg_4">væg 4</string>
     <string name="vaeg_1">væg 1</string>
 
+    <string-array name="væg_farve_array">
+        <item>Sort struktur</item>
+        <item>Sort</item>
+        <item>klar lak</item>
+        <item>Grå struktur</item>
+        <item>Lyse grå</item>
+        <item>Hvid struktur</item>
+    </string-array>
+
 
 </resources>
