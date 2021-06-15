@@ -41,17 +41,17 @@
         app:layout_constraintTop_toTopOf="@+id/textview_price_customize_activity" />
 
     <Spinner
-        style="@android:style/Widget.Holo.Light.Spinner"
         android:id="@+id/spinner_doors"
+        style="@android:style/Widget.Holo.Light.Spinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
         android:entries="@array/door_array"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/checkbox_door"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        android:backgroundTint="@color/orange"
         app:layout_constraintTop_toTopOf="@+id/checkbox_door" />
 
     <Button
@@ -158,5 +158,18 @@
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/checkbox_wetroom"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinner_colours"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:entries="@array/væg_farve_array"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_handles"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_doors"
+        app:layout_constraintVertical_bias="0.483" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

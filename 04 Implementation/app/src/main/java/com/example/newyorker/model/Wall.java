@@ -43,6 +43,8 @@ public class Wall  implements Serializable{
     transient private static final double[] GLASS_TYPE = {ACOUSTIC_PANEL_PRICE
                                                             ,SATIN_GLASS_PRICE
                                                             ,SOUNDPROOF_GLASS_PRICE};
+
+
     //</editor-fold
 
     ArrayList<Double> listOfPanelSizesHeight = new ArrayList<>();
@@ -59,6 +61,8 @@ public class Wall  implements Serializable{
     private double wallWidth;
     private double wallPrice;
     private double numberOfPanels;
+    private String wallColour = "Sort Struktur";
+
 
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
@@ -216,6 +220,8 @@ public class Wall  implements Serializable{
         return wallWidth;
     }
 
+    public String getWallColour() { return wallColour; }
+
     public ArrayList<Double> getFinalListOfPanelSizesHeight() {
         return finalListOfPanelSizesHeight;
     }
@@ -246,6 +252,8 @@ public class Wall  implements Serializable{
     public void setWallPrice(double wallPrice) {
         this.wallPrice = wallPrice;
     }
+
+    public void setWallColour(String wallColour) { this.wallColour = wallColour; }
 
 
     // booleans

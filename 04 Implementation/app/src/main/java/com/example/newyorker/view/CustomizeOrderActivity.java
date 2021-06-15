@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -27,6 +28,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
     Spinner spinnerDoors;
     Spinner spinnerHandles;
     Spinner spinnerSpecialGlass;
+    Spinner spinnerWallColour;
 
     TextView textViewCustomizeActivityPrice;
 
@@ -58,8 +60,6 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         checkBoxWetRoom = findViewById(R.id.checkbox_wetroom);
         checkBoxSpecialGlass = findViewById(R.id.checkbox_special_glass);
 
-
-
         checkBoxHandle = findViewById(R.id.checkbox_handle);
         checkBoxHandle.setEnabled(false);
 
@@ -71,6 +71,8 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         spinnerSpecialGlass = findViewById(R.id.spinner_special_glass);
         spinnerSpecialGlass.setEnabled(false);
+
+        spinnerWallColour = findViewById(R.id.spinner_colours);
 
         textViewCustomizeActivityPrice = findViewById(R.id.textview_price_customize_activity);
     }
@@ -177,6 +179,24 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             }
         });
+
+        spinnerWallColour.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                controller.setWallColour(spinnerWallColour.getSelectedItemPosition());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                controller.setWallColour(0);
+            }
+        });
+
+
+
+
+
+
     }
 
     public void goToPreviewActivity(View view) {

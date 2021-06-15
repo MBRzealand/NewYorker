@@ -233,6 +233,27 @@ public class NYBuilderController implements Serializable {
         }
     }
 
+
+
+    public void setWallColour(int index) {
+        switch (index) {
+            case 0: wall.setWallColour("Sort Struktur");
+                break;
+            case 1: wall.setWallColour("Sort");
+                break;
+            case 2: wall.setWallColour("Klar Lak");
+                break;
+            case 3: wall.setWallColour("Grå Struktur");
+                break;
+            case 4: wall.setWallColour("Lyse Grå");
+                break;
+            case 5: wall.setWallColour("Hvid Struktur");
+                break;
+        }
+    }
+
+
+
     public void addWallDataObserver(Observer observer) {
         wall.addDataObserver(observer);
     }
