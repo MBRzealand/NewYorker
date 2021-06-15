@@ -15,6 +15,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:backgroundTint="@color/light_grey"
+        android:onClick="wall3"
         android:text="@string/vaeg_3"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
@@ -32,6 +33,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
         android:backgroundTint="@color/light_grey"
+        android:onClick="wall4"
         android:text="@string/vaeg_4"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
@@ -49,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/orange"
-        android:onClick="newWall"
+        android:onClick="goToMainActivity"
         android:text="@string/tilfoej_vaeg"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
@@ -66,7 +68,7 @@
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:backgroundTint="@color/orange"
-        android:onClick="goToMainActivity"
+        android:onClick="wall1"
         android:text="@string/vaeg_1"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
@@ -86,6 +88,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:backgroundTint="@color/light_grey"
+        android:onClick="wall2"
         android:text="væg 2"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
@@ -155,6 +158,7 @@
         android:backgroundTint="@color/light_grey"
         android:gravity="center"
         android:includeFontPadding="false"
+        android:onClick="getWallDetails"
         android:text="@string/prisoversigt"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
@@ -224,5 +228,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/textview_price_preview_order"
         app:layout_constraintEnd_toEndOf="@+id/button_next"
         app:layout_constraintTop_toTopOf="@+id/textview_price_preview_order" />
+
+    <TextView
+        android:id="@+id/textViewWallDetails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:singleLine="false"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

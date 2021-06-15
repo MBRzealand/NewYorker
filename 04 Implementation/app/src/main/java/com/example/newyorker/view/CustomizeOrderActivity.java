@@ -99,7 +99,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
 
                 controller.customizeWall((byte) 1, checkBoxDoor.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                                                                 , spinnerHandles.getSelectedItemPosition()
                                                                 , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -110,7 +110,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 controller.customizeWall((byte) 2, checkBoxLockbox.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -127,7 +127,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
                     spinnerHandles.setEnabled(true);
                 }
                 controller.customizeWall((byte) 3, checkBoxHandle.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -146,7 +146,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
                 }
 
                 controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -163,7 +163,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
                     spinnerSpecialGlass.setEnabled(true);
                 }
                 controller.customizeWall((byte) 5, checkBoxSpecialGlass.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -175,7 +175,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 controller.customizeWall((byte) 6, checkBoxShowerWall.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -185,7 +185,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         spinnerDoors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -199,7 +199,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         spinnerSpecialGlass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -213,7 +213,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         spinnerHandles.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                controller.getCurrentWall().calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
@@ -229,6 +229,9 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         //Empty list of observers before serializing the object, so we can pass it on to the other activities.
         controller.removeWallObservers();
+        
+        // Its done defining the wall.
+        controller.addWallToList();
 
         Intent intent = new Intent(this, PreviewOrderActivity.class);
         intent.putExtra("controller", controller);

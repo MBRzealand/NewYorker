@@ -56,14 +56,18 @@ public class Wall  implements Serializable{
     private double wallHeight;
     private double wallWidth;
     private double wallPrice;
+    private double[] panelsInWidthHeight = new double[2];
     private double numberOfPanels;
 
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
+    private int doorIndex;
     private boolean hasLockbox = false;
     private boolean hasHandle = false;
+    private int handleIndex;
     private boolean hasWetroom = false;
     private boolean hasSpecialGlass = false;
+    private int glassIndex;
     private boolean hasShowerWall = false;
     //</editor-fold>
 
@@ -74,9 +78,11 @@ public class Wall  implements Serializable{
         }
     }
 
-
-
     public void calculateWallPrice(int doorIndex, int handleIndex, int glassIndex) {
+
+        this.doorIndex = doorIndex;
+        this.handleIndex = handleIndex;
+        this.glassIndex = glassIndex;
 
         if (wallHeight > 0 && wallWidth > 0) {
             wallPrice = numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE;
@@ -121,6 +127,8 @@ public class Wall  implements Serializable{
 
     public void totalPanels(int panelsInHeight, int panelsInWidth){
 
+        panelsInWidthHeight[0] = panelsInWidth;
+        panelsInWidthHeight[1] = panelsInHeight;
         numberOfPanels = panelsInHeight * panelsInWidth;
         calculateWallPrice();
 
@@ -219,13 +227,16 @@ public class Wall  implements Serializable{
         return wallPrice;
     }
 
-
     public double getWallHeight() {
         return wallHeight;
     }
 
     public double getWallWidth() {
         return wallWidth;
+    }
+
+    public double[] getPanelsInWidthHeight() {
+        return panelsInWidthHeight;
     }
 
     public ArrayList<Double> getFinalListOfPanelSizesHeight() {
@@ -258,7 +269,6 @@ public class Wall  implements Serializable{
     public void setWallPrice(double wallPrice) {
         this.wallPrice = wallPrice;
     }
-
 
     // booleans
 
@@ -325,6 +335,84 @@ public class Wall  implements Serializable{
     }
 
 
+    //</editor-fold>
+
+    //<editor-folddesc="Detail getters">
+    public double getPriceDetail() {
+        return (numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE);
+    }
+
+    public boolean hasDoor() {
+        return hasDoor;
+    }
+
+    public String getDoorDetail() {
+        String door = "";
+        switch (doorIndex) {
+            case 0: door = "En normal dør " + DOOR_TYPE[0]; break;
+            case 1: door = "En normal dobbeltdør " + DOOR_TYPE[1]; break;
+            case 2: door = "En skydegør " + DOOR_TYPE[2]; break;
+            case 3: door = "En dobbelt skydedør " + DOOR_TYPE[3]; break;
+            case 4: door = "En stor skydedør " + DOOR_TYPE[4]; break;
+            case 5: door = "En stor dobbelt skydedør " + DOOR_TYPE[5]; break;
+        }
+        return door;
+    }
+
+    public boolean hasHandle() {
+        return hasHandle;
+    }
+
+    public String getHandleDetail() {
+        String handle = "";
+        switch (doorIndex) {
+            case 0: handle = "Et messing håndtag " + HANDLE_TYPE[0]; break;
+            case 1: handle = "Et sort håndtag " + HANDLE_TYPE[1]; break;
+        }
+        return handle;
+    }
+
+    public boolean hasLockbox() {
+        return hasLockbox;
+    }
+
+    public double getLockBoxPriceDetail() {
+        return LOCKBOX_PRICE;
+    }
+
+    public boolean hasSpecialGlass() {
+        return hasSpecialGlass;
+    }
+
+    public String getSpecialGlassDetail() {
+        String specialGlass = "";
+        switch (doorIndex) {
+            case 0: specialGlass = "Akustisk glas " + GLASS_TYPE[0]; break;
+            case 1: specialGlass = "Satin glas " + GLASS_TYPE[1]; break;
+            case 2: specialGlass = "Lydløs glas " + GLASS_TYPE[2]; break;
+        }
+        return specialGlass;
+    }
+
+    public boolean hasWetRoom() {
+        return hasWetroom;
+    }
+
+    public double getWetRoomDetail() {
+        return (WETROOM_PRICE * numberOfPanels);
+    }
+
+    public boolean hasShowerWall() {
+        return hasShowerWall;
+    }
+
+    public double getShowerWallDetail() {
+        return SHOWERWALL_PRICE;
+    }
+
+    public double getDeliveryFeeDetail() {
+        return DELIVERY_FEE;
+    }
     //</editor-fold>
 
 }
