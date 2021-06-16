@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/button_menu_kontakt"
         android:orderInCategory="100"
         android:title="Kontakt" />
     <item
         android:id="@+id/button_menu_preview_page"
-        android:title="Kurv" />
-    <item android:title="Inspiration" />
+        android:title="Indkøbskurv" />
+    <item
+        android:id="@+id/button_menu_katalog"
+        android:title="Katalog" />
 </menu>
