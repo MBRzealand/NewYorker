@@ -229,6 +229,23 @@ public class CatalogueActivity extends AppCompatActivity {
         skydedoer_m_6_glas.setImageResource(R.mipmap.skydedoer_m_6_glas_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "80");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","1");
+        intent.putExtra("panelsInHeightIndex","2");
+        intent.putExtra("hasDoor","true");
+        intent.putExtra("doorType","2");
+        intent.putExtra("hasHandle","true");
+        intent.putExtra("price","10490");
+
+        startActivity(intent);
     }
 
     public void SelectTreFagEnkeltdoer12Glas(View view) {
@@ -238,6 +255,23 @@ public class CatalogueActivity extends AppCompatActivity {
         tre_fag_m_enkeltdoer_m_12_glas.setImageResource(R.mipmap.tre_fag_m_12_glas_m_enkeltdoer_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "75");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","1");
+        intent.putExtra("panelsInHeightIndex","3");
+        intent.putExtra("hasDoor","true");
+        intent.putExtra("doorType","0");
+        intent.putExtra("hasHandle","true");
+        intent.putExtra("price","17275");
+
+        startActivity(intent);
     }
 
     public void SelectFireFagDobbeltdoer16Glas(View view) {

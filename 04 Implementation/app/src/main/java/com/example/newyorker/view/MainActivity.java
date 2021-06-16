@@ -69,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(intent.getStringExtra("height") != null){
 
-            heightInput.setText(intent.getStringExtra("height"));
-            controller.setWallHeight(heightInput.getText().toString());
+            controller.setWallHeight(intent.getStringExtra("height"));
+            heightInput.setText(String.valueOf(controller.getWall(0).getWallHeight()));
+
             controller.getWall(0).calculateWindowPanelsHeight(controller.getWall(0).getWallHeight());
             setUpSeekbarHeight();
             slider_height.setProgress(Integer.parseInt(intent.getStringExtra("panelsInHeightIndex")));
