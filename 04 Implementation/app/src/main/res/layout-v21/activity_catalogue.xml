@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/orange"
+        android:onClick="selectChosenWall"
         android:text="vælg væg"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
