@@ -141,6 +141,19 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         });
 
+        checkBoxWetRoom.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
+                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
+                        , spinnerHandles.getSelectedItemPosition()
+                        , spinnerSpecialGlass.getSelectedItemPosition());
+            }
+
+        });
+
+
 
         spinnerDoors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
