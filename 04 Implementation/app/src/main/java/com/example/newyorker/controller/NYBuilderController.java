@@ -50,10 +50,9 @@ public class NYBuilderController implements Serializable {
                 "\n     Pris: " + wall.getPriceDetail() + "kr.";
         if (wall.hasDoor()) details += "\nDør: " + wall.getDoorDetail() + "kr.";
         if (wall.hasHandle() && wall.hasDoor()) details += "\nHåndtag: " + wall.getHandleDetail() + "kr.";
-        if (wall.hasLockbox() && wall.hasDoor()) details += "\nLåseboks: " + wall.getLockBoxPriceDetail() + "kr.";
+
         if (wall.hasSpecialGlass()) details += "\nSpecielglass: " + wall.getSpecialGlassDetail() + "kr.";
         if (wall.hasWetRoom()) details += "\nVådrum: " + wall.getWetRoomDetail() + "kr.";
-        if (wall.hasShowerWall() && wall.hasWetRoom()) details += "\nBrusevæg: " + wall.getShowerWallDetail() + "kr.";
         details += "\nFrag: " + wall.getDeliveryFeeDetail() + "kr." +
                 "\n\n\nTotal pris: " + wall.getWallPrice() + "kr.";
 
