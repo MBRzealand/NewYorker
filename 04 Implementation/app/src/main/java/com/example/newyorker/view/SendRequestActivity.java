@@ -61,7 +61,7 @@ public class SendRequestActivity extends AppCompatActivity {
         //intent.setType("*/*");
         //startActivityForResult(intent, REQUEST_CODE);
 
-        email.sendEmail(controller.getCustomer(), controller.getWall(0), uris, getApplicationContext() );
+        email.sendEmail(controller.getCustomer(), controller.getCurrentWall(), uris, getApplicationContext() );
     }
 
    /*

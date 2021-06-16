@@ -361,14 +361,6 @@ public class Wall  implements Serializable{
         return handle;
     }
 
-    public boolean hasLockbox() {
-        return hasLockbox;
-    }
-
-    public double getLockBoxPriceDetail() {
-        return LOCKBOX_PRICE;
-    }
-
     public boolean hasSpecialGlass() {
         return hasSpecialGlass;
     }
@@ -389,14 +381,6 @@ public class Wall  implements Serializable{
 
     public double getWetRoomDetail() {
         return (WETROOM_PRICE * numberOfPanels);
-    }
-
-    public boolean hasShowerWall() {
-        return hasShowerWall;
-    }
-
-    public double getShowerWallDetail() {
-        return SHOWERWALL_PRICE;
     }
 
     public double getDeliveryFeeDetail() {

@@ -24,6 +24,7 @@ public class Email implements Serializable {
 
     public void sendEmail(Customer customer, Wall wall, List<Uri> uris , Context context) {
 
+
         String body = "Kunde navn: " + customer.getCustomerName() +
                 "\nKunde E-mail: " + customer.getCustomerEmailAddress() +
                 "\nKunde Tlf: " + customer.getCustomerPhoneNumber() +
@@ -34,6 +35,10 @@ public class Email implements Serializable {
                 "\nVæg Pris: " + Math.round(wall.getWallPrice() * 100.0) / 100.0 + " Kr." +
                 "\n\n" + "Kunde Noter: " +
                 "\n"+customer.getCustomerNotes();
+
+
+
+
 
         SendGrid sendGrid = SendGrid.create("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");
         SendGridMail mail = new SendGridMail();
