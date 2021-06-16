@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         controller.newWall();
 
+        getAllExtras();
+
         controller.addWallDataObserver(new Observer() {
             @Override
             public void update() {
@@ -76,10 +78,55 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void getAllExtras(){
+
+        Intent intent = getIntent();
+
+        if(intent.getStringExtra("height") != null){
+
+            controller.setWallHeight(intent.getStringExtra("height"));
+            heightInput.setText(String.valueOf(controller.getCurrentWall().getWallHeight()));
+
+            controller.getCurrentWall().calculateWindowPanelsHeight(controller.getCurrentWall().getWallHeight());
+            setUpSeekbarHeight();
+            slider_height.setProgress(Integer.parseInt(intent.getStringExtra("panelsInHeightIndex")));
+
+        }
+
+        if(intent.getStringExtra("width") != null){
+
+            controller.setWallWidth(intent.getStringExtra("width"));
+            widthInput.setText(String.valueOf(controller.getCurrentWall().getWallWidth()));
+
+            controller.getCurrentWall().calculateWindowPanelsWidth(controller.getCurrentWall().getWallWidth());
+            setUpSeekbarWidth();
+            slider_width.setProgress(Integer.parseInt(intent.getStringExtra("panelsInWidthIndex")));
+
+        }
+
+        if(intent.getStringExtra("price") != null){
+            controller.getCurrentWall().setWallPrice(Double.parseDouble(intent.getStringExtra("price")));
+            textViewMainActivityPrice.setText(String.valueOf(controller.getCurrentWall().getWallPrice()));
+        }
+
+        if(intent.getStringExtra("hasDoor") != null){
+            controller.getCurrentWall().setHasDoor(Boolean.parseBoolean(intent.getStringExtra("hasDoor")));
+            controller.getCurrentWall().setHasHandle(Boolean.parseBoolean(intent.getStringExtra("hasHandle")));
+        }
+
+        if(intent.getStringExtra("doorType") != null){
+            controller.getCurrentWall().setDoorType(intent.getStringExtra("doorType"));
+        }
+
+
+
+
+    }
+
     private void initializeUIElements() {
 
-        widthInput = findViewById(R.id.width_editText); // ikke refactor her
-        heightInput = findViewById(R.id.height_editText); // ikke refactor her
+        widthInput = findViewById(R.id.width_editText);
+        heightInput = findViewById(R.id.height_editText);
         textViewMainActivityPrice = findViewById(R.id.textview_price_main_activity);
         textview_width_exception = findViewById(R.id.textview_width_exception);
         textview_height_exception = findViewById(R.id.textview_height_exception);
@@ -240,13 +287,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if(itemId == R.id.button_menu_preview_page){
+        if (itemId == R.id.button_menu_preview_page) {
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, PreviewOrderActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
         }
+        if (itemId == R.id.button_menu_katalog) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, CatalogueActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
+
 }

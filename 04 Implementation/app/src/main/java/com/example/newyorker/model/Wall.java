@@ -65,6 +65,8 @@ public class Wall  implements Serializable{
     private String wallColour = "Sort Struktur";
 
 
+    private String doorType;
+
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
     private int doorIndex;
@@ -132,7 +134,7 @@ public class Wall  implements Serializable{
         listOfPanelSizesHeight.clear();
         finalListOfPanelSizesHeight.clear();
 
-        for (int i = 10; i < wallHeight ; i ++) {
+        for (int i = 10; i <= wallHeight ; i ++) {
 
             if (wallHeight % i == 0){
 
@@ -151,7 +153,7 @@ public class Wall  implements Serializable{
 
         for (int i = 0; i < listOfPanelSizesHeight.size(); i++) {
 
-            actualHeight = wallHeight - ((listOfPanelCountHeight.get(i)-1) * 0.8);
+            actualHeight = wallHeight - ((listOfPanelCountHeight.get(i)) * 0.8);
 
             finalListOfPanelSizesHeight.add(actualHeight / listOfPanelCountHeight.get(i));
 
@@ -176,7 +178,7 @@ public class Wall  implements Serializable{
         listOfPanelSizesWidth.clear();
         finalListOfPanelSizesWidth.clear();
 
-        for (int i = 10; i < wallWidth ; i ++) {
+        for (int i = 10; i <= wallWidth ; i ++) {
 
             if (wallWidth % i == 0){
 
@@ -195,7 +197,7 @@ public class Wall  implements Serializable{
 
         for (int i = 0; i < listOfPanelSizesWidth.size(); i++) {
 
-            actualWidth = wallWidth - ((listOfPanelCountWidth.get(i)-1) * 0.8);
+            actualWidth = wallWidth - ((listOfPanelCountWidth.get(i)) * 0.8);
 
             finalListOfPanelSizesWidth.add(actualWidth / listOfPanelCountWidth.get(i));
 
@@ -227,10 +229,15 @@ public class Wall  implements Serializable{
         return wallWidth;
     }
 
+
     public String getWallColour() { return wallColour; }
 
     public double[] getPanelsInWidthHeight() {
         return panelsInWidthHeight;
+    }
+
+    public String getDoorType(){
+        return doorType;
     }
 
     public ArrayList<Double> getFinalListOfPanelSizesHeight() {
@@ -264,8 +271,14 @@ public class Wall  implements Serializable{
         this.wallPrice = wallPrice;
     }
 
+
     public void setWallColour(String wallColour) { this.wallColour = wallColour; }
 
+    public void setDoorType(String doorType) {
+        this.doorType = doorType;
+    }
+
+// booleans
 
     public void setHasDoor(boolean hasDoor) {
         this.hasDoor = hasDoor;
@@ -284,6 +297,21 @@ public class Wall  implements Serializable{
     }
 
 
+    public boolean getHasDoor() {
+        return hasDoor;
+    }
+
+    public boolean getHasHandle() {
+        return hasHandle;
+    }
+
+    public boolean getHasWetroom() {
+        return hasWetroom;
+    }
+
+    public boolean getHasSpecialGlass() {
+        return hasSpecialGlass;
+    }
 
     public void setFinalListOfPanelSizesHeight(ArrayList<Double> finalListOfPanelSizesHeight) {
         this.finalListOfPanelSizesHeight = finalListOfPanelSizesHeight;

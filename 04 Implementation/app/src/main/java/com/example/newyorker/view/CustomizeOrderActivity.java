@@ -46,6 +46,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         initializeUIElements();
         initializeListeners();
 
+        checkPresetElements();
 
         controller.addWallDataObserver(new Observer() {
             @Override
@@ -55,6 +56,26 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         });
 
         textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
+
+    }
+
+    private void checkPresetElements(){
+
+        if(controller.getCurrentWall().getHasDoor()){
+            checkBoxDoor.setChecked(true);
+            checkBoxDoor.setEnabled(true);
+            spinnerDoors.setEnabled(true);
+        }
+
+        if(controller.getCurrentWall().getHasHandle()){
+            checkBoxHandle.setChecked(true);
+            checkBoxHandle.setEnabled(true);
+            spinnerHandles.setEnabled(true);
+        }
+
+        if(controller.getCurrentWall().getDoorType() != null){
+            spinnerDoors.setSelection(Integer.parseInt(controller.getCurrentWall().getDoorType()));
+        }
 
     }
 
@@ -241,6 +262,13 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, PreviewOrderActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
+        if (itemId == R.id.button_menu_katalog) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, CatalogueActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
         }
