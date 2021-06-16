@@ -281,6 +281,23 @@ public class CatalogueActivity extends AppCompatActivity {
         fire_fag_m_dobbeltdoer_m_16_glas.setImageResource(R.mipmap.fire_fag_m_16_glas_m_dobbeltdoer_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "160");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","2");
+        intent.putExtra("panelsInHeightIndex","3");
+        intent.putExtra("hasDoor","true");
+        intent.putExtra("doorType","1");
+        intent.putExtra("hasHandle","true");
+        intent.putExtra("price","34550");
+
+        startActivity(intent);
     }
 
     public void SelectFemFagEnkeltdoer20Glas(View view) {
@@ -290,6 +307,23 @@ public class CatalogueActivity extends AppCompatActivity {
         fem_fag_m_enkeltdoer_m_20_glas.setImageResource(R.mipmap.fem_fag_m_20_glas_m_enkeltdoer_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "180");
+        intent.putExtra("height", "200");
+        intent.putExtra("panelsInWidthIndex","4");
+        intent.putExtra("panelsInHeightIndex","2");
+        intent.putExtra("hasDoor","true");
+        intent.putExtra("doorType","0");
+        intent.putExtra("hasHandle","true");
+        intent.putExtra("price","27125");
+
+        startActivity(intent);
     }
 
     public void SelectSeksFagEnkeltdoer24Glas(View view) {
@@ -299,5 +333,22 @@ public class CatalogueActivity extends AppCompatActivity {
         seks_fag_m_enkeltdoer_m_24_glas.setImageResource(R.mipmap.seks_fag_m_24_glas_m_enkeltdoer_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "240");
+        intent.putExtra("height", "200");
+        intent.putExtra("panelsInWidthIndex","5");
+        intent.putExtra("panelsInHeightIndex","2");
+        intent.putExtra("hasDoor","true");
+        intent.putExtra("doorType","0");
+        intent.putExtra("hasHandle","true");
+        intent.putExtra("price","32050");
+
+        startActivity(intent);
     }
 }
