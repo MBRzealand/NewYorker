@@ -6,7 +6,7 @@
         android:orderInCategory="100"
         android:title="Kontakt"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_local_phone_24"/>
+        android:icon="@drawable/ic_baseline_info_24"/>
 
     <item
         android:id="@+id/button_menu_preview_page"
@@ -18,5 +18,6 @@
         android:id="@+id/button_menu_katalog"
         android:title="Katalog"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_menu_book_24"/>
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        />
 </menu>
