@@ -58,6 +58,8 @@ public class Wall  implements Serializable{
     private double wallPrice;
     private double numberOfPanels;
 
+    private String doorType;
+
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
     private boolean hasLockbox = false;
@@ -228,6 +230,10 @@ public class Wall  implements Serializable{
         return wallWidth;
     }
 
+    public String getDoorType() {
+        return doorType;
+    }
+
     public ArrayList<Double> getFinalListOfPanelSizesHeight() {
         return finalListOfPanelSizesHeight;
     }
@@ -259,8 +265,11 @@ public class Wall  implements Serializable{
         this.wallPrice = wallPrice;
     }
 
+    public void setDoorType(String doorType) {
+        this.doorType = doorType;
+    }
 
-    // booleans
+// booleans
 
     public void setHasDoor(boolean hasDoor) {
         this.hasDoor = hasDoor;

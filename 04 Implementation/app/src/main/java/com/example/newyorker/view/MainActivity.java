@@ -98,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
             controller.getWall(0).setHasHandle(Boolean.parseBoolean(intent.getStringExtra("hasHandle")));
         }
 
+        if(intent.getStringExtra("doorType") != null){
+            controller.getWall(0).setDoorType(intent.getStringExtra("doorType"));
+        }
+
 
 
 

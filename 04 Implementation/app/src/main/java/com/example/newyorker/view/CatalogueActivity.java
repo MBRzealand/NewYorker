@@ -215,6 +215,7 @@ public class CatalogueActivity extends AppCompatActivity {
         intent.putExtra("panelsInWidthIndex","2");
         intent.putExtra("panelsInHeightIndex","2");
         intent.putExtra("hasDoor","true");
+        intent.putExtra("doorType","1");
         intent.putExtra("hasHandle","true");
         intent.putExtra("price","19780");
 

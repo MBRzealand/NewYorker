@@ -69,6 +69,10 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             spinnerHandles.setEnabled(true);
         }
 
+        if(controller.getWall(0).getDoorType() != null){
+            spinnerDoors.setSelection(Integer.parseInt(controller.getWall(0).getDoorType()));
+        }
+
     }
 
     private void initializeUIElements() {
