@@ -42,6 +42,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         initializeUIElements();
         initializeListeners();
 
+        checkPresetElements();
 
         controller.addWallDataObserver(new Observer() {
             @Override
@@ -51,6 +52,22 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         });
 
         textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
+
+    }
+
+    private void checkPresetElements(){
+
+        if(controller.getWall(0).getHasDoor()){
+            checkBoxDoor.setChecked(true);
+            checkBoxDoor.setEnabled(true);
+            spinnerDoors.setEnabled(true);
+        }
+
+        if(controller.getWall(0).getHasHandle()){
+            checkBoxHandle.setChecked(true);
+            checkBoxHandle.setEnabled(true);
+            spinnerHandles.setEnabled(true);
+        }
 
     }
 

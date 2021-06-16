@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         controller.newWall();
 
+        getAllExtras();
+
         controller.addWallDataObserver(new Observer() {
             @Override
             public void update() {
@@ -61,10 +63,50 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void getAllExtras(){
+
+        Intent intent = getIntent();
+
+        if(intent.getStringExtra("height") != null){
+
+            heightInput.setText(intent.getStringExtra("height"));
+            controller.setWallHeight(heightInput.getText().toString());
+            controller.getWall(0).calculateWindowPanelsHeight(controller.getWall(0).getWallHeight());
+            setUpSeekbarHeight();
+            slider_height.setProgress(Integer.parseInt(intent.getStringExtra("panelsInHeightIndex")));
+
+        }
+
+        if(intent.getStringExtra("width") != null){
+
+            controller.setWallWidth(intent.getStringExtra("width"));
+            widthInput.setText(String.valueOf(controller.getWall(0).getWallWidth()));
+
+            controller.getWall(0).calculateWindowPanelsWidth(controller.getWall(0).getWallWidth());
+            setUpSeekbarWidth();
+            slider_width.setProgress(Integer.parseInt(intent.getStringExtra("panelsInWidthIndex")));
+
+        }
+
+        if(intent.getStringExtra("price") != null){
+            controller.getWall(0).setWallPrice(Double.parseDouble(intent.getStringExtra("price")));
+            textViewMainActivityPrice.setText(String.valueOf(controller.getWall(0).getWallPrice()));
+        }
+
+        if(intent.getStringExtra("hasDoor") != null){
+            controller.getWall(0).setHasDoor(Boolean.parseBoolean(intent.getStringExtra("hasDoor")));
+            controller.getWall(0).setHasHandle(Boolean.parseBoolean(intent.getStringExtra("hasHandle")));
+        }
+
+
+
+
+    }
+
     private void initializeUIElements() {
 
-        widthInput = findViewById(R.id.width_editText); // ikke refactor her
-        heightInput = findViewById(R.id.height_editText); // ikke refactor her
+        widthInput = findViewById(R.id.width_editText);
+        heightInput = findViewById(R.id.height_editText);
         textViewMainActivityPrice = findViewById(R.id.textview_price_main_activity);
         textview_width_exception = findViewById(R.id.textview_width_exception);
         textview_height_exception = findViewById(R.id.textview_height_exception);

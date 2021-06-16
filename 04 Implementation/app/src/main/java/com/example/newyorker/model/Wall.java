@@ -132,7 +132,7 @@ public class Wall  implements Serializable{
         listOfPanelSizesHeight.clear();
         finalListOfPanelSizesHeight.clear();
 
-        for (int i = 10; i < wallHeight ; i ++) {
+        for (int i = 10; i <= wallHeight ; i ++) {
 
             if (wallHeight % i == 0){
 
@@ -151,7 +151,7 @@ public class Wall  implements Serializable{
 
         for (int i = 0; i < listOfPanelSizesHeight.size(); i++) {
 
-            actualHeight = wallHeight - ((listOfPanelCountHeight.get(i)-1) * 0.8);
+            actualHeight = wallHeight - ((listOfPanelCountHeight.get(i)) * 0.8);
 
             finalListOfPanelSizesHeight.add(actualHeight / listOfPanelCountHeight.get(i));
 
@@ -176,7 +176,7 @@ public class Wall  implements Serializable{
         listOfPanelSizesWidth.clear();
         finalListOfPanelSizesWidth.clear();
 
-        for (int i = 10; i < wallWidth ; i ++) {
+        for (int i = 10; i <= wallWidth ; i ++) {
 
             if (wallWidth % i == 0){
 
@@ -195,7 +195,7 @@ public class Wall  implements Serializable{
 
         for (int i = 0; i < listOfPanelSizesWidth.size(); i++) {
 
-            actualWidth = wallWidth - ((listOfPanelCountWidth.get(i)-1) * 0.8);
+            actualWidth = wallWidth - ((listOfPanelCountWidth.get(i)) * 0.8);
 
             finalListOfPanelSizesWidth.add(actualWidth / listOfPanelCountWidth.get(i));
 
@@ -280,6 +280,30 @@ public class Wall  implements Serializable{
 
     public void setHasSpecialGlass(boolean hasSpecialGlass) {
         this.hasSpecialGlass = hasSpecialGlass;
+    }
+
+    public boolean getHasDoor() {
+        return hasDoor;
+    }
+
+    public boolean getHasLockbox() {
+        return hasLockbox;
+    }
+
+    public boolean getHasHandle() {
+        return hasHandle;
+    }
+
+    public boolean getHasWetroom() {
+        return hasWetroom;
+    }
+
+    public boolean getHasSpecialGlass() {
+        return hasSpecialGlass;
+    }
+
+    public boolean getHasShowerWall() {
+        return hasShowerWall;
     }
 
     public void setHasShowerWall(boolean hasShowerWall) {

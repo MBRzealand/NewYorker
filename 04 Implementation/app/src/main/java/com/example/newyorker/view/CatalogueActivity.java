@@ -3,6 +3,7 @@ package com.example.newyorker.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +11,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.newyorker.R;
+import com.example.newyorker.controller.NYBuilderController;
 
 import static com.example.newyorker.R.color.dark_grey;
 
 public class CatalogueActivity extends AppCompatActivity {
+
+    NYBuilderController controller;
 
     ImageView et_fag_4_glas;
     ImageView to_fag_8_glas;
@@ -34,6 +38,10 @@ public class CatalogueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue);
         InitializeUIElements();
+
+        Intent intent = getIntent();
+        controller = (NYBuilderController) intent.getSerializableExtra("controller");
+
     }
 
     public void InitializeUIElements(){
@@ -99,6 +107,22 @@ public class CatalogueActivity extends AppCompatActivity {
         et_fag_4_glas.setImageResource(R.mipmap.et_fag_m_4_glas_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "40");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","0");
+        intent.putExtra("panelsInHeightIndex","3");
+        intent.putExtra("price","4925");
+
+        startActivity(intent);
+
+
     }
 
     public void SelectToFag8Glas(View view) {
@@ -108,6 +132,20 @@ public class CatalogueActivity extends AppCompatActivity {
         to_fag_8_glas.setImageResource(R.mipmap.to_fag_m_8_glas_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "80");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","1");
+        intent.putExtra("panelsInHeightIndex","3");
+        intent.putExtra("price","9850");
+
+        startActivity(intent);
     }
 
     public void SelectToFag6Glas(View view) {
@@ -117,6 +155,20 @@ public class CatalogueActivity extends AppCompatActivity {
         to_fag_6_glas.setImageResource(R.mipmap.to_fag_m_6_glas_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "80");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","1");
+        intent.putExtra("panelsInHeightIndex","2");
+        intent.putExtra("price","7390");
+
+        startActivity(intent);
     }
 
     public void SelectDoer6Glas(View view) {
@@ -126,6 +178,22 @@ public class CatalogueActivity extends AppCompatActivity {
         doer_6_glas.setImageResource(R.mipmap.doer_m_6_glas_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "80");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","1");
+        intent.putExtra("panelsInHeightIndex","2");
+        intent.putExtra("hasDoor","true");
+        intent.putExtra("hasHandle","true");
+        intent.putExtra("price","9890");
+
+        startActivity(intent);
     }
 
     public void SelectDobbeltdoer12Glas(View view) {
@@ -135,6 +203,22 @@ public class CatalogueActivity extends AppCompatActivity {
         dobbeltdoer_m_12_glas.setImageResource(R.mipmap.dobbeltdoer_m_12_glas_highlighted);
 
         enableNavigationButton();
+
+        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
+        controller.removeWallObservers();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("controller", controller);
+
+        intent.putExtra("width", "160");
+        intent.putExtra("height", "180");
+        intent.putExtra("panelsInWidthIndex","2");
+        intent.putExtra("panelsInHeightIndex","2");
+        intent.putExtra("hasDoor","true");
+        intent.putExtra("hasHandle","true");
+        intent.putExtra("price","19780");
+
+        startActivity(intent);
     }
 
     public void SelectSkydedoer6Glas(View view) {
