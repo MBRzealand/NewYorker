@@ -15,7 +15,7 @@
         />
     <item
         android:id="@+id/button_menu_katalog"
-        android:title="Katalog"
+        android:title="Inspiration"
         android:icon="@drawable/ic_baseline_menu_book_24"
         />
 </menu>
