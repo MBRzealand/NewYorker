@@ -16,31 +16,35 @@ public class Wall  implements Serializable{
 
 
     transient private static final double WETROOM_PRICE = 480;
-    transient private static final double SHOWERWALL_PRICE = 3160;
-    transient private static final double LOCKBOX_PRICE = 500;
     transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
     transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
-    transient private static final double LARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
-    transient private static final double LARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
+    transient private static final double SINGLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE = 2980;
+    transient private static final double DOUBLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE = 5460;
     transient private static final double SINGLE_DOOR_PRICE = 2000;
     transient private static final double DOUBLE_DOOR_PRICE = 4000;
+    transient private static final double SINGLE_DOOR_WITH_LOCKBOX_PRICE = 2500;
+    transient private static final double DOUBLE_DOOR_WITH_LOCKBOX_PRICE = 5000;
     transient private static final double BRASS_HANDLE_PRICE = 500;
     transient private static final double BLACK_HANDLE_PRICE = 250;
     transient private static final double SATIN_GLASS_PRICE = 70;
     transient private static final double SOUNDPROOF_GLASS_PRICE = 95;
     transient private static final double ACOUSTIC_PANEL_PRICE = 318;
     transient private static final double[] DOOR_TYPE = {SINGLE_DOOR_PRICE
+                                                            ,SINGLE_DOOR_WITH_LOCKBOX_PRICE
                                                             , DOUBLE_DOOR_PRICE
+                                                            ,DOUBLE_DOOR_WITH_LOCKBOX_PRICE
                                                             , SINGLE_SLIDING_DOOR_PRICE
+                                                            ,SINGLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE
                                                             , DOUBLE_SLIDING_DOOR_PRICE
-                                                            , LARGE_SINGLE_SLIDING_DOOR_PRICE
-                                                            , LARGE_DOUBLE_SLIDING_DOOR_PRICE};
+                                                            ,DOUBLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE};
 
     transient private static final double[] HANDLE_TYPE = {BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
 
     transient private static final double[] GLASS_TYPE = {ACOUSTIC_PANEL_PRICE
                                                             ,SATIN_GLASS_PRICE
                                                             ,SOUNDPROOF_GLASS_PRICE};
+
+
     //</editor-fold
 
     ArrayList<Double> listOfPanelSizesHeight = new ArrayList<>();
@@ -56,17 +60,21 @@ public class Wall  implements Serializable{
     private double wallHeight;
     private double wallWidth;
     private double wallPrice;
+    private double[] panelsInWidthHeight = new double[2];
     private double numberOfPanels;
+    private String wallColour = "Sort Struktur";
+
 
     private String doorType;
 
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
-    private boolean hasLockbox = false;
+    private int doorIndex;
     private boolean hasHandle = false;
+    private int handleIndex;
     private boolean hasWetroom = false;
     private boolean hasSpecialGlass = false;
-    private boolean hasShowerWall = false;
+    private int glassIndex;
     //</editor-fold>
 
     public void calculateWallPrice() {
@@ -76,9 +84,11 @@ public class Wall  implements Serializable{
         }
     }
 
-
-
     public void calculateWallPrice(int doorIndex, int handleIndex, int glassIndex) {
+
+        this.doorIndex = doorIndex;
+        this.handleIndex = handleIndex;
+        this.glassIndex = glassIndex;
 
         if (wallHeight > 0 && wallWidth > 0) {
             wallPrice = numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE;
@@ -96,16 +106,6 @@ public class Wall  implements Serializable{
                     wallPrice += HANDLE_TYPE[handleIndex];
                 }
             }
-
-            if (hasLockbox) {
-                if (doorIndex == 1 ||doorIndex == 3 ||doorIndex == 5) {
-                    wallPrice += (LOCKBOX_PRICE * 2);
-                }
-
-                else {
-                    wallPrice += LOCKBOX_PRICE;
-                }
-            }
         }
 
         if (hasSpecialGlass) {
@@ -114,15 +114,15 @@ public class Wall  implements Serializable{
 
         if (hasWetroom) {
             wallPrice += (WETROOM_PRICE * numberOfPanels);
-            if (hasShowerWall) {
-                wallPrice += SHOWERWALL_PRICE;
-            }
+
         }
         notifyObservers();
     }
 
     public void totalPanels(int panelsInHeight, int panelsInWidth){
 
+        panelsInWidthHeight[0] = panelsInWidth;
+        panelsInWidthHeight[1] = panelsInHeight;
         numberOfPanels = panelsInHeight * panelsInWidth;
         calculateWallPrice();
 
@@ -221,7 +221,6 @@ public class Wall  implements Serializable{
         return wallPrice;
     }
 
-
     public double getWallHeight() {
         return wallHeight;
     }
@@ -229,6 +228,12 @@ public class Wall  implements Serializable{
     public double getWallWidth() {
         return wallWidth;
     }
+
+
+    public String getWallColour() { return wallColour; }
+
+    public double[] getPanelsInWidthHeight() {
+        return panelsInWidthHeight;
 
     public String getDoorType() {
         return doorType;
@@ -265,6 +270,9 @@ public class Wall  implements Serializable{
         this.wallPrice = wallPrice;
     }
 
+
+    public void setWallColour(String wallColour) { this.wallColour = wallColour; }
+
     public void setDoorType(String doorType) {
         this.doorType = doorType;
     }
@@ -273,10 +281,6 @@ public class Wall  implements Serializable{
 
     public void setHasDoor(boolean hasDoor) {
         this.hasDoor = hasDoor;
-    }
-
-    public void setHasLockbox(boolean hasLockbox) {
-        this.hasLockbox = hasLockbox;
     }
 
     public void setHasHandle(boolean hasHandle) {
@@ -290,6 +294,7 @@ public class Wall  implements Serializable{
     public void setHasSpecialGlass(boolean hasSpecialGlass) {
         this.hasSpecialGlass = hasSpecialGlass;
     }
+
 
     public boolean getHasDoor() {
         return hasDoor;
@@ -358,6 +363,68 @@ public class Wall  implements Serializable{
     }
 
 
+    //</editor-fold>
+
+    //<editor-folddesc="Detail getters">
+    public double getPriceDetail() {
+        return (numberOfPanels * GLASS_PANEL_PRICE);
+    }
+
+    public boolean hasDoor() {
+        return hasDoor;
+    }
+
+    public String getDoorDetail() {
+        String door = "";
+        switch (doorIndex) {
+            case 0: door = "En normal dør " + DOOR_TYPE[0]; break;
+            case 1: door = "En normal dobbeltdør " + DOOR_TYPE[1]; break;
+            case 2: door = "En skydegør " + DOOR_TYPE[2]; break;
+            case 3: door = "En dobbelt skydedør " + DOOR_TYPE[3]; break;
+            case 4: door = "En stor skydedør " + DOOR_TYPE[4]; break;
+            case 5: door = "En stor dobbelt skydedør " + DOOR_TYPE[5]; break;
+        }
+        return door;
+    }
+
+    public boolean hasHandle() {
+        return hasHandle;
+    }
+
+    public String getHandleDetail() {
+        String handle = "";
+        switch (doorIndex) {
+            case 0: handle = "Et messing håndtag " + HANDLE_TYPE[0]; break;
+            case 1: handle = "Et sort håndtag " + HANDLE_TYPE[1]; break;
+        }
+        return handle;
+    }
+
+    public boolean hasSpecialGlass() {
+        return hasSpecialGlass;
+    }
+
+    public String getSpecialGlassDetail() {
+        String specialGlass = "";
+        switch (doorIndex) {
+            case 0: specialGlass = "Akustisk glas " + GLASS_TYPE[0]; break;
+            case 1: specialGlass = "Satin glas " + GLASS_TYPE[1]; break;
+            case 2: specialGlass = "Lydløs glas " + GLASS_TYPE[2]; break;
+        }
+        return specialGlass;
+    }
+
+    public boolean hasWetRoom() {
+        return hasWetroom;
+    }
+
+    public double getWetRoomDetail() {
+        return (WETROOM_PRICE * numberOfPanels);
+    }
+
+    public double getDeliveryFeeDetail() {
+        return DELIVERY_FEE;
+    }
     //</editor-fold>
 
 }

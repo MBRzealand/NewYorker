@@ -1,15 +1,28 @@
 package com.example.newyorker.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
+import com.example.newyorker.model.Email;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SendRequestActivity extends AppCompatActivity {
+
 
     NYBuilderController controller;
     Email email = new Email();
@@ -19,6 +32,8 @@ public class SendRequestActivity extends AppCompatActivity {
     EditText customerAddress;
     EditText customerZIPCode;
     EditText notes;
+    private final List<Uri> uris = new ArrayList<>();
+    private final List<File> attachments = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,24 +43,37 @@ public class SendRequestActivity extends AppCompatActivity {
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
         initializeUIElements();
-        // initializeListeners();
+
 
     }
 
 
 
-    public void sendRequest(View view) {
+    public void sendRequest(View view) throws IOException {
         controller.setCustomerName(customerName.getText().toString());
         controller.setCustomerZIPCode(customerZIPCode.getText().toString());
         controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
         controller.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
         controller.setCustomerAddress(customerAddress.getText().toString());
         controller.setCustomerNotes(notes.getText().toString());
-        
-        startActivity(email.sendEmail("hjordrup96@live.dk", controller.getCustomer(), controller.getWall(0)));
 
+       // Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        //intent.setType("*/*");
+        //startActivityForResult(intent, REQUEST_CODE);
+
+        email.sendEmail(controller.getCustomer(), controller.getCurrentWall(), uris, getApplicationContext() );
     }
 
+   /*
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            uris.add(data.getData());
+
+        }
+    }
+  */
 
     private void initializeUIElements() {
        customerName = findViewById(R.id.editText_name);
@@ -56,54 +84,24 @@ public class SendRequestActivity extends AppCompatActivity {
        notes = findViewById(R.id.editText_notes);
     }
 
-    /*private void initializeListeners() {
-
-        customerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerName.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerName(customerName.getText().toString());
-                    }
-                }
-            }
-        });
-        customerPhoneNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerPhoneNumber.getText() != null) {
-                    if (!hasFocus) {
-                       customer.setCustomerPhoneNumber(customerPhoneNumber.getText().toString());
-                    }
-                }
-            }
-        });
-        customerZIPCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerZIPCode.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerZIPCode(customerZIPCode.getText().toString());
-                    }
-                }
-            }
-        });
-        customerEmailAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerEmailAddress.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerEmailAddress(customerEmailAddress.getText().toString());
-                    }
-                }
-            }
-        });
-        customerAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (customerAddress.getText() != null) {
-                    if (!hasFocus) {
-                        customer.setCustomerAddress(customerAddress.getText().toString());
-                    }
-                }
-            }
-        });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
+        return true;
     }
-*/
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if(itemId == R.id.button_menu_preview_page){
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, PreviewOrderActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

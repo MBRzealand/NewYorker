@@ -41,17 +41,17 @@
         app:layout_constraintTop_toTopOf="@+id/textview_price_customize_activity" />
 
     <Spinner
-        style="@android:style/Widget.Holo.Light.Spinner"
         android:id="@+id/spinner_doors"
+        style="@android:style/Widget.Holo.Light.Spinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
         android:entries="@array/door_array"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/checkbox_door"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        android:backgroundTint="@color/orange"
         app:layout_constraintTop_toTopOf="@+id/checkbox_door" />
 
     <Button
@@ -100,26 +100,16 @@
         android:text="@string/doer"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-    
-    <CheckBox
-        android:id="@+id/checkbox_lockbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:buttonTint="@color/orange"
-        android:text="@string/laasekasse"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
 
     <CheckBox
         android:id="@+id/checkbox_handle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="75dp"
         android:buttonTint="@color/orange"
         android:text="@string/haandtag"
         app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_lockbox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_door" />
 
     <CheckBox
         android:id="@+id/checkbox_wetroom"
@@ -169,14 +159,17 @@
         app:layout_constraintTop_toBottomOf="@+id/checkbox_wetroom"
         app:layout_constraintVertical_bias="0.0" />
 
-    <CheckBox
-        android:id="@+id/checkbox_shower_wall"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinner_colours"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
-        android:text="@string/brusevaeg"
-        app:layout_constraintBottom_toBottomOf="@+id/checkbox_wetroom"
-        app:layout_constraintStart_toStartOf="@+id/spinner_handles"
-        android:buttonTint="@color/orange"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_wetroom" />
+        android:backgroundTint="@color/orange"
+        android:entries="@array/væg_farve_array"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_handles"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_doors"
+        app:layout_constraintVertical_bias="0.483" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

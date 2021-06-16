@@ -13,25 +13,53 @@ import java.util.regex.Pattern;
 public class NYBuilderController implements Serializable {
 
     Wall wall;
+    int indexOfWallInList;
     Customer customer = new Customer();
     Specifications specifications = new Specifications();
     ArrayList<Observer> observerList = new ArrayList<>();
 
     public void newWall() {
-
-        if (wall == null) {
-            wall = new Wall();
-        } else {
-            specifications.addWall(wall);
-            wall = new Wall();
-        }
-
+        wall = new Wall();
     }
 
-    public Wall getWall(int index) {
-       // return specifications.getWall(index);
+    public void addWallToList() {
+        specifications.addWall(wall);
+    }
+
+    public void getWall(int index) {
+        indexOfWallInList = index;
+        wall = specifications.getWall(index);
+    }
+
+    public Wall getCurrentWall() {
         return this.wall;
     }
+
+    public int getSizeOfListOfWalls() {
+        return specifications.getSizeOfListOfWalls();
+    }
+
+    public String getWallDetails() {
+
+        double[] panelsInWidthHeight = wall.getPanelsInWidthHeight();
+        String details = "Navn: Væg" + indexOfWallInList +
+                "\nBredde: " + wall.getWallWidth() +
+                "\nHøjde: " + wall.getWallHeight() +
+                "\nAntal Paneler i bredden: " + panelsInWidthHeight[0] +
+                "\nAntal Paneler i højden: " + panelsInWidthHeight[1] +
+                "\n     Pris: " + wall.getPriceDetail() + "kr.";
+        if (wall.hasDoor()) details += "\nDør: " + wall.getDoorDetail() + "kr.";
+        if (wall.hasHandle() && wall.hasDoor()) details += "\nHåndtag: " + wall.getHandleDetail() + "kr.";
+
+        if (wall.hasSpecialGlass()) details += "\nSpecielglass: " + wall.getSpecialGlassDetail() + "kr.";
+        if (wall.hasWetRoom()) details += "\nVådrum: " + wall.getWetRoomDetail() + "kr.";
+        details += "\nFrag: " + wall.getDeliveryFeeDetail() + "kr." +
+                "\n\n\nTotal pris: " + wall.getWallPrice() + "kr.";
+
+        return details;
+    }
+
+    // public ImageView getCSVImage() {}
 
     public Customer getCustomer() {
         return customer;
@@ -200,6 +228,10 @@ public class NYBuilderController implements Serializable {
         return Math.round(wall.getWallPrice() * 100.0) / 100.0;
     }
 
+    public double getTotalPrice() {
+        return Math.round(specifications.getTotalPrice() * 100.0) / 100.0;
+    }
+
     //<editor-folddesc="Regex">
     private final Pattern NUMPATTERN = Pattern.compile("-?\\d+(\\.\\d+)?");
 
@@ -224,18 +256,35 @@ public class NYBuilderController implements Serializable {
         switch (option) {
             case 1: wall.setHasDoor(checked);
             break;
-            case 2: wall.setHasLockbox(checked);
-            break;
             case 3: wall.setHasHandle(checked);
             break;
             case 4: wall.setHasWetroom(checked);
             break;
             case 5: wall.setHasSpecialGlass(checked);
             break;
-            case 6: wall.setHasShowerWall(checked);
-            break;
         }
     }
+
+
+
+    public void setWallColour(int index) {
+        switch (index) {
+            case 0: wall.setWallColour("Sort Struktur");
+                break;
+            case 1: wall.setWallColour("Sort");
+                break;
+            case 2: wall.setWallColour("Klar Lak");
+                break;
+            case 3: wall.setWallColour("Grå Struktur");
+                break;
+            case 4: wall.setWallColour("Lyse Grå");
+                break;
+            case 5: wall.setWallColour("Hvid Struktur");
+                break;
+        }
+    }
+
+
 
     public void addWallDataObserver(Observer observer) {
         wall.addDataObserver(observer);

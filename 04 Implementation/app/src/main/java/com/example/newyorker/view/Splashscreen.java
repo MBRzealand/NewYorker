@@ -18,11 +18,4 @@ public class Splashscreen extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         handler.postDelayed(() -> startActivity(intent), 3000);
     }
-
-
-
-
-
-
-
 }
