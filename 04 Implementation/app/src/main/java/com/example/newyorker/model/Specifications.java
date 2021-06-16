@@ -25,6 +25,7 @@ public class Specifications implements Serializable {
     }
 
     private void calculateTotalPrice() {
+        totalPrice = 0;
         for (Wall wall : listOfWalls) {
             totalPrice += wall.getWallPrice();
         }

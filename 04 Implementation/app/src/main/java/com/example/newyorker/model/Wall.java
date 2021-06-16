@@ -339,7 +339,7 @@ public class Wall  implements Serializable{
 
     //<editor-folddesc="Detail getters">
     public double getPriceDetail() {
-        return (numberOfPanels * GLASS_PANEL_PRICE + DELIVERY_FEE);
+        return (numberOfPanels * GLASS_PANEL_PRICE);
     }
 
     public boolean hasDoor() {

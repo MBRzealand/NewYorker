@@ -42,7 +42,7 @@ public class SendRequestActivity extends AppCompatActivity {
         controller.setCustomerAddress(customerAddress.getText().toString());
         controller.setCustomerNotes(notes.getText().toString());
         
-        startActivity(email.sendEmail("hjordrup96@live.dk", controller.getCustomer(), controller.getWall(0)));
+        startActivity(email.sendEmail("hjordrup96@live.dk", controller.getCustomer(), controller.getCurrentWall()));
 
     }
 

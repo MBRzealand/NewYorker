@@ -40,7 +40,7 @@
         android:textSize="11sp"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/button_wall3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDrawing"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="@+id/button_wall3"
         app:layout_constraintVertical_bias="1.0" />
@@ -76,8 +76,8 @@
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewDrawing"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDrawing" />
 
     <Button
         android:id="@+id/button_wall2"
@@ -137,18 +137,19 @@
 
     <Button
         android:id="@+id/button_drawing"
-        android:gravity="center"
-        android:includeFontPadding="false"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/orange"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:onClick="getWallDrawing"
         android:text="@string/tegning"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageViewDrawing"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
@@ -163,13 +164,13 @@
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
         app:iconTint="#ffffff"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDrawing"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="@+id/button_drawing" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageViewDrawing"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="100dp"
@@ -195,7 +196,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDrawing" />
 
     <TextView
         android:id="@+id/textView10"
@@ -235,8 +236,8 @@
         android:layout_height="0dp"
         android:singleLine="false"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDrawing"
+        app:layout_constraintStart_toStartOf="@+id/imageViewDrawing"
+        app:layout_constraintTop_toTopOf="@+id/imageViewDrawing" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

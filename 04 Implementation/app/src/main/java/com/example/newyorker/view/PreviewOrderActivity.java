@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.newyorker.R;
@@ -20,6 +22,10 @@ public class PreviewOrderActivity extends AppCompatActivity {
     Button btn2;
     Button btn3;
     Button btn4;
+    TextView detailsTextview;
+    Button btnPriceOverview;
+    ImageView imageViewDrawing;
+    Button btnDrawing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,10 @@ public class PreviewOrderActivity extends AppCompatActivity {
         btn2 = findViewById(R.id.button_wall2);
         btn3 = findViewById(R.id.button_wall3);
         btn4 = findViewById(R.id.button_wall4);
+        detailsTextview = findViewById(R.id.textViewWallDetails);
+        btnPriceOverview = findViewById(R.id.button_price_overview);
+        imageViewDrawing = findViewById(R.id.imageViewDrawing);
+        btnDrawing = findViewById(R.id.button_drawing);
 
         editButtons();
 
@@ -43,7 +53,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
     private void editButtons() {
 
         switch(controller.getSizeOfListOfWalls()) {
-            case 0: {
+            case 1: {
 
                 btn1.setVisibility(View.VISIBLE);
                 btn1.setEnabled(true);
@@ -55,7 +65,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
                 btn4.setEnabled(false);
                 break;
             }
-            case 1: {
+            case 2: {
                 btn1.setVisibility(View.VISIBLE);
                 btn1.setEnabled(true);
                 btn2.setVisibility(View.VISIBLE);
@@ -66,7 +76,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
                 btn4.setEnabled(false);
                 break;
             }
-            case 2: {
+            case 3: {
                 btn1.setVisibility(View.VISIBLE);
                 btn1.setEnabled(true);
                 btn2.setVisibility(View.VISIBLE);
@@ -77,7 +87,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
                 btn4.setEnabled(false);
                 break;
             }
-            case 3: {
+            case 4: {
                 btn1.setVisibility(View.VISIBLE);
                 btn1.setEnabled(true);
                 btn2.setVisibility(View.VISIBLE);
@@ -125,8 +135,24 @@ public class PreviewOrderActivity extends AppCompatActivity {
     }
 
     public void getWallDetails(View view) {
-        TextView detailsTextview = findViewById(R.id.textViewWallDetails);
+        btnPriceOverview.setBackgroundColor(getResources().getColor(R.color.orange));
+        btnDrawing.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        detailsTextview.setEnabled(true);
+        detailsTextview.setVisibility(View.VISIBLE);
         detailsTextview.setText(controller.getWallDetails());
+        imageViewDrawing.setVisibility(View.INVISIBLE);
+    }
+
+    public void getWallDrawing(View view) {
+        btnPriceOverview.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        btnDrawing.setBackgroundColor(getResources().getColor(R.color.orange));
+        detailsTextview.setEnabled(false);
+        detailsTextview.setVisibility(View.GONE);
+
+        // Make something similar, since .setImage() doesnt exist.
+        // imageViewDrawing.setImage('Generated image for wall');
+
+        imageViewDrawing.setVisibility(View.VISIBLE);
     }
 
     public void goToMainActivity(View view) {
