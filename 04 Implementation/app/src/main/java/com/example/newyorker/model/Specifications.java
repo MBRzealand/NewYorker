@@ -19,7 +19,13 @@ public class Specifications implements Serializable {
         return listOfStores;
     }
 
+    public double getTotalPrice() {
+        calculateTotalPrice();
+        return totalPrice;
+    }
+
     private void calculateTotalPrice() {
+        totalPrice = 0;
         for (Wall wall : listOfWalls) {
             totalPrice += wall.getWallPrice();
         }
@@ -31,6 +37,10 @@ public class Specifications implements Serializable {
 
     public Wall getWall(int index) {
         return listOfWalls.get(index);
+    }
+
+    public int getSizeOfListOfWalls() {
+        return listOfWalls.size();
     }
 
 

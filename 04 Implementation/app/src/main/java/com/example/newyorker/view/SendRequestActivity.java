@@ -57,14 +57,9 @@ public class SendRequestActivity extends AppCompatActivity {
         controller.setCustomerAddress(customerAddress.getText().toString());
         controller.setCustomerNotes(notes.getText().toString());
 
-
-
        // Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         //intent.setType("*/*");
         //startActivityForResult(intent, REQUEST_CODE);
-
-
-
 
         email.sendEmail(controller.getCustomer(), controller.getWall(0), uris, getApplicationContext() );
     }

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     InputMethodManager imm;
 
-    NYBuilderController controller = new NYBuilderController();
+    NYBuilderController controller;
 
 
 
@@ -55,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
 
         initializeUIElements();
         initializeListeners();
+
+        /* It gets an intent from previewOrder if the user adds a new wall.
+           If an intent is null, then it is the beginning of the app.*/
+        if (getIntent().getSerializableExtra("controller") != null) {
+            Intent intent = getIntent();
+            controller = (NYBuilderController) intent.getSerializableExtra("controller");
+        } else {
+            controller = new NYBuilderController();
+        }
 
         controller.newWall();
 
@@ -94,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!hasFocus) {
                         textview_width_exception.setText(controller.setWallWidth(widthInput.getText().toString()));
-                        controller.getWall(0).calculateWindowPanelsWidth(controller.getWall(0).getWallWidth());
+                        controller.getCurrentWall().calculateWindowPanelsWidth(controller.getCurrentWall().getWallWidth());
                         setUpSeekbarWidth();
                     }
 
@@ -111,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 if (heightInput.getText() != null) {
                     if (!hasFocus) {
                         textview_height_exception.setText(controller.setWallHeight(heightInput.getText().toString()));
-                        controller.getWall(0).calculateWindowPanelsHeight(controller.getWall(0).getWallHeight());
+                        controller.getCurrentWall().calculateWindowPanelsHeight(controller.getCurrentWall().getWallHeight());
                         setUpSeekbarHeight();
                     }
 
@@ -140,11 +150,11 @@ public class MainActivity extends AppCompatActivity {
         slider_width.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                display_panel_width.setText(Math.floor(controller.getWall(0).getFinalListOfPanelSizesWidth().get(slider_width.getProgress()) * 10.0) / 10.0 +" CM");
-                int removeCommaFromDouble =  controller.getWall(0).getListOfPanelCountWidth().get(slider_width.getProgress()).intValue();
+                display_panel_width.setText(Math.floor(controller.getCurrentWall().getFinalListOfPanelSizesWidth().get(slider_width.getProgress()) * 10.0) / 10.0 +" CM");
+                int removeCommaFromDouble =  controller.getCurrentWall().getListOfPanelCountWidth().get(slider_width.getProgress()).intValue();
                 display_panel_count_width.setText(String.valueOf(removeCommaFromDouble));
                 if (!heightInput.getText().toString().isEmpty() && !widthInput.getText().toString().isEmpty()) {
-                    controller.getWall(0).totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
+                    controller.getCurrentWall().totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
                 }
             }
 
@@ -162,11 +172,11 @@ public class MainActivity extends AppCompatActivity {
         slider_height.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                display_panel_height.setText(Math.floor(controller.getWall(0).getFinalListOfPanelSizesHeight().get(slider_height.getProgress()) * 10.0) / 10.0 +" CM");
-                int removeCommaFromDouble =  controller.getWall(0).getListOfPanelCountHeight().get(slider_height.getProgress()).intValue();
+                display_panel_height.setText(Math.floor(controller.getCurrentWall().getFinalListOfPanelSizesHeight().get(slider_height.getProgress()) * 10.0) / 10.0 +" CM");
+                int removeCommaFromDouble =  controller.getCurrentWall().getListOfPanelCountHeight().get(slider_height.getProgress()).intValue();
                 display_panel_count_height.setText(String.valueOf(removeCommaFromDouble));
                 if (!heightInput.getText().toString().isEmpty() && !widthInput.getText().toString().isEmpty()) {
-                    controller.getWall(0).totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
+                    controller.getCurrentWall().totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
                 }
             }
 
@@ -193,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpSeekbarWidth(){
 
-        int maxProgress = controller.getWall(0).getListOfPanelCountWidth().size();
+        int maxProgress = controller.getCurrentWall().getListOfPanelCountWidth().size();
 
         slider_width.setMax(maxProgress-1);
 
@@ -201,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpSeekbarHeight(){
 
-        int maxProgress = controller.getWall(0).getListOfPanelCountHeight().size();
+        int maxProgress = controller.getCurrentWall().getListOfPanelCountHeight().size();
 
         slider_height.setMax(maxProgress-1);
 
