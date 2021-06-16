@@ -224,18 +224,35 @@ public class NYBuilderController implements Serializable {
         switch (option) {
             case 1: wall.setHasDoor(checked);
             break;
-            case 2: wall.setHasLockbox(checked);
-            break;
             case 3: wall.setHasHandle(checked);
             break;
             case 4: wall.setHasWetroom(checked);
             break;
             case 5: wall.setHasSpecialGlass(checked);
             break;
-            case 6: wall.setHasShowerWall(checked);
-            break;
         }
     }
+
+
+
+    public void setWallColour(int index) {
+        switch (index) {
+            case 0: wall.setWallColour("Sort Struktur");
+                break;
+            case 1: wall.setWallColour("Sort");
+                break;
+            case 2: wall.setWallColour("Klar Lak");
+                break;
+            case 3: wall.setWallColour("Grå Struktur");
+                break;
+            case 4: wall.setWallColour("Lyse Grå");
+                break;
+            case 5: wall.setWallColour("Hvid Struktur");
+                break;
+        }
+    }
+
+
 
     public void addWallDataObserver(Observer observer) {
         wall.addDataObserver(observer);

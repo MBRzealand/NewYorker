@@ -1,16 +1,20 @@
 package com.example.newyorker.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
 import com.example.newyorker.model.Email;
-import com.sendgrid.Attachments;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +23,7 @@ import java.util.List;
 
 public class SendRequestActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE = 0;
+
     NYBuilderController controller;
     Email email = new Email();
     EditText customerName;
@@ -39,7 +43,7 @@ public class SendRequestActivity extends AppCompatActivity {
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
         initializeUIElements();
-        // initializeListeners();
+
 
     }
 
@@ -85,6 +89,24 @@ public class SendRequestActivity extends AppCompatActivity {
        notes = findViewById(R.id.editText_notes);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if(itemId == R.id.button_menu_preview_page){
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, PreviewOrderActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

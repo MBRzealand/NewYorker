@@ -1,9 +1,13 @@
 package com.example.newyorker.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -19,15 +23,15 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
     NYBuilderController controller;
 
     CheckBox checkBoxDoor;
-    CheckBox checkBoxLockbox;
     CheckBox checkBoxHandle;
     CheckBox checkBoxWetRoom;
     CheckBox checkBoxSpecialGlass;
-    CheckBox checkBoxShowerWall;
+
 
     Spinner spinnerDoors;
     Spinner spinnerHandles;
     Spinner spinnerSpecialGlass;
+    Spinner spinnerWallColour;
 
     TextView textViewCustomizeActivityPrice;
 
@@ -59,14 +63,8 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         checkBoxWetRoom = findViewById(R.id.checkbox_wetroom);
         checkBoxSpecialGlass = findViewById(R.id.checkbox_special_glass);
 
-        checkBoxLockbox = findViewById(R.id.checkbox_lockbox);
-        checkBoxLockbox.setEnabled(false);
-
         checkBoxHandle = findViewById(R.id.checkbox_handle);
         checkBoxHandle.setEnabled(false);
-
-        checkBoxShowerWall = findViewById(R.id.checkbox_shower_wall);
-        checkBoxShowerWall.setEnabled(false);
 
         spinnerDoors = findViewById(R.id.spinner_doors);
         spinnerDoors.setEnabled(false);
@@ -76,6 +74,8 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         spinnerSpecialGlass = findViewById(R.id.spinner_special_glass);
         spinnerSpecialGlass.setEnabled(false);
+
+        spinnerWallColour = findViewById(R.id.spinner_colours);
 
         textViewCustomizeActivityPrice = findViewById(R.id.textview_price_customize_activity);
     }
@@ -88,11 +88,8 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 if (!spinnerDoors.isEnabled())
                     { spinnerDoors.setEnabled(true);
-                    checkBoxLockbox.setEnabled(true);
                     checkBoxHandle.setEnabled(true); }
                 else { spinnerDoors.setEnabled(false);
-                    checkBoxLockbox.setEnabled(false);
-                    checkBoxLockbox.setChecked(false);
                     checkBoxHandle.setEnabled(false);
                     checkBoxHandle.setChecked(false);
                     spinnerHandles.setEnabled(false);}
@@ -106,16 +103,6 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         });
 
-        checkBoxLockbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.customizeWall((byte) 2, checkBoxLockbox.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
-                        , spinnerHandles.getSelectedItemPosition()
-                        , spinnerSpecialGlass.getSelectedItemPosition());
-            }
-
-        });
 
         checkBoxHandle.setOnClickListener(new View.OnClickListener() {
 
@@ -134,24 +121,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         });
 
-        checkBoxWetRoom.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                if (checkBoxShowerWall.isEnabled()){
-                    checkBoxShowerWall.setEnabled(false);
-                    checkBoxShowerWall.setChecked(false);
-                }else{
-                    checkBoxShowerWall.setEnabled(true);
-                }
-
-                controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
-                controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
-                        , spinnerHandles.getSelectedItemPosition()
-                        , spinnerSpecialGlass.getSelectedItemPosition());
-            }
-
-        });
 
         checkBoxSpecialGlass.setOnClickListener(new View.OnClickListener() {
 
@@ -170,17 +140,20 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
         });
 
-        checkBoxShowerWall.setOnClickListener(new View.OnClickListener() {
+        checkBoxWetRoom.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                controller.customizeWall((byte) 6, checkBoxShowerWall.isChecked());
+                controller.customizeWall((byte) 4, checkBoxWetRoom.isChecked());
                 controller.getWall(0).calculateWallPrice(spinnerDoors.getSelectedItemPosition()
                         , spinnerHandles.getSelectedItemPosition()
                         , spinnerSpecialGlass.getSelectedItemPosition());
             }
 
         });
+
+
+
 
         spinnerDoors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -223,6 +196,24 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
             }
         });
+
+        spinnerWallColour.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                controller.setWallColour(spinnerWallColour.getSelectedItemPosition());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                controller.setWallColour(0);
+            }
+        });
+
+
+
+
+
+
     }
 
     public void goToPreviewActivity(View view) {
@@ -235,4 +226,25 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
         startActivity(intent);
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if(itemId == R.id.button_menu_preview_page){
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, PreviewOrderActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
