@@ -61,20 +61,20 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
 
     private void checkPresetElements(){
 
-        if(controller.getWall(0).getHasDoor()){
+        if(controller.getCurrentWall().getHasDoor()){
             checkBoxDoor.setChecked(true);
             checkBoxDoor.setEnabled(true);
             spinnerDoors.setEnabled(true);
         }
 
-        if(controller.getWall(0).getHasHandle()){
+        if(controller.getCurrentWall().getHasHandle()){
             checkBoxHandle.setChecked(true);
             checkBoxHandle.setEnabled(true);
             spinnerHandles.setEnabled(true);
         }
 
-        if(controller.getWall(0).getDoorType() != null){
-            spinnerDoors.setSelection(Integer.parseInt(controller.getWall(0).getDoorType()));
+        if(controller.getCurrentWall().getDoorType() != null){
+            spinnerDoors.setSelection(Integer.parseInt(controller.getCurrentWall().getDoorType()));
         }
 
     }
@@ -262,6 +262,13 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, PreviewOrderActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
+        if (itemId == R.id.button_menu_katalog) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, CatalogueActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
         }

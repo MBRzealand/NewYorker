@@ -234,8 +234,9 @@ public class Wall  implements Serializable{
 
     public double[] getPanelsInWidthHeight() {
         return panelsInWidthHeight;
+    }
 
-    public String getDoorType() {
+    public String getDoorType(){
         return doorType;
     }
 
@@ -300,10 +301,6 @@ public class Wall  implements Serializable{
         return hasDoor;
     }
 
-    public boolean getHasLockbox() {
-        return hasLockbox;
-    }
-
     public boolean getHasHandle() {
         return hasHandle;
     }
@@ -314,14 +311,6 @@ public class Wall  implements Serializable{
 
     public boolean getHasSpecialGlass() {
         return hasSpecialGlass;
-    }
-
-    public boolean getHasShowerWall() {
-        return hasShowerWall;
-    }
-
-    public void setHasShowerWall(boolean hasShowerWall) {
-        this.hasShowerWall = hasShowerWall;
     }
 
     public void setFinalListOfPanelSizesHeight(ArrayList<Double> finalListOfPanelSizesHeight) {

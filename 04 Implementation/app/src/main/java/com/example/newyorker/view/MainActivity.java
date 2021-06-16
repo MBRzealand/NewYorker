@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
         if(intent.getStringExtra("height") != null){
 
             controller.setWallHeight(intent.getStringExtra("height"));
-            heightInput.setText(String.valueOf(controller.getWall(0).getWallHeight()));
+            heightInput.setText(String.valueOf(controller.getCurrentWall().getWallHeight()));
 
-            controller.getWall(0).calculateWindowPanelsHeight(controller.getWall(0).getWallHeight());
+            controller.getCurrentWall().calculateWindowPanelsHeight(controller.getCurrentWall().getWallHeight());
             setUpSeekbarHeight();
             slider_height.setProgress(Integer.parseInt(intent.getStringExtra("panelsInHeightIndex")));
 
@@ -96,26 +96,26 @@ public class MainActivity extends AppCompatActivity {
         if(intent.getStringExtra("width") != null){
 
             controller.setWallWidth(intent.getStringExtra("width"));
-            widthInput.setText(String.valueOf(controller.getWall(0).getWallWidth()));
+            widthInput.setText(String.valueOf(controller.getCurrentWall().getWallWidth()));
 
-            controller.getWall(0).calculateWindowPanelsWidth(controller.getWall(0).getWallWidth());
+            controller.getCurrentWall().calculateWindowPanelsWidth(controller.getCurrentWall().getWallWidth());
             setUpSeekbarWidth();
             slider_width.setProgress(Integer.parseInt(intent.getStringExtra("panelsInWidthIndex")));
 
         }
 
         if(intent.getStringExtra("price") != null){
-            controller.getWall(0).setWallPrice(Double.parseDouble(intent.getStringExtra("price")));
-            textViewMainActivityPrice.setText(String.valueOf(controller.getWall(0).getWallPrice()));
+            controller.getCurrentWall().setWallPrice(Double.parseDouble(intent.getStringExtra("price")));
+            textViewMainActivityPrice.setText(String.valueOf(controller.getCurrentWall().getWallPrice()));
         }
 
         if(intent.getStringExtra("hasDoor") != null){
-            controller.getWall(0).setHasDoor(Boolean.parseBoolean(intent.getStringExtra("hasDoor")));
-            controller.getWall(0).setHasHandle(Boolean.parseBoolean(intent.getStringExtra("hasHandle")));
+            controller.getCurrentWall().setHasDoor(Boolean.parseBoolean(intent.getStringExtra("hasDoor")));
+            controller.getCurrentWall().setHasHandle(Boolean.parseBoolean(intent.getStringExtra("hasHandle")));
         }
 
         if(intent.getStringExtra("doorType") != null){
-            controller.getWall(0).setDoorType(intent.getStringExtra("doorType"));
+            controller.getCurrentWall().setDoorType(intent.getStringExtra("doorType"));
         }
 
 
@@ -287,25 +287,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if(itemId == R.id.button_menu_preview_page){
+        if (itemId == R.id.button_menu_preview_page) {
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, PreviewOrderActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
         }
+        if (itemId == R.id.button_menu_katalog) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, CatalogueActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
-      
-    public void goToCatalogue(View view) {    // delete this shit
-
-        clearFocus();
-
-        //Empty list of observers before serializing the object, so we can pass it on to the other activities.
-        controller.removeWallObservers();
-
-        Intent intent = new Intent(this, CatalogueActivity.class);
-        intent.putExtra("controller", controller);
-        startActivity(intent);
-
     }
+
 }

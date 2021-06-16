@@ -82,7 +82,6 @@
         android:layout_width="175dp"
         android:layout_height="100dp"
         android:layout_marginTop="25dp"
-        android:onClick="goToCatalogue"
         android:src="@mipmap/new_yorker_icon"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toTopOf="parent" />
