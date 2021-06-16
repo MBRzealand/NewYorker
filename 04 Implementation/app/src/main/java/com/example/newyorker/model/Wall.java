@@ -16,31 +16,35 @@ public class Wall  implements Serializable{
 
 
     transient private static final double WETROOM_PRICE = 480;
-    transient private static final double SHOWERWALL_PRICE = 3160;
-    transient private static final double LOCKBOX_PRICE = 500;
     transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
     transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
-    transient private static final double LARGE_SINGLE_SLIDING_DOOR_PRICE = 3480;
-    transient private static final double LARGE_DOUBLE_SLIDING_DOOR_PRICE = 6960;
+    transient private static final double SINGLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE = 2980;
+    transient private static final double DOUBLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE = 5460;
     transient private static final double SINGLE_DOOR_PRICE = 2000;
     transient private static final double DOUBLE_DOOR_PRICE = 4000;
+    transient private static final double SINGLE_DOOR_WITH_LOCKBOX_PRICE = 2500;
+    transient private static final double DOUBLE_DOOR_WITH_LOCKBOX_PRICE = 5000;
     transient private static final double BRASS_HANDLE_PRICE = 500;
     transient private static final double BLACK_HANDLE_PRICE = 250;
     transient private static final double SATIN_GLASS_PRICE = 70;
     transient private static final double SOUNDPROOF_GLASS_PRICE = 95;
     transient private static final double ACOUSTIC_PANEL_PRICE = 318;
     transient private static final double[] DOOR_TYPE = {SINGLE_DOOR_PRICE
+                                                            ,SINGLE_DOOR_WITH_LOCKBOX_PRICE
                                                             , DOUBLE_DOOR_PRICE
+                                                            ,DOUBLE_DOOR_WITH_LOCKBOX_PRICE
                                                             , SINGLE_SLIDING_DOOR_PRICE
+                                                            ,SINGLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE
                                                             , DOUBLE_SLIDING_DOOR_PRICE
-                                                            , LARGE_SINGLE_SLIDING_DOOR_PRICE
-                                                            , LARGE_DOUBLE_SLIDING_DOOR_PRICE};
+                                                            ,DOUBLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE};
 
     transient private static final double[] HANDLE_TYPE = {BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
 
     transient private static final double[] GLASS_TYPE = {ACOUSTIC_PANEL_PRICE
                                                             ,SATIN_GLASS_PRICE
                                                             ,SOUNDPROOF_GLASS_PRICE};
+
+
     //</editor-fold
 
     ArrayList<Double> listOfPanelSizesHeight = new ArrayList<>();
@@ -58,17 +62,17 @@ public class Wall  implements Serializable{
     private double wallPrice;
     private double[] panelsInWidthHeight = new double[2];
     private double numberOfPanels;
+    private String wallColour = "Sort Struktur";
+
 
     //<editor-folddesc="Customize variables">
     private boolean hasDoor = false;
     private int doorIndex;
-    private boolean hasLockbox = false;
     private boolean hasHandle = false;
     private int handleIndex;
     private boolean hasWetroom = false;
     private boolean hasSpecialGlass = false;
     private int glassIndex;
-    private boolean hasShowerWall = false;
     //</editor-fold>
 
     public void calculateWallPrice() {
@@ -100,16 +104,6 @@ public class Wall  implements Serializable{
                     wallPrice += HANDLE_TYPE[handleIndex];
                 }
             }
-
-            if (hasLockbox) {
-                if (doorIndex == 1 ||doorIndex == 3 ||doorIndex == 5) {
-                    wallPrice += (LOCKBOX_PRICE * 2);
-                }
-
-                else {
-                    wallPrice += LOCKBOX_PRICE;
-                }
-            }
         }
 
         if (hasSpecialGlass) {
@@ -118,9 +112,7 @@ public class Wall  implements Serializable{
 
         if (hasWetroom) {
             wallPrice += (WETROOM_PRICE * numberOfPanels);
-            if (hasShowerWall) {
-                wallPrice += SHOWERWALL_PRICE;
-            }
+
         }
         notifyObservers();
     }
@@ -235,6 +227,8 @@ public class Wall  implements Serializable{
         return wallWidth;
     }
 
+    public String getWallColour() { return wallColour; }
+
     public double[] getPanelsInWidthHeight() {
         return panelsInWidthHeight;
     }
@@ -270,14 +264,11 @@ public class Wall  implements Serializable{
         this.wallPrice = wallPrice;
     }
 
-    // booleans
+    public void setWallColour(String wallColour) { this.wallColour = wallColour; }
+
 
     public void setHasDoor(boolean hasDoor) {
         this.hasDoor = hasDoor;
-    }
-
-    public void setHasLockbox(boolean hasLockbox) {
-        this.hasLockbox = hasLockbox;
     }
 
     public void setHasHandle(boolean hasHandle) {
@@ -292,9 +283,7 @@ public class Wall  implements Serializable{
         this.hasSpecialGlass = hasSpecialGlass;
     }
 
-    public void setHasShowerWall(boolean hasShowerWall) {
-        this.hasShowerWall = hasShowerWall;
-    }
+
 
     public void setFinalListOfPanelSizesHeight(ArrayList<Double> finalListOfPanelSizesHeight) {
         this.finalListOfPanelSizesHeight = finalListOfPanelSizesHeight;

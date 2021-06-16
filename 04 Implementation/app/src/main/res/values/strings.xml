@@ -19,14 +19,24 @@
     <string name="brusevaeg">Brusevæg</string>
 
 
-    <string-array name="door_array">
+    <!--<string-array name="door_array">
         <item>Enkeltdør</item>
         <item>Dobbeltdør</item>
         <item>Skydedør (enkelt)</item>
         <item>Skydedør (dobbelt)</item>
-        <item>Skydedør (stor)</item>
-        <item>Skydedør (stor dobbelt)</item>
+    </string-array>-->
+
+    <string-array name="door_array">
+        <item>Enkeltdør</item>
+        <item>Enkeltdør m. lås</item>
+        <item>Dobbeltdør</item>
+        <item>Dobbeltdør m. lås</item>
+        <item>Skydedør (enkelt)</item>
+        <item>Skydedør (enkelt) m. lås</item>
+        <item>Skydedør (dobbelt)</item>
+        <item>Skydedør (dobbelt) m. lås</item>
     </string-array>
+
 
     <string-array name="handle_array">
         <item>Messing langgreb</item>
@@ -59,6 +69,15 @@
     <string name="vaeg_3">væg 3</string>
     <string name="vaeg_4">væg 4</string>
     <string name="vaeg_1">væg 1</string>
+
+    <string-array name="væg_farve_array">
+        <item>Sort struktur</item>
+        <item>Sort</item>
+        <item>klar lak</item>
+        <item>Grå struktur</item>
+        <item>Lyse grå</item>
+        <item>Hvid struktur</item>
+    </string-array>
 
 
 </resources>
