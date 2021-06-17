@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:backgroundTint="@color/orange"
-        android:onClick="goToCatalog"
+        android:onClick="goToCatalogue"
         android:text="Inspiration"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"

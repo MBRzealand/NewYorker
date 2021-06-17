@@ -22,7 +22,7 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToCatalog(View view) {
+    public void goToCatalogue(View view) {
         Intent intent = new Intent(this, CatalogueActivity.class);
         startActivity(intent);
     }
