@@ -25,6 +25,7 @@ import com.example.newyorker.model.Observer;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText nameInput;
     EditText widthInput;
     EditText heightInput;
     TextView textViewMainActivityPrice;
@@ -82,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        if(intent.getStringExtra("wallName") != null){
+            controller.getCurrentWall().setWallName(intent.getStringExtra("wallName"));
+            nameInput.setText(controller.getCurrentWall().getWallName());
+        }
+
         if(intent.getStringExtra("height") != null){
 
             controller.setWallHeight(intent.getStringExtra("height"));
@@ -125,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeUIElements() {
 
+        nameInput = findViewById(R.id.name_editText);
         widthInput = findViewById(R.id.width_editText);
         heightInput = findViewById(R.id.height_editText);
         textViewMainActivityPrice = findViewById(R.id.textview_price_main_activity);
@@ -142,6 +149,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeListeners() {
+
+        nameInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (!hasFocus) {
+                    controller.getCurrentWall().setWallName(nameInput.getText().toString());
+                }
+
+            }
+        });
+
 
         widthInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
@@ -281,6 +300,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.my_menu, menu);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         return true;
     }
 
@@ -300,8 +322,14 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CatalogueActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
+        }if (itemId == R.id.button_menu_kontakt) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, ContactActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
         }
+
         return super.onOptionsItemSelected(item);
     }
-
 }
