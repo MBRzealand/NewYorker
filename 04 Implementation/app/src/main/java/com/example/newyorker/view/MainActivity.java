@@ -300,9 +300,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.my_menu, menu);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         return true;
     }
 

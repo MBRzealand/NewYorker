@@ -24,9 +24,12 @@ public class ContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
+        Intent intent = getIntent();
+        String URL = intent.getStringExtra("URL");
+
         webView = findViewById(R.id.webViewer);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.new-yorker.dk/kontakt/");
+        webView.loadUrl(URL);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
