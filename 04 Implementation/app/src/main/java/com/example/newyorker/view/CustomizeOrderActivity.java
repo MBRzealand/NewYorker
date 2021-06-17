@@ -55,7 +55,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             }
         });
 
-        textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
+//          textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
 
     }
 
