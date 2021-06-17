@@ -39,21 +39,21 @@ public class NYBuilderController implements Serializable {
         return specifications.getSizeOfListOfWalls();
     }
 
-    public String getWallDetails() {
+    public String getWallDetails(String[] doorNames) {
 
         double[] panelsInWidthHeight = wall.getPanelsInWidthHeight();
-        String details = "Navn: Væg" + indexOfWallInList +
+        String details = "Navn: Væg" + (indexOfWallInList + 1) +
+                "\nFarve: " + wall.getWallColour() +
                 "\nBredde: " + wall.getWallWidth() +
                 "\nHøjde: " + wall.getWallHeight() +
                 "\nAntal Paneler i bredden: " + panelsInWidthHeight[0] +
                 "\nAntal Paneler i højden: " + panelsInWidthHeight[1] +
                 "\n     Pris: " + wall.getPriceDetail() + "kr.";
-        if (wall.hasDoor()) details += "\nDør: " + wall.getDoorDetail() + "kr.";
+        if (wall.hasDoor()) details += "\nDør: " + wall.getDoorDetail(doorNames) + "kr.";
         if (wall.hasHandle() && wall.hasDoor()) details += "\nHåndtag: " + wall.getHandleDetail() + "kr.";
-
         if (wall.hasSpecialGlass()) details += "\nSpecielglass: " + wall.getSpecialGlassDetail() + "kr.";
         if (wall.hasWetRoom()) details += "\nVådrum: " + wall.getWetRoomDetail() + "kr.";
-        details += "\nFrag: " + wall.getDeliveryFeeDetail() + "kr." +
+        details += "\nFragt: " + wall.getDeliveryFeeDetail() + "kr." +
                 "\n\n\nTotal pris: " + wall.getWallPrice() + "kr.";
 
         return details;

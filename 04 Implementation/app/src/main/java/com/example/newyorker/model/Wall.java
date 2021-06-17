@@ -13,8 +13,6 @@ public class Wall  implements Serializable{
     transient private static final double STANDARD_GLASS_WIDTH = 45;
     transient private static final double DELIVERY_FEE = 800;
     transient private static final double GLASS_PANEL_PRICE = 985;
-
-
     transient private static final double WETROOM_PRICE = 480;
     transient private static final double SINGLE_SLIDING_DOOR_PRICE = 2480;
     transient private static final double DOUBLE_SLIDING_DOOR_PRICE = 4960;
@@ -63,7 +61,6 @@ public class Wall  implements Serializable{
     private double[] panelsInWidthHeight = new double[2];
     private double numberOfPanels;
     private String wallColour = "Sort Struktur";
-
 
     private String doorType;
 
@@ -229,7 +226,6 @@ public class Wall  implements Serializable{
         return wallWidth;
     }
 
-
     public String getWallColour() { return wallColour; }
 
     public double[] getPanelsInWidthHeight() {
@@ -363,15 +359,17 @@ public class Wall  implements Serializable{
         return hasDoor;
     }
 
-    public String getDoorDetail() {
+    public String getDoorDetail(String[] doorNames) {
         String door = "";
         switch (doorIndex) {
-            case 0: door = "En normal dør " + DOOR_TYPE[0]; break;
-            case 1: door = "En normal dobbeltdør " + DOOR_TYPE[1]; break;
-            case 2: door = "En skydegør " + DOOR_TYPE[2]; break;
-            case 3: door = "En dobbelt skydedør " + DOOR_TYPE[3]; break;
-            case 4: door = "En stor skydedør " + DOOR_TYPE[4]; break;
-            case 5: door = "En stor dobbelt skydedør " + DOOR_TYPE[5]; break;
+            case 0: door = doorNames[0] + DOOR_TYPE[0]; break;
+            case 1: door = doorNames[1] + DOOR_TYPE[1]; break;
+            case 2: door = doorNames[2] + DOOR_TYPE[2]; break;
+            case 3: door = doorNames[3] + DOOR_TYPE[3]; break;
+            case 4: door = doorNames[4] + DOOR_TYPE[4]; break;
+            case 5: door = doorNames[5] + DOOR_TYPE[5]; break;
+            case 6: door = doorNames[6] + DOOR_TYPE[6]; break;
+            case 7: door = doorNames[7] + DOOR_TYPE[7]; break;
         }
         return door;
     }
@@ -383,8 +381,8 @@ public class Wall  implements Serializable{
     public String getHandleDetail() {
         String handle = "";
         switch (doorIndex) {
-            case 0: handle = "Et messing håndtag " + HANDLE_TYPE[0]; break;
-            case 1: handle = "Et sort håndtag " + HANDLE_TYPE[1]; break;
+            case 0: handle = "Messing langgreb " + HANDLE_TYPE[0]; break;
+            case 1: handle = "Sort langgreb " + HANDLE_TYPE[1]; break;
         }
         return handle;
     }
@@ -396,9 +394,9 @@ public class Wall  implements Serializable{
     public String getSpecialGlassDetail() {
         String specialGlass = "";
         switch (doorIndex) {
-            case 0: specialGlass = "Akustisk glas " + GLASS_TYPE[0]; break;
+            case 0: specialGlass = "Akustikpanel " + GLASS_TYPE[0]; break;
             case 1: specialGlass = "Satin glas " + GLASS_TYPE[1]; break;
-            case 2: specialGlass = "Lydløs glas " + GLASS_TYPE[2]; break;
+            case 2: specialGlass = "Lydglas " + GLASS_TYPE[2]; break;
         }
         return specialGlass;
     }
