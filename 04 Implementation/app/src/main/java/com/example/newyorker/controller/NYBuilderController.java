@@ -22,6 +22,10 @@ public class NYBuilderController implements Serializable {
         wall = new Wall();
     }
 
+    public void destroyWall() {
+        specifications.destroyWall(indexOfWallInList);
+    }
+
     public void addWallToList() {
         specifications.addWall(wall);
     }

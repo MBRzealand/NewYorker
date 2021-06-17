@@ -172,6 +172,11 @@ public class PreviewOrderActivity extends AppCompatActivity {
         imageViewDrawing.setVisibility(View.VISIBLE);
     }
 
+    public void removeWall(View view) {
+        controller.destroyWall();
+        editButtons();
+    }
+
     public void goToMainActivity(View view) {
 
         Intent intent = new Intent(this, MainActivity.class);
