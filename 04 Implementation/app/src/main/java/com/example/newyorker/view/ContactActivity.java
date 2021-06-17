@@ -14,19 +14,27 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.newyorker.R;
+import com.example.newyorker.controller.NYBuilderController;
 
 public class ContactActivity extends AppCompatActivity {
 
     private WebView webView;
-
+    private NYBuilderController controller;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
+        Intent intent = getIntent();
+        String URL = intent.getStringExtra("URL");
+
+            controller = (NYBuilderController) intent.getSerializableExtra("controller");
+
+
+
         webView = findViewById(R.id.webViewer);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.new-yorker.dk/kontakt/");
+        webView.loadUrl(URL);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);

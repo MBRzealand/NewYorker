@@ -17,6 +17,7 @@ import android.widget.Switch;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
+import com.example.newyorker.model.Observer;
 
 import static com.example.newyorker.R.color.dark_grey;
 
@@ -48,6 +49,7 @@ public class CatalogueActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
+
 
     }
 
@@ -430,22 +432,21 @@ public class CatalogueActivity extends AppCompatActivity {
         int itemId = item.getItemId();
         if (itemId == R.id.button_menu_preview_page) {
             controller.removeWallObservers();
-
             Intent intent = new Intent(this, PreviewOrderActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
         }
         if (itemId == R.id.button_menu_katalog) {
             controller.removeWallObservers();
-
             Intent intent = new Intent(this, CatalogueActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
-        }if (itemId == R.id.button_menu_kontakt) {
+        }
+        if (itemId == R.id.button_menu_kontakt) {
             controller.removeWallObservers();
-
             Intent intent = new Intent(this, ContactActivity.class);
             intent.putExtra("controller", controller);
+            intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
