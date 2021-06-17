@@ -39,10 +39,12 @@ public class Specifications implements Serializable {
         return listOfWalls.get(index);
     }
 
+    public void destroyWall(int index) {
+        listOfWalls.remove(index);
+    }
+
     public int getSizeOfListOfWalls() {
         return listOfWalls.size();
     }
-
-
 
 }

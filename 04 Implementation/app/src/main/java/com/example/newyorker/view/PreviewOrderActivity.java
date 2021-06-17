@@ -15,16 +15,15 @@ import android.widget.TextView;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
-import com.example.newyorker.model.Observer;
 
 public class PreviewOrderActivity extends AppCompatActivity {
 
     TextView totalPrice;
     NYBuilderController controller;
-    Button btn1;
-    Button btn2;
-    Button btn3;
-    Button btn4;
+    Button btnWall1;
+    Button btnWall2;
+    Button btnWall3;
+    Button btnWall4;
     TextView detailsTextview;
     Button btnPriceOverview;
     ImageView imageViewDrawing;
@@ -39,10 +38,10 @@ public class PreviewOrderActivity extends AppCompatActivity {
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
 
-        btn1 = findViewById(R.id.button_wall1);
-        btn2 = findViewById(R.id.button_wall2);
-        btn3 = findViewById(R.id.button_wall3);
-        btn4 = findViewById(R.id.button_wall4);
+        btnWall1 = findViewById(R.id.button_wall1);
+        btnWall2 = findViewById(R.id.button_wall2);
+        btnWall3 = findViewById(R.id.button_wall3);
+        btnWall4 = findViewById(R.id.button_wall4);
         detailsTextview = findViewById(R.id.textViewWallDetails);
         btnPriceOverview = findViewById(R.id.button_price_overview);
         imageViewDrawing = findViewById(R.id.imageViewDrawing);
@@ -50,7 +49,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
 
         editButtons();
 
-        totalPrice.setText(String.valueOf(controller.getTotalPrice() + controller.getWallPrice()));
+        totalPrice.setText(String.valueOf(controller.getTotalPrice()));
     }
 
     private void editButtons() {
@@ -58,47 +57,47 @@ public class PreviewOrderActivity extends AppCompatActivity {
         switch(controller.getSizeOfListOfWalls()) {
             case 1: {
 
-                btn1.setVisibility(View.VISIBLE);
-                btn1.setEnabled(true);
-                btn2.setVisibility(View.GONE);
-                btn2.setEnabled(false);
-                btn3.setVisibility(View.GONE);
-                btn3.setEnabled(false);
-                btn4.setVisibility(View.GONE);
-                btn4.setEnabled(false);
+                btnWall1.setVisibility(View.VISIBLE);
+                btnWall1.setEnabled(true);
+                btnWall2.setVisibility(View.GONE);
+                btnWall2.setEnabled(false);
+                btnWall3.setVisibility(View.GONE);
+                btnWall3.setEnabled(false);
+                btnWall4.setVisibility(View.GONE);
+                btnWall4.setEnabled(false);
                 break;
             }
             case 2: {
-                btn1.setVisibility(View.VISIBLE);
-                btn1.setEnabled(true);
-                btn2.setVisibility(View.VISIBLE);
-                btn2.setEnabled(true);
-                btn3.setVisibility(View.GONE);
-                btn3.setEnabled(false);
-                btn4.setVisibility(View.GONE);
-                btn4.setEnabled(false);
+                btnWall1.setVisibility(View.VISIBLE);
+                btnWall1.setEnabled(true);
+                btnWall2.setVisibility(View.VISIBLE);
+                btnWall2.setEnabled(true);
+                btnWall3.setVisibility(View.GONE);
+                btnWall3.setEnabled(false);
+                btnWall4.setVisibility(View.GONE);
+                btnWall4.setEnabled(false);
                 break;
             }
             case 3: {
-                btn1.setVisibility(View.VISIBLE);
-                btn1.setEnabled(true);
-                btn2.setVisibility(View.VISIBLE);
-                btn2.setEnabled(true);
-                btn3.setVisibility(View.VISIBLE);
-                btn3.setEnabled(true);
-                btn4.setVisibility(View.GONE);
-                btn4.setEnabled(false);
+                btnWall1.setVisibility(View.VISIBLE);
+                btnWall1.setEnabled(true);
+                btnWall2.setVisibility(View.VISIBLE);
+                btnWall2.setEnabled(true);
+                btnWall3.setVisibility(View.VISIBLE);
+                btnWall3.setEnabled(true);
+                btnWall4.setVisibility(View.GONE);
+                btnWall4.setEnabled(false);
                 break;
             }
             case 4: {
-                btn1.setVisibility(View.VISIBLE);
-                btn1.setEnabled(true);
-                btn2.setVisibility(View.VISIBLE);
-                btn2.setEnabled(true);
-                btn3.setVisibility(View.VISIBLE);
-                btn3.setEnabled(true);
-                btn4.setVisibility(View.VISIBLE);
-                btn4.setEnabled(true);
+                btnWall1.setVisibility(View.VISIBLE);
+                btnWall1.setEnabled(true);
+                btnWall2.setVisibility(View.VISIBLE);
+                btnWall2.setEnabled(true);
+                btnWall3.setVisibility(View.VISIBLE);
+                btnWall3.setEnabled(true);
+                btnWall4.setVisibility(View.VISIBLE);
+                btnWall4.setEnabled(true);
                 break;
             }
         }
@@ -106,35 +105,51 @@ public class PreviewOrderActivity extends AppCompatActivity {
     }
     
     public void wall1(View view) {
-        controller.getWall(0);
-        btn1.setBackgroundColor(getResources().getColor(R.color.orange));
-        btn2.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn3.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn4.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        wallButtons(0);
     }
 
     public void wall2(View view) {
-        controller.getWall(1);
-        btn1.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn2.setBackgroundColor(getResources().getColor(R.color.orange));
-        btn3.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn4.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        wallButtons(1);
     }
 
     public void wall3(View view) {
-        controller.getWall(2);
-        btn1.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn2.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn3.setBackgroundColor(getResources().getColor(R.color.orange));
-        btn4.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        wallButtons(2);
     }
 
     public void wall4(View view) {
-        controller.getWall(3);
-        btn1.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn2.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn3.setBackgroundColor(getResources().getColor(R.color.light_grey));
-        btn4.setBackgroundColor(getResources().getColor(R.color.orange));
+        wallButtons(3);
+    }
+
+    public void wallButtons(int btnIndex) {
+
+        controller.getWall(btnIndex);
+        String[] doorNames = getResources().getStringArray(R.array.door_array);
+        detailsTextview.setText(controller.getWallDetails(doorNames));
+
+        btnWall1.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        btnWall2.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        btnWall3.setBackgroundColor(getResources().getColor(R.color.light_grey));
+        btnWall4.setBackgroundColor(getResources().getColor(R.color.light_grey));
+
+        switch (btnIndex) {
+            case 0: {
+                btnWall1.setBackgroundColor(getResources().getColor(R.color.orange));
+                break;
+            }
+            case 1: {
+                btnWall2.setBackgroundColor(getResources().getColor(R.color.orange));
+                break;
+            }
+            case 2: {
+                btnWall3.setBackgroundColor(getResources().getColor(R.color.orange));
+                break;
+            }
+            case 3: {
+                btnWall4.setBackgroundColor(getResources().getColor(R.color.orange));
+                break;
+            }
+        }
+
     }
 
     public void getWallDetails(View view) {
@@ -142,7 +157,6 @@ public class PreviewOrderActivity extends AppCompatActivity {
         btnDrawing.setBackgroundColor(getResources().getColor(R.color.light_grey));
         detailsTextview.setEnabled(true);
         detailsTextview.setVisibility(View.VISIBLE);
-        detailsTextview.setText(controller.getWallDetails());
         imageViewDrawing.setVisibility(View.INVISIBLE);
     }
 
@@ -156,6 +170,11 @@ public class PreviewOrderActivity extends AppCompatActivity {
         // imageViewDrawing.setImage('Generated image for wall');
 
         imageViewDrawing.setVisibility(View.VISIBLE);
+    }
+
+    public void removeWall(View view) {
+        controller.destroyWall();
+        editButtons();
     }
 
     public void goToMainActivity(View view) {
@@ -173,7 +192,6 @@ public class PreviewOrderActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
