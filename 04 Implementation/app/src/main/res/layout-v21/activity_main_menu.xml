@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background"
     tools:context=".view.MainMenu">
 
 
@@ -81,50 +82,67 @@
         android:id="@+id/button_opret"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/orange"
         android:onClick="goToMainActivity"
         android:text="Ny forspørgsel"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/button_inspiration" />
+        app:layout_constraintBottom_toBottomOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="@+id/button_inspiration"
+        app:layout_constraintStart_toStartOf="@+id/button_inspiration"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_inspiration"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="@color/orange"
         android:onClick="goToCatalogue"
         android:text="Inspiration"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintBottom_toTopOf="@+id/button_opret"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_kontakt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/orange"
         android:onClick="gotoContactActivity"
         android:text="Kontakt"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/button_inspiration"
+        app:layout_constraintStart_toStartOf="@+id/button_inspiration"
         app:layout_constraintTop_toBottomOf="@+id/button_opret" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="192dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="100dp"
-        android:src="@mipmap/new_yorker_icon"
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="130dp"
+        android:background="#81000000"
+        app:layout_constraintBottom_toTopOf="@+id/button_inspiration"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/new_yorker_icon"
+        app:layout_constraintEnd_toEndOf="@+id/button_inspiration"
+        app:layout_constraintStart_toStartOf="@+id/button_inspiration"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#FFFFFF" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

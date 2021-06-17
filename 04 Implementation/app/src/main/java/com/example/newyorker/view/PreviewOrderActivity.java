@@ -48,6 +48,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
         btnDrawing = findViewById(R.id.button_drawing);
 
         editButtons();
+        btnDrawing.callOnClick();
         btnWall1.callOnClick();
 
         totalPrice.setText(String.valueOf(controller.getTotalPrice()));

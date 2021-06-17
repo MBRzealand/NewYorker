@@ -20,6 +20,7 @@ public class Wall  implements Serializable{
     transient private static final double DOUBLE_DOOR_PRICE = 4000;
     transient private static final double SINGLE_DOOR_WITH_LOCKBOX_PRICE = 2500;
     transient private static final double DOUBLE_DOOR_WITH_LOCKBOX_PRICE = 5000;
+    transient private static final double STANDARD_HANDLE_PRICE = 0;
     transient private static final double BRASS_HANDLE_PRICE = 500;
     transient private static final double BLACK_HANDLE_PRICE = 250;
     transient private static final double SATIN_GLASS_PRICE = 70;
@@ -34,7 +35,7 @@ public class Wall  implements Serializable{
                                                             , DOUBLE_SLIDING_DOOR_PRICE
                                                             ,DOUBLE_SLIDING_DOOR_WITH_LOCKBOX_PRICE};
 
-    transient private static final double[] HANDLE_TYPE = {BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
+    transient private static final double[] HANDLE_TYPE = {STANDARD_HANDLE_PRICE, BRASS_HANDLE_PRICE, BLACK_HANDLE_PRICE};
 
     transient private static final double[] GLASS_TYPE = {ACOUSTIC_PANEL_PRICE
                                                             ,SATIN_GLASS_PRICE
@@ -394,9 +395,10 @@ public class Wall  implements Serializable{
 
     public String getHandleDetail() {
         String handle = "";
-        switch (doorIndex) {
-            case 0: handle = "Messing langgreb " + HANDLE_TYPE[0]; break;
-            case 1: handle = "Sort langgreb " + HANDLE_TYPE[1]; break;
+        switch (handleIndex) {
+            case 0: handle = "Standard greb " + HANDLE_TYPE[0]; break;
+            case 1: handle = "Messing langgreb " + HANDLE_TYPE[1]; break;
+            case 2: handle = "Sort langgreb " + HANDLE_TYPE[2]; break;
         }
         return handle;
     }
@@ -407,10 +409,10 @@ public class Wall  implements Serializable{
 
     public String getSpecialGlassDetail() {
         String specialGlass = "";
-        switch (doorIndex) {
-            case 0: specialGlass = "Akustikpanel " + GLASS_TYPE[0]; break;
-            case 1: specialGlass = "Satin glas " + GLASS_TYPE[1]; break;
-            case 2: specialGlass = "Lydglas " + GLASS_TYPE[2]; break;
+        switch (glassIndex) {
+            case 0: specialGlass = "Akustikpanel " + (GLASS_TYPE[0] * numberOfPanels); break;
+            case 1: specialGlass = "Satin glas " + (GLASS_TYPE[1] * numberOfPanels); break;
+            case 2: specialGlass = "Lydglas " + (GLASS_TYPE[2] * numberOfPanels); break;
         }
         return specialGlass;
     }

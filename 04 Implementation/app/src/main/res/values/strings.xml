@@ -19,13 +19,6 @@
     <string name="brusevaeg">Brusevæg</string>
 
 
-    <!--<string-array name="door_array">
-        <item>Enkeltdør</item>
-        <item>Dobbeltdør</item>
-        <item>Skydedør (enkelt)</item>
-        <item>Skydedør (dobbelt)</item>
-    </string-array>-->
-
     <string-array name="door_array">
         <item>Enkeltdør</item>
         <item>Enkeltdør m. lås</item>
@@ -39,6 +32,7 @@
 
 
     <string-array name="handle_array">
+        <item>Standard greb</item>
         <item>Messing langgreb</item>
         <item>Sort langgreb</item>
     </string-array>
