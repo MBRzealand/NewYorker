@@ -278,6 +278,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 intent4.putExtra("panelsInWidthIndex","1");
                 intent4.putExtra("panelsInHeightIndex","2");
                 intent4.putExtra("hasDoor","true");
+                intent4.putExtra("doorType","0");
                 intent4.putExtra("hasHandle","true");
                 intent4.putExtra("price","9890");
 
@@ -296,7 +297,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 intent5.putExtra("panelsInWidthIndex","2");
                 intent5.putExtra("panelsInHeightIndex","2");
                 intent5.putExtra("hasDoor","true");
-                intent5.putExtra("doorType","1");
+                intent5.putExtra("doorType","2");
                 intent5.putExtra("hasHandle","true");
                 intent5.putExtra("price","19780");
 
@@ -315,7 +316,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 intent6.putExtra("panelsInWidthIndex","1");
                 intent6.putExtra("panelsInHeightIndex","2");
                 intent6.putExtra("hasDoor","true");
-                intent6.putExtra("doorType","2");
+                intent6.putExtra("doorType","4");
                 intent6.putExtra("hasHandle","true");
                 intent6.putExtra("price","10490");
 
@@ -353,7 +354,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 intent8.putExtra("panelsInWidthIndex","2");
                 intent8.putExtra("panelsInHeightIndex","3");
                 intent8.putExtra("hasDoor","true");
-                intent8.putExtra("doorType","1");
+                intent8.putExtra("doorType","2");
                 intent8.putExtra("hasHandle","true");
                 intent8.putExtra("price","34550");
 
