@@ -291,7 +291,7 @@ public class NYBuilderController implements Serializable {
     }
 
     public void removeWallObservers() {
-        wall.removeAllObservers();
+        if(wall != null) wall.removeAllObservers();
     }
 
 

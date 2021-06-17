@@ -24,16 +24,8 @@ public class MainMenu extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_main_menu);
 
 
-        /* It gets an intent from previewOrder if the user adds a new wall.
-           If an intent is null, then it is the beginning of the app.*/
-        if (getIntent().getSerializableExtra("controller") != null) {
-            Intent intent = getIntent();
-            controller = (NYBuilderController) intent.getSerializableExtra("controller");
-        } else {
-            controller = new NYBuilderController();
-        }
+        controller = new NYBuilderController();
     }
-
 
     public void goToMainActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -49,21 +41,18 @@ public class MainMenu extends AppCompatActivity implements Serializable {
 
     public void gotoContactActivity(View view) {
         Intent intent = new Intent(this, ContactActivity.class);
-        intent.putExtra("controller", controller);
         intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
         startActivity(intent);
     }
 
     public void goToFacebook(View view) {
         Intent intent = new Intent(this, ContactActivity.class);
-        intent.putExtra("controller", controller);
         intent.putExtra("URL", "https://www.facebook.com/newyorkerdk");
         startActivity(intent);
     }
 
     public void goToInstagram(View view) {
         Intent intent = new Intent(this, ContactActivity.class);
-        intent.putExtra("controller", controller);
         intent.putExtra("URL", "https://www.instagram.com/newyorkerdk/");
         startActivity(intent);
     }
@@ -71,14 +60,12 @@ public class MainMenu extends AppCompatActivity implements Serializable {
     public void goToLinkedIn(View view) {
 
         Intent intent = new Intent(this, ContactActivity.class);
-        intent.putExtra("controller", controller);
         intent.putExtra("URL", "https://www.instagram.com/newyorkerdk/");
         startActivity(intent);
     }
 
     public void goToPintrest(View view) {
         Intent intent = new Intent(this, ContactActivity.class);
-        intent.putExtra("controller", controller);
         intent.putExtra("URL", "https://www.pinterest.dk/newyorkerdk/");
         startActivity(intent);
     }

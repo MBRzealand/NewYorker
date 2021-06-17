@@ -17,6 +17,7 @@ import android.widget.Switch;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
+import com.example.newyorker.model.Observer;
 
 import static com.example.newyorker.R.color.dark_grey;
 
@@ -48,6 +49,7 @@ public class CatalogueActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         controller = (NYBuilderController) intent.getSerializableExtra("controller");
+
 
     }
 
