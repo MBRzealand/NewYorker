@@ -1,11 +1,15 @@
 package com.example.newyorker.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -402,4 +406,40 @@ public class CatalogueActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.button_menu_preview_page) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, PreviewOrderActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
+        if (itemId == R.id.button_menu_katalog) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, CatalogueActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }if (itemId == R.id.button_menu_kontakt) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, ContactActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }
