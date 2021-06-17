@@ -39,7 +39,7 @@
             android:layout_marginTop="3dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@mipmap/facebook" />
+            android:src="@mipmap/facebook" />
 
         <ImageView
             android:id="@+id/button_instagram"
@@ -49,7 +49,7 @@
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@mipmap/instagram" />
+            android:src="@mipmap/instagram" />
 
         <ImageView
             android:id="@+id/button_linkedin"
@@ -59,7 +59,7 @@
             android:layout_marginTop="6dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@mipmap/linkedin" />
+            android:src="@mipmap/linkedin" />
 
         <ImageView
             android:id="@+id/button_pintrest"
@@ -69,7 +69,7 @@
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@mipmap/pintrest" />
+            android:src="@mipmap/pintrest" />
 
     </RelativeLayout>
 
@@ -79,6 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:backgroundTint="@color/orange"
+        android:onClick="goToMainActivity"
         android:text="Ny forspørgsel"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
@@ -91,6 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:backgroundTint="@color/orange"
+        android:onClick="goToCatalog"
         android:text="Inspiration"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
@@ -104,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:backgroundTint="@color/orange"
+        android:onClick="gotoContactActivity"
         android:text="Kontakt"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
