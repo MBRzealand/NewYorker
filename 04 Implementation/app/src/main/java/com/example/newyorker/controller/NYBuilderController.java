@@ -46,7 +46,7 @@ public class NYBuilderController implements Serializable {
     public String getWallDetails(String[] doorNames) {
 
         double[] panelsInWidthHeight = wall.getPanelsInWidthHeight();
-        String details = "Navn: Væg" + (indexOfWallInList + 1) +
+        String details = "Navn: " + wall.getWallName() +
                 "\nFarve: " + wall.getWallColour() +
                 "\nBredde: " + wall.getWallWidth() +
                 "\nHøjde: " + wall.getWallHeight() +
@@ -86,7 +86,6 @@ public class NYBuilderController implements Serializable {
             }
         } catch (MissingWallHeightException mwhe) {
             return mwhe.getMessage();
-
         } catch (WallHeightNotNumericException whne) {
             return whne.getMessage();
         } catch (WallHeightTooSmallException whtse) {
@@ -269,8 +268,6 @@ public class NYBuilderController implements Serializable {
         }
     }
 
-
-
     public void setWallColour(int index) {
         switch (index) {
             case 0: wall.setWallColour("Sort Struktur");
@@ -287,8 +284,6 @@ public class NYBuilderController implements Serializable {
                 break;
         }
     }
-
-
 
     public void addWallDataObserver(Observer observer) {
         wall.addDataObserver(observer);
