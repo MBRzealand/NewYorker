@@ -359,7 +359,9 @@ public class Wall  implements Serializable{
     }
 
     public void removeAllObservers(){
-        COLLECTIONOFWALLOBSERVERS.removeAll(COLLECTIONOFWALLOBSERVERS);
+        if(!COLLECTIONOFWALLOBSERVERS.isEmpty()){
+            COLLECTIONOFWALLOBSERVERS.removeAll(COLLECTIONOFWALLOBSERVERS);
+        }
     }
 
 

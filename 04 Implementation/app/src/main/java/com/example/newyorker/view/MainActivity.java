@@ -58,14 +58,10 @@ public class MainActivity extends AppCompatActivity {
         initializeUIElements();
         initializeListeners();
 
-        /* It gets an intent from previewOrder if the user adds a new wall.
-           If an intent is null, then it is the beginning of the app.*/
-        if (getIntent().getSerializableExtra("controller") != null) {
+
+
             Intent intent = getIntent();
             controller = (NYBuilderController) intent.getSerializableExtra("controller");
-        } else {
-            controller = new NYBuilderController();
-        }
 
         controller.newWall();
 
