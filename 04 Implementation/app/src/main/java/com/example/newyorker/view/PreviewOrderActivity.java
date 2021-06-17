@@ -202,7 +202,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, ContactActivity.class);
-            intent.putExtra("controller", controller);
+            intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
