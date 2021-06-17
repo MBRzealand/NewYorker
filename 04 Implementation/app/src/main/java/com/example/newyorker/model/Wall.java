@@ -216,6 +216,12 @@ public class Wall  implements Serializable{
 
 
     //<editor-folddesc="Getters">
+
+
+    public String getWallName() {
+        return wallName;
+    }
+
     public double getWallPrice() {
         return wallPrice;
     }
@@ -258,6 +264,12 @@ public class Wall  implements Serializable{
     //</editor-fold>
 
     //<editor-folddesc="Setters">
+
+
+    public void setWallName(String wallName) {
+        this.wallName = wallName;
+    }
+
     public void setWallHeight(double wallHeight) {
         this.wallHeight = wallHeight;
     }
