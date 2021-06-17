@@ -55,7 +55,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             }
         });
 
-        textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
+//          textViewCustomizeActivityPrice.setText(String.valueOf(controller.getWallPrice()));
 
     }
 
@@ -271,7 +271,15 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
             Intent intent = new Intent(this, CatalogueActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
+        }if (itemId == R.id.button_menu_kontakt) {
+            controller.removeWallObservers();
+
+            Intent intent = new Intent(this, ContactActivity.class);
+            intent.putExtra("controller", controller);
+            startActivity(intent);
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 

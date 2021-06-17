@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewYorker">
+        <activity android:name=".view.ContactActivity"></activity>
         <activity android:name=".view.MainMenu"></activity>
         <activity android:name=".view.CatalogueActivity" />
         <activity android:name=".view.Splashscreen">
