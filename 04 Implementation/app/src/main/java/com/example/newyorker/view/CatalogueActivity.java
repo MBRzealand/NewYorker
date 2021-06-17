@@ -225,6 +225,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.putExtra("controller", controller);
 
+                intent.putExtra("wallName", "1 FAG M/ 4 GLAS");
                 intent.putExtra("width", "40");
                 intent.putExtra("height", "180");
                 intent.putExtra("panelsInWidthIndex","0");
@@ -241,6 +242,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(this, MainActivity.class);
                 intent2.putExtra("controller", controller);
 
+                intent2.putExtra("wallName","2 FAG M/ 8 GLAS");
                 intent2.putExtra("width", "80");
                 intent2.putExtra("height", "180");
                 intent2.putExtra("panelsInWidthIndex","1");
@@ -257,6 +259,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(this, MainActivity.class);
                 intent3.putExtra("controller", controller);
 
+                intent3.putExtra("wallName","2 FAG M/ 6 GLAS");
                 intent3.putExtra("width", "80");
                 intent3.putExtra("height", "180");
                 intent3.putExtra("panelsInWidthIndex","1");
@@ -273,6 +276,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent4 = new Intent(this, MainActivity.class);
                 intent4.putExtra("controller", controller);
 
+                intent4.putExtra("wallName","DØR M/ 6 GLAS");
                 intent4.putExtra("width", "80");
                 intent4.putExtra("height", "180");
                 intent4.putExtra("panelsInWidthIndex","1");
@@ -292,6 +296,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent5 = new Intent(this, MainActivity.class);
                 intent5.putExtra("controller", controller);
 
+                intent5.putExtra("wallName","DOBBELTDØR M/ 12 GLAS");
                 intent5.putExtra("width", "160");
                 intent5.putExtra("height", "180");
                 intent5.putExtra("panelsInWidthIndex","2");
@@ -311,6 +316,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent6 = new Intent(this, MainActivity.class);
                 intent6.putExtra("controller", controller);
 
+                intent6.putExtra("wallName","SKYDEDØR M/ 6 GLAS");
                 intent6.putExtra("width", "80");
                 intent6.putExtra("height", "180");
                 intent6.putExtra("panelsInWidthIndex","1");
@@ -330,6 +336,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent7 = new Intent(this, MainActivity.class);
                 intent7.putExtra("controller", controller);
 
+                intent7.putExtra("wallName","3 FAG M/ 12 GLAS M/ ENKELTDØR");
                 intent7.putExtra("width", "75");
                 intent7.putExtra("height", "180");
                 intent7.putExtra("panelsInWidthIndex","1");
@@ -349,6 +356,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent8 = new Intent(this, MainActivity.class);
                 intent8.putExtra("controller", controller);
 
+                intent8.putExtra("wallName","4 FAG M/ 16 GLAS M/ DOBBELTDØR");
                 intent8.putExtra("width", "160");
                 intent8.putExtra("height", "180");
                 intent8.putExtra("panelsInWidthIndex","2");
@@ -368,6 +376,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent9 = new Intent(this, MainActivity.class);
                 intent9.putExtra("controller", controller);
 
+                intent9.putExtra("wallName","5 FAG M/ 20 GLAS M/ ENKELTDØR");
                 intent9.putExtra("width", "180");
                 intent9.putExtra("height", "200");
                 intent9.putExtra("panelsInWidthIndex","4");
@@ -387,6 +396,7 @@ public class CatalogueActivity extends AppCompatActivity {
                 Intent intent10 = new Intent(this, MainActivity.class);
                 intent10.putExtra("controller", controller);
 
+                intent10.putExtra("wallName","6 FAG M/ 24 GLAS M/ ENKELTDØR");
                 intent10.putExtra("width", "240");
                 intent10.putExtra("height", "200");
                 intent10.putExtra("panelsInWidthIndex","5");
