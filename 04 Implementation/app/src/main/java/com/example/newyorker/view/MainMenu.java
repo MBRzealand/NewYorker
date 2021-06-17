@@ -23,8 +23,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void goToCatalogue(View view) {
-        Intent intent = new Intent(this, ContactActivity.class);
-        intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
+        Intent intent = new Intent(this, CatalogueActivity.class);
         startActivity(intent);
     }
 
