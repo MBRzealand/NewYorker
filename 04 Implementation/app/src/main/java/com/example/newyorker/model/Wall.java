@@ -376,14 +376,14 @@ public class Wall  implements Serializable{
     public String getDoorDetail(String[] doorNames) {
         String door = "";
         switch (doorIndex) {
-            case 0: door = doorNames[0] + DOOR_TYPE[0]; break;
-            case 1: door = doorNames[1] + DOOR_TYPE[1]; break;
-            case 2: door = doorNames[2] + DOOR_TYPE[2]; break;
-            case 3: door = doorNames[3] + DOOR_TYPE[3]; break;
-            case 4: door = doorNames[4] + DOOR_TYPE[4]; break;
-            case 5: door = doorNames[5] + DOOR_TYPE[5]; break;
-            case 6: door = doorNames[6] + DOOR_TYPE[6]; break;
-            case 7: door = doorNames[7] + DOOR_TYPE[7]; break;
+            case 0: door = doorNames[0] + " " + DOOR_TYPE[0]; break;
+            case 1: door = doorNames[1] + " "  + DOOR_TYPE[1]; break;
+            case 2: door = doorNames[2] + " "  + DOOR_TYPE[2]; break;
+            case 3: door = doorNames[3] + " "  + DOOR_TYPE[3]; break;
+            case 4: door = doorNames[4] + " "  + DOOR_TYPE[4]; break;
+            case 5: door = doorNames[5] + " "  + DOOR_TYPE[5]; break;
+            case 6: door = doorNames[6] + " "  + DOOR_TYPE[6]; break;
+            case 7: door = doorNames[7] + " "  + DOOR_TYPE[7]; break;
         }
         return door;
     }

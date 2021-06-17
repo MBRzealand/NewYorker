@@ -251,11 +251,9 @@
         app:backgroundTint="@color/white"
         app:icon="@android:drawable/ic_menu_delete"
         app:iconTint="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/button_wall4"
-        app:layout_constraintEnd_toEndOf="@+id/button_wall4"
+        app:layout_constraintEnd_toEndOf="@+id/button_price_overview"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button_wall1"
-        app:layout_constraintTop_toBottomOf="@+id/button_price_overview"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/button_drawing"
+        app:layout_constraintTop_toBottomOf="@+id/button_price_overview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
