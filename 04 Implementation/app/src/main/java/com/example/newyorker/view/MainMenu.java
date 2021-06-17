@@ -23,7 +23,8 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void goToCatalogue(View view) {
-        Intent intent = new Intent(this, CatalogueActivity.class);
+        Intent intent = new Intent(this, ContactActivity.class);
+        intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
         startActivity(intent);
     }
 
@@ -46,6 +47,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void goToLinkedIn(View view) {
+
         Intent intent = new Intent(this, ContactActivity.class);
         intent.putExtra("URL", "https://www.instagram.com/newyorkerdk/");
         startActivity(intent);

@@ -443,7 +443,6 @@ public class CatalogueActivity extends AppCompatActivity {
             startActivity(intent);
         }if (itemId == R.id.button_menu_kontakt) {
             controller.removeWallObservers();
-
             Intent intent = new Intent(this, ContactActivity.class);
             intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
             startActivity(intent);
