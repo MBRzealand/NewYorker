@@ -170,8 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!hasFocus) {
                         textview_width_exception.setText(controller.setWallWidth(widthInput.getText().toString()));
-                        controller.getCurrentWall().calculateWindowPanelsWidth(controller.getCurrentWall().getWallWidth());
-                        setUpSeekbarWidth();
+                        if (!textview_width_exception.getText().equals("Mangler bredde") || !textview_width_exception.getText().equals("Der kan ikke stå bogstaver i bredden")) {
+                            controller.getCurrentWall().calculateWindowPanelsWidth(controller.getCurrentWall().getWallWidth());
+                            setUpSeekbarWidth();
+                        }
                     }
 
                     controller.calculateWallPrice();
@@ -187,8 +189,10 @@ public class MainActivity extends AppCompatActivity {
                 if (heightInput.getText() != null) {
                     if (!hasFocus) {
                         textview_height_exception.setText(controller.setWallHeight(heightInput.getText().toString()));
-                        controller.getCurrentWall().calculateWindowPanelsHeight(controller.getCurrentWall().getWallHeight());
-                        setUpSeekbarHeight();
+                        if (!textview_height_exception.getText().equals("Mangler højde") || !textview_height_exception.getText().equals("Der kan ikke stå bogstaver i højden")) {
+                            controller.getCurrentWall().calculateWindowPanelsHeight(controller.getCurrentWall().getWallHeight());
+                            setUpSeekbarHeight();
+                        }
                     }
 
                     controller.calculateWallPrice();
