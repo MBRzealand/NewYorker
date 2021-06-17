@@ -429,16 +429,19 @@ public class CatalogueActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.button_menu_preview_page) {
+            controller.removeWallObservers();
             Intent intent = new Intent(this, PreviewOrderActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
         }
         if (itemId == R.id.button_menu_katalog) {
+            controller.removeWallObservers();
             Intent intent = new Intent(this, CatalogueActivity.class);
             intent.putExtra("controller", controller);
             startActivity(intent);
         }
         if (itemId == R.id.button_menu_kontakt) {
+            controller.removeWallObservers();
             Intent intent = new Intent(this, ContactActivity.class);
             intent.putExtra("controller", controller);
             intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
