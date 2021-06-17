@@ -58,14 +58,10 @@ public class MainActivity extends AppCompatActivity {
         initializeUIElements();
         initializeListeners();
 
-        /* It gets an intent from previewOrder if the user adds a new wall.
-           If an intent is null, then it is the beginning of the app.*/
-        if (getIntent().getSerializableExtra("controller") != null) {
+
+
             Intent intent = getIntent();
             controller = (NYBuilderController) intent.getSerializableExtra("controller");
-        } else {
-            controller = new NYBuilderController();
-        }
 
         controller.newWall();
 
@@ -304,9 +300,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.my_menu, menu);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         return true;
     }
 
@@ -330,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, ContactActivity.class);
-            intent.putExtra("controller", controller);
+            intent.putExtra("URL", "https://www.new-yorker.dk/kontakt/");
             startActivity(intent);
         }
 

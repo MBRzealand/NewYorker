@@ -35,41 +35,45 @@
             android:id="@+id/button_facebook"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginStart="240dp"
+            android:layout_marginStart="230dp"
             android:layout_marginTop="3dp"
+            android:onClick="goToFacebook"
+            android:src="@mipmap/facebook"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/facebook" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/button_instagram"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="280dp"
+            android:layout_marginStart="270dp"
             android:layout_marginTop="5dp"
+            android:onClick="goToInstagram"
+            android:src="@mipmap/instagram"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/instagram" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/button_linkedin"
             android:layout_width="27dp"
             android:layout_height="27dp"
-            android:layout_marginStart="320dp"
+            android:layout_marginStart="310dp"
             android:layout_marginTop="6dp"
+            android:onClick="goToLinkedIn"
+            android:src="@mipmap/linkedin"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/linkedin" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/button_pintrest"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="360dp"
+            android:layout_marginStart="350dp"
             android:layout_marginTop="4dp"
+            android:onClick="goToPintrest"
+            android:src="@mipmap/pintrest"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/pintrest" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </RelativeLayout>
 
