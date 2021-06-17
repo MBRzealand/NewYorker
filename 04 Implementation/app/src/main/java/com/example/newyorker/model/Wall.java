@@ -9,8 +9,6 @@ import java.util.Collections;
 public class Wall  implements Serializable{
 
     //<editor-folddesc="Static variables">
-    transient private static final double STANDARD_GLASS_HEIGHT = 60;
-    transient private static final double STANDARD_GLASS_WIDTH = 45;
     transient private static final double DELIVERY_FEE = 800;
     transient private static final double GLASS_PANEL_PRICE = 985;
 
@@ -57,6 +55,7 @@ public class Wall  implements Serializable{
     double actualWidth;
 
 
+    private String wallName;
     private double wallHeight;
     private double wallWidth;
     private double wallPrice;
@@ -217,6 +216,12 @@ public class Wall  implements Serializable{
 
 
     //<editor-folddesc="Getters">
+
+
+    public String getWallName() {
+        return wallName;
+    }
+
     public double getWallPrice() {
         return wallPrice;
     }
@@ -259,6 +264,12 @@ public class Wall  implements Serializable{
     //</editor-fold>
 
     //<editor-folddesc="Setters">
+
+
+    public void setWallName(String wallName) {
+        this.wallName = wallName;
+    }
+
     public void setWallHeight(double wallHeight) {
         this.wallHeight = wallHeight;
     }
