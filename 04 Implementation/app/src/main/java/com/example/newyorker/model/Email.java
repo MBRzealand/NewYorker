@@ -16,10 +16,7 @@ import uk.co.jakebreen.sendgridandroid.SendTask;
 
 
 public class Email implements Serializable {
-    private final String toNewYorker = "hjordrup96@live.dk";
-    private final List<Uri> uris = new ArrayList<>();
-
-
+    private final String toNewYorker = "fredrikbille01@gmail.com";
 
 
     public void sendEmail(Customer customer, String details) {

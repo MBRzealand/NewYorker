@@ -34,8 +34,7 @@ public class SendRequestActivity extends AppCompatActivity {
     EditText customerAddress;
     EditText customerZIPCode;
     EditText notes;
-    private final List<Uri> uris = new ArrayList<>();
-    private final List<File> attachments = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class SendRequestActivity extends AppCompatActivity {
 
 
 
-    public void sendRequest(View view) throws IOException {
+    public void sendRequest(View view){
         controller.setCustomerName(customerName.getText().toString());
         controller.setCustomerZIPCode(customerZIPCode.getText().toString());
         controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
