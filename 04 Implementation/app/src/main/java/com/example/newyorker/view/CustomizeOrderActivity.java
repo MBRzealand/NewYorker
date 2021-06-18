@@ -258,7 +258,7 @@ public class CustomizeOrderActivity extends AppCompatActivity  {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if(itemId == R.id.button_menu_preview_page){
+        if(itemId == R.id.button_menu_preview_page && controller.getSizeOfListOfWalls() > 0){
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, PreviewOrderActivity.class);
