@@ -188,8 +188,10 @@ public class PreviewOrderActivity extends AppCompatActivity {
 
         // Make something similar, since .setImage() doesnt exist.
         // imageViewDrawing.setImage('Generated image for wall');
-
-        imageViewDrawing.setVisibility(View.VISIBLE);
+        
+        if (controller.getSizeOfListOfWalls() != 0) {
+            imageViewDrawing.setVisibility(View.VISIBLE);
+        }
     }
 
     public void removeWall(View view) {
