@@ -36,6 +36,7 @@ public class Email implements Serializable {
 
 
         SendGrid sendGrid = SendGrid.create("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");
+
         SendGridMail mail = new SendGridMail();
         mail.addRecipient("fredrikbille@hotmail.com", "Bitch");
         mail.addRecipientCarbonCopy(toNewYorker, "NewYorker");
