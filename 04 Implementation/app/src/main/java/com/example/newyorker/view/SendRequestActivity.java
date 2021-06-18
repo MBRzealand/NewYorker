@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
 import com.example.newyorker.model.Email;
+import com.example.newyorker.model.Wall;
 
 
 import java.io.File;
@@ -60,7 +61,7 @@ public class SendRequestActivity extends AppCompatActivity {
 
 
 
-        email.sendEmail(controller.getCustomer(), controller.getCurrentWall(), uris, getApplicationContext() );
+        email.sendEmail(controller.getCustomer(), compileDetails());
     }
 
 
@@ -109,6 +110,17 @@ public class SendRequestActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public String compileDetails(){
+        String details = "";
+
+        for (int i = 0; i < controller.getSizeOfListOfWalls(); i++) {
+            controller.getWall(i);
+            details += controller.getWallDetails(getResources().getStringArray(R.array.door_array)) + "\n\n";
+
+        }
+        return details;
     }
 
 }

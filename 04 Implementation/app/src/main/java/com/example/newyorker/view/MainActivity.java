@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
         heightInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
-            public void onFocusChange(View view, boolean hasFocus) {
+            public void onFocusChange(View view, boolean hasFocus ) {
 
                 if (heightInput.getText() != null) {
                     if (!hasFocus) {

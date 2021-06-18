@@ -22,7 +22,7 @@ public class Email implements Serializable {
 
 
 
-    public void sendEmail(Customer customer, Wall wall, List<Uri> uris , Context context) {
+    public void sendEmail(Customer customer, String details) {
 
 
         String body = "Kunde navn: " + customer.getCustomerName() +
@@ -30,11 +30,9 @@ public class Email implements Serializable {
                 "\nKunde Tlf: " + customer.getCustomerPhoneNumber() +
                 "\nKunde Adresse: " + customer.getCustomerAddress() +
                 "\nKunde Post Nr: " + customer.getCustomerZIPCode() +
-                "\nVæg Bredde: " + wall.getWallWidth() + " Cm." +
-                "\nVæg Højde: " + wall.getWallHeight() + " Cm." +
-                "\nVæg Pris: " + Math.round(wall.getWallPrice() * 100.0) / 100.0 + " Kr." +
                 "\n\n" + "Kunde Noter: " +
-                "\n"+customer.getCustomerNotes();
+                "\n" +customer.getCustomerNotes() +
+                "\n\n" + details;
 
 
 
@@ -49,14 +47,7 @@ public class Email implements Serializable {
         mail.setContent(body);
 
 
-       /* try {
-            if (!uris.isEmpty())
-                for (Uri uri : uris)
-                    mail.addAttachment(context.getApplicationContext(), uri);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
+
 
 
 
