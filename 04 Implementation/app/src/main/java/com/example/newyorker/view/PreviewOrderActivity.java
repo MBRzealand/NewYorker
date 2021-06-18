@@ -58,6 +58,18 @@ public class PreviewOrderActivity extends AppCompatActivity {
     private void editButtons() {
 
         switch(controller.getSizeOfListOfWalls()) {
+            case 0: {
+
+                btnWall1.setVisibility(View.GONE);
+                btnWall1.setEnabled(false);
+                btnWall2.setVisibility(View.GONE);
+                btnWall2.setEnabled(false);
+                btnWall3.setVisibility(View.GONE);
+                btnWall3.setEnabled(false);
+                btnWall4.setVisibility(View.GONE);
+                btnWall4.setEnabled(false);
+                break;
+            }
             case 1: {
 
                 btnWall1.setVisibility(View.VISIBLE);
@@ -176,8 +188,16 @@ public class PreviewOrderActivity extends AppCompatActivity {
     }
 
     public void removeWall(View view) {
-        controller.destroyWall();
-        editButtons();
+        int listSize = controller.getSizeOfListOfWalls();
+        if (listSize > 0) {
+            controller.destroyWall();
+            editButtons();
+            if (listSize > 1) {
+                btnWall1.callOnClick();
+            } else {
+                detailsTextview.setText("");
+            }
+        }
     }
 
     public void goToMainActivity(View view) {
