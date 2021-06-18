@@ -28,6 +28,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
     Button btnPriceOverview;
     ImageView imageViewDrawing;
     Button btnDrawing;
+    Button btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
         btnPriceOverview = findViewById(R.id.button_price_overview);
         imageViewDrawing = findViewById(R.id.imageViewDrawing);
         btnDrawing = findViewById(R.id.button_drawing);
+        btnDelete = findViewById(R.id.buttonRemoveWall);
 
         editButtons();
         btnDrawing.callOnClick();
@@ -56,9 +58,13 @@ public class PreviewOrderActivity extends AppCompatActivity {
 
     private void editButtons() {
 
+        btnDelete.setVisibility(View.VISIBLE);
+        btnDelete.setEnabled(true);
         switch(controller.getSizeOfListOfWalls()) {
             case 0: {
 
+                btnDelete.setVisibility(View.GONE);
+                btnDelete.setEnabled(false);
                 btnWall1.setVisibility(View.GONE);
                 btnWall1.setEnabled(false);
                 btnWall2.setVisibility(View.GONE);
