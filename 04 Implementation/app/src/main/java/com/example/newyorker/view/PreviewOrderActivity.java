@@ -188,6 +188,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
 
         // Make something similar, since .setImage() doesnt exist.
         // imageViewDrawing.setImage('Generated image for wall');
+        imageViewDrawing.setAlpha(255);
 
         imageViewDrawing.setVisibility(View.VISIBLE);
     }
@@ -201,6 +202,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
                 btnWall1.callOnClick();
             } else {
                 detailsTextview.setText("");
+                imageViewDrawing.setAlpha(0);
             }
         }
     }
