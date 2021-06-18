@@ -187,9 +187,15 @@ public class PreviewOrderActivity extends AppCompatActivity {
     }
 
     public void removeWall(View view) {
-        if (controller.getSizeOfListOfWalls() > 0) {
+        int listSize = controller.getSizeOfListOfWalls();
+        if (listSize > 0) {
             controller.destroyWall();
             editButtons();
+            if (listSize > 1) {
+                btnWall1.callOnClick();
+            } else {
+                detailsTextview.setText("");
+            }
         }
     }
 
