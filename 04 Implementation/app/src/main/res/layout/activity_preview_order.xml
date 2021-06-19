@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="@string/tilfoej_til_kurv"
+        android:text="@string/kurv"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"

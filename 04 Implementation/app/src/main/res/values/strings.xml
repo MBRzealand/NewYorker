@@ -54,7 +54,7 @@
     <string name="noter">Noter:</string>
     <string name="customer_send_button">Send</string>
     <string name="tilfoej_vaeg">Tilføj Væg</string>
-    <string name="tilfoej_til_kurv">Tilføj til kurv</string>
+    <string name="kurv">Kurv</string>
     <string name="tegning">Tegning</string>
     <string name="prisoversigt">Prisoversigt</string>
     <string name="total">Total:   </string>

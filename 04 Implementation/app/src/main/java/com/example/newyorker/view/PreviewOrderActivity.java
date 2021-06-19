@@ -264,4 +264,10 @@ public class PreviewOrderActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void goToMainMenu(View view) {
+        Intent intent = new Intent(this, MainMenu.class);
+        intent.putExtra("controller", controller);
+        startActivity(intent);
+    }
+
 }
