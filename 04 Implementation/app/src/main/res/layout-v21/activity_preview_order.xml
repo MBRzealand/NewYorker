@@ -49,7 +49,7 @@
         android:id="@+id/button_add_wall"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/orange"
         android:onClick="goToMainActivity"
         android:text="@string/tilfoej_vaeg"
@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="@string/vis_ordre"
+        android:text="@string/kurv"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -239,5 +239,21 @@
         app:layout_constraintEnd_toEndOf="@+id/imageViewDrawing"
         app:layout_constraintStart_toStartOf="@+id/imageViewDrawing"
         app:layout_constraintTop_toTopOf="@+id/imageViewDrawing" />
+
+    <Button
+        android:id="@+id/buttonRemoveWall"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="#00FFFFFF"
+        android:onClick="removeWall"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:backgroundTint="@color/white"
+        app:icon="@android:drawable/ic_menu_delete"
+        app:iconTint="#FF0000"
+        app:layout_constraintEnd_toEndOf="@+id/button_price_overview"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button_drawing"
+        app:layout_constraintTop_toBottomOf="@+id/button_price_overview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

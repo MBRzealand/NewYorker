@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
@@ -142,6 +143,9 @@ public class MainActivity extends AppCompatActivity {
         display_panel_count_width = findViewById(R.id.display_panel_count_width);
         display_panel_count_height = findViewById(R.id.display_panel_count_height);
 
+        slider_width.setEnabled(false);
+        slider_height.setEnabled(false);
+
     }
 
     private void initializeListeners() {
@@ -166,8 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!hasFocus) {
                         textview_width_exception.setText(controller.setWallWidth(widthInput.getText().toString()));
-                        controller.getCurrentWall().calculateWindowPanelsWidth(controller.getCurrentWall().getWallWidth());
-                        setUpSeekbarWidth();
+                        if (!textview_width_exception.getText().equals("Mangler bredde") || !textview_width_exception.getText().equals("Der kan ikke stå bogstaver i bredden")) {
+                            controller.getCurrentWall().calculateWindowPanelsWidth(controller.getCurrentWall().getWallWidth());
+                            setUpSeekbarWidth();
+                        }
                     }
 
                     controller.calculateWallPrice();
@@ -178,13 +184,15 @@ public class MainActivity extends AppCompatActivity {
 
         heightInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
-            public void onFocusChange(View view, boolean hasFocus) {
+            public void onFocusChange(View view, boolean hasFocus ) {
 
                 if (heightInput.getText() != null) {
                     if (!hasFocus) {
                         textview_height_exception.setText(controller.setWallHeight(heightInput.getText().toString()));
-                        controller.getCurrentWall().calculateWindowPanelsHeight(controller.getCurrentWall().getWallHeight());
-                        setUpSeekbarHeight();
+                        if (!textview_height_exception.getText().equals("Mangler højde") || !textview_height_exception.getText().equals("Der kan ikke stå bogstaver i højden")) {
+                            controller.getCurrentWall().calculateWindowPanelsHeight(controller.getCurrentWall().getWallHeight());
+                            setUpSeekbarHeight();
+                        }
                     }
 
                     controller.calculateWallPrice();
@@ -209,14 +217,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        slider_width.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            slider_width.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                display_panel_width.setText(Math.floor(controller.getCurrentWall().getFinalListOfPanelSizesWidth().get(slider_width.getProgress()) * 10.0) / 10.0 +" CM");
-                int removeCommaFromDouble =  controller.getCurrentWall().getListOfPanelCountWidth().get(slider_width.getProgress()).intValue();
-                display_panel_count_width.setText(String.valueOf(removeCommaFromDouble));
-                if (!heightInput.getText().toString().isEmpty() && !widthInput.getText().toString().isEmpty()) {
-                    controller.getCurrentWall().totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
+                if (!textview_width_exception.getText().equals("Mangler bredde") || !textview_width_exception.getText().equals("Der kan ikke stå bogstaver i bredden")) {
+                    display_panel_width.setText(Math.floor(controller.getCurrentWall().getFinalListOfPanelSizesWidth().get(slider_width.getProgress()) * 10.0) / 10.0 +" CM");
+                    int removeCommaFromDouble =  controller.getCurrentWall().getListOfPanelCountWidth().get(slider_width.getProgress()).intValue();
+                    display_panel_count_width.setText(String.valueOf(removeCommaFromDouble));
+                    if (!heightInput.getText().toString().isEmpty() && !widthInput.getText().toString().isEmpty()) {
+                        controller.getCurrentWall().totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
+                    }
                 }
             }
 
@@ -234,11 +244,13 @@ public class MainActivity extends AppCompatActivity {
         slider_height.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                display_panel_height.setText(Math.floor(controller.getCurrentWall().getFinalListOfPanelSizesHeight().get(slider_height.getProgress()) * 10.0) / 10.0 +" CM");
-                int removeCommaFromDouble =  controller.getCurrentWall().getListOfPanelCountHeight().get(slider_height.getProgress()).intValue();
-                display_panel_count_height.setText(String.valueOf(removeCommaFromDouble));
-                if (!heightInput.getText().toString().isEmpty() && !widthInput.getText().toString().isEmpty()) {
-                    controller.getCurrentWall().totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
+                if (!textview_height_exception.getText().equals("Mangler højde") || !textview_height_exception.getText().equals("Der kan ikke stå bogstaver i højden")) {
+                    display_panel_height.setText(Math.floor(controller.getCurrentWall().getFinalListOfPanelSizesHeight().get(slider_height.getProgress()) * 10.0) / 10.0 +" CM");
+                    int removeCommaFromDouble =  controller.getCurrentWall().getListOfPanelCountHeight().get(slider_height.getProgress()).intValue();
+                    display_panel_count_height.setText(String.valueOf(removeCommaFromDouble));
+                    if (!heightInput.getText().toString().isEmpty() && !widthInput.getText().toString().isEmpty()) {
+                        controller.getCurrentWall().totalPanels(Integer.parseInt(display_panel_count_width.getText().toString()), Integer.parseInt(display_panel_count_height.getText().toString()));
+                    }
                 }
             }
 
@@ -265,18 +277,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpSeekbarWidth(){
 
-        int maxProgress = controller.getCurrentWall().getListOfPanelCountWidth().size();
+        if(controller.getCurrentWall().getWallWidth() != 0) {
+            slider_width.setEnabled(true);
+            int maxProgress = controller.getCurrentWall().getListOfPanelCountWidth().size();
 
-        slider_width.setMax(maxProgress-1);
-
+            slider_width.setMax(maxProgress - 1);
+        }
     }
 
     public void setUpSeekbarHeight(){
+        if(controller.getCurrentWall().getWallHeight() != 0) {
+            slider_height.setEnabled(true);
+            int maxProgress = controller.getCurrentWall().getListOfPanelCountHeight().size();
 
-        int maxProgress = controller.getCurrentWall().getListOfPanelCountHeight().size();
-
-        slider_height.setMax(maxProgress-1);
-
+            slider_height.setMax(maxProgress - 1);
+        }
     }
 
 
@@ -302,7 +317,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.button_menu_preview_page) {
+
+        if (itemId == R.id.button_menu_preview_page && controller.getSizeOfListOfWalls() == 0) {
+            Toast.makeText(this, "kurven er tom", Toast.LENGTH_SHORT).show();
+        }
+        if (itemId == R.id.button_menu_preview_page && controller.getSizeOfListOfWalls() > 0) {
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, PreviewOrderActivity.class);
@@ -324,5 +343,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToMainMenu(View view) {
+        Intent intent = new Intent(this, MainMenu.class);
+        intent.putExtra("controller", controller);
+        startActivity(intent);
     }
 }

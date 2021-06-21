@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
@@ -430,7 +431,12 @@ public class CatalogueActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.button_menu_preview_page) {
+
+        if (itemId == R.id.button_menu_preview_page && controller.getSizeOfListOfWalls() == 0) {
+            Toast.makeText(this, "kurven er tom", Toast.LENGTH_SHORT).show();
+        }
+
+        if (itemId == R.id.button_menu_preview_page && controller.getSizeOfListOfWalls() > 0) {
             controller.removeWallObservers();
             Intent intent = new Intent(this, PreviewOrderActivity.class);
             intent.putExtra("controller", controller);
@@ -452,6 +458,10 @@ public class CatalogueActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    public void goToMainMenu(View view) {
+        Intent intent = new Intent(this, MainMenu.class);
+        intent.putExtra("controller", controller);
+        startActivity(intent);
+    }
 
 }

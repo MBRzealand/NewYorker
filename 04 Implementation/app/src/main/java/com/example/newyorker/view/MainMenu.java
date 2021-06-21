@@ -27,6 +27,7 @@ public class MainMenu extends AppCompatActivity implements Serializable {
         controller = new NYBuilderController();
     }
 
+
     public void goToMainActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("controller", controller);

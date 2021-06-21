@@ -10,10 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.newyorker.R;
 import com.example.newyorker.controller.NYBuilderController;
 import com.example.newyorker.model.Email;
+import com.example.newyorker.model.Wall;
 
 
 import java.io.File;
@@ -32,8 +34,7 @@ public class SendRequestActivity extends AppCompatActivity {
     EditText customerAddress;
     EditText customerZIPCode;
     EditText notes;
-    private final List<Uri> uris = new ArrayList<>();
-    private final List<File> attachments = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class SendRequestActivity extends AppCompatActivity {
 
 
 
-    public void sendRequest(View view) throws IOException {
+    public void sendRequest(View view){
         controller.setCustomerName(customerName.getText().toString());
         controller.setCustomerZIPCode(customerZIPCode.getText().toString());
         controller.setCustomerEmailAddress(customerEmailAddress.getText().toString());
@@ -57,23 +58,12 @@ public class SendRequestActivity extends AppCompatActivity {
         controller.setCustomerAddress(customerAddress.getText().toString());
         controller.setCustomerNotes(notes.getText().toString());
 
-       // Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        //intent.setType("*/*");
-        //startActivityForResult(intent, REQUEST_CODE);
 
-        email.sendEmail(controller.getCustomer(), controller.getCurrentWall(), uris, getApplicationContext() );
+
+        email.sendEmail(controller.getCustomer(), compileDetails());
     }
 
-   /*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
-            uris.add(data.getData());
 
-        }
-    }
-  */
 
     private void initializeUIElements() {
        customerName = findViewById(R.id.editText_name);
@@ -94,7 +84,11 @@ public class SendRequestActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if(itemId == R.id.button_menu_preview_page){
+        if (itemId == R.id.button_menu_preview_page && controller.getSizeOfListOfWalls() == 0) {
+            Toast.makeText(this, "kurven er tom", Toast.LENGTH_SHORT).show();
+        }
+
+        if(itemId == R.id.button_menu_preview_page && controller.getSizeOfListOfWalls() > 0){
             controller.removeWallObservers();
 
             Intent intent = new Intent(this, PreviewOrderActivity.class);
@@ -115,6 +109,23 @@ public class SendRequestActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public String compileDetails(){
+        String details = "";
+
+        for (int i = 0; i < controller.getSizeOfListOfWalls(); i++) {
+            controller.getWall(i);
+            details += controller.getWallDetails(getResources().getStringArray(R.array.door_array)) + "\n\n";
+
+        }
+        return details;
+    }
+
+    public void goToMainMenu(View view) {
+        Intent intent = new Intent(this, MainMenu.class);
+        intent.putExtra("controller", controller);
+        startActivity(intent);
     }
 
 }
