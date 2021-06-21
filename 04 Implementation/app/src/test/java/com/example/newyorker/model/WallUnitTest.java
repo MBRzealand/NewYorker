@@ -101,6 +101,72 @@ public class WallUnitTest extends TestSuite {
 
     }
 
+    /**
+     * Test af calculateWallPrice with door and handle.
+     * @author Fredrik Bille
+     */
+
+    @Test
+    public void testCalculateWallPriceWithDoor(){
+        Wall wall = new Wall();
+        wall.setWallHeight(100.0);
+        wall.setWallWidth(100.0);
+        wall.totalPanels(2, 8);
+        wall.setHasDoor(true);
+        wall.setHasHandle(true);
+        wall.setHasSpecialGlass(false);
+
+
+
+        wall.calculateWallPrice(0,0,0);
+        assertEquals(18560.0, wall.getWallPrice());
+
+
+    }
+
+    /**
+     * Test af calculateWallPrice with specialglasss price increase.
+     * @author Fredrik Bille
+     */
+
+    @Test
+    public void testCalculateWallPriceWithSpecialGlass(){
+        Wall wall = new Wall();
+        wall.setWallHeight(100.0);
+        wall.setWallWidth(100.0);
+        wall.totalPanels(2, 8);
+        wall.setHasDoor(false);
+        wall.setHasHandle(false);
+        wall.setHasSpecialGlass(true);
+
+
+
+        wall.calculateWallPrice(0,0,0);
+        assertEquals(21648.0, wall.getWallPrice());
+    }
+
+    /**
+     * Test af calculateWallPrice with wetroom price increase.
+     * @author Fredrik Bille
+     */
+
+    @Test
+    public void testCalculateWallPriceWithWetroom(){
+        Wall wall = new Wall();
+        wall.setWallHeight(100.0);
+        wall.setWallWidth(100.0);
+        wall.totalPanels(2, 8);
+        wall.setHasDoor(false);
+        wall.setHasHandle(false);
+        wall.setHasSpecialGlass(false);
+        wall.setHasWetroom(true);
+
+
+        wall.calculateWallPrice(0,0,0);
+        assertEquals(24240.0, wall.getWallPrice());
+
+    }
+
 
 
 
