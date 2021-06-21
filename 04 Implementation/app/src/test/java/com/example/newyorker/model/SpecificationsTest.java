@@ -95,7 +95,6 @@ public class SpecificationsTest {
     public void getStores() {
 
         Specifications specifications = new Specifications();
-        ArrayList<String> expectedList = new ArrayList<>();
         assertNull(specifications.getStores());
 
     }
