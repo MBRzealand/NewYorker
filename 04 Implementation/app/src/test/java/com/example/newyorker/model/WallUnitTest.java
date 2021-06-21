@@ -1,8 +1,13 @@
 package com.example.newyorker.model;
 
 
+import android.util.Log;
+
 import junit.framework.TestSuite;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static junit.framework.TestCase.assertEquals;
 public class WallUnitTest extends TestSuite {
 
@@ -58,8 +63,43 @@ public class WallUnitTest extends TestSuite {
     }
 
 
+    /**
+     * Test af wall klassens calculateWindowPanelsHeight metode laver den rigtige udregning med forskellige størrelser.
+     * @author Mikkel Boye Rasmussen
+     */
+    @Test
+    public void testCalculateWindowHeight(){
+        Wall wall = new Wall();
+        wall.setWallHeight(30);
 
+        wall.calculateWindowPanelsHeight(30);
+        assertEquals(2,wall.getFinalListOfPanelSizesHeight().size());
+        ArrayList<Double> expectedArray = new ArrayList<>();
+        expectedArray.add(29.2);
+        expectedArray.add(14.2);
 
+        assertEquals(expectedArray,wall.getFinalListOfPanelSizesHeight());
+
+    }
+
+    /**
+     * Test af wall klassens calculateWindowPanelsHeight metode laver den rigtige udregning med forskellige størrelser.
+     * @author Mikkel Boye Rasmussen
+     */
+    @Test
+    public void testCalculateWindowWidth(){
+        Wall wall = new Wall();
+        wall.setWallWidth(30);
+
+        wall.calculateWindowPanelsWidth(30);
+        assertEquals(2,wall.getFinalListOfPanelSizesWidth().size());
+        ArrayList<Double> expectedArray = new ArrayList<>();
+        expectedArray.add(29.2);
+        expectedArray.add(14.2);
+
+        assertEquals(expectedArray,wall.getFinalListOfPanelSizesWidth());
+
+    }
 
 
 
