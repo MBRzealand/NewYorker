@@ -467,6 +467,38 @@ public class WallUnitTest extends TestSuite {
     }
 
 
+    /**
+     * Test of wall class getWetRoomDetail method.
+     *
+     * @author Lasse J. Kongsaal
+     */
+
+    @Test
+    public void getWetRoomDetail() {
+
+        Wall wall = new Wall();
+        wall.totalPanels(2,2);
+
+        // total price for wetroom is 480kr pr glas-panel
+        assertEquals(1920, wall.getWetRoomDetail(), 0.0);
+
+    }
+
+    /**
+     * Test of wall class getDeliveryFeeDetail method.
+     *
+     * @author Lasse J. Kongsaal
+     */
+
+    @Test
+    public void getDeliveryFeeDetail() {
+
+        Wall wall = new Wall();
+
+        // total price for delivery is 800kr
+        assertEquals(800, wall.getDeliveryFeeDetail(), 0.0);
+
+    }
 
 
 }
