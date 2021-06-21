@@ -399,6 +399,7 @@ public class WallUnitTest extends TestSuite {
          *
          * @author Fredrik Bille
          */
+
     @Test
     public void testGetHandleDetail(){
 
@@ -407,18 +408,66 @@ public class WallUnitTest extends TestSuite {
             wall.setWallHeight(100);
             wall.calculateWallPrice(0, 1, 0);
 
-
-
             assertEquals("Messing langgreb 500.0", wall.getHandleDetail());
 
-        /*String handle = "";
-        switch (handleIndex) {
-            case 0: handle = "Standard greb 500.0" + HANDLE_TYPE[0]; break;
-            case 1: handle = "Messing langgreb " + HANDLE_TYPE[1]; break;
-            case 2: handle = "Sort langgreb " + HANDLE_TYPE[2]; break;
-        }*/
-
-
     }
+
+    /**
+     * Test of wall class getSpecialGlassDetail method for Acoustic panels.
+     *
+     * @author Mikkel Boye Rasmussen
+     */
+
+    @Test
+    public void testSpecialGlassDetailForAcousticpanels(){
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.totalPanels(4,4);
+        wall.calculateWallPrice(0, 0, 0);
+
+        // total price for acoustic panels 5088kr
+        assertEquals("Akustikpanel 5088.0", wall.getSpecialGlassDetail());
+    }
+
+    /**
+     * Test of wall class getSpecialGlassDetail method for Acoustic panels.
+     *
+     * @author Mikkel Boye Rasmussen
+     */
+
+    @Test
+    public void testSpecialGlassDetailForSatinGlass(){
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.totalPanels(4,4);
+        wall.calculateWallPrice(0, 0, 1);
+
+        // total price for Satin glass 1120kr
+        assertEquals("Satin glas 1120.0", wall.getSpecialGlassDetail());
+    }
+
+    /**
+     * Test of wall class getSpecialGlassDetail method for Acoustic panels.
+     *
+     * @author Mikkel Boye Rasmussen
+     */
+
+    @Test
+    public void testSpecialGlassDetailForNoiseCancellingGlass(){
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.totalPanels(4,4);
+        wall.calculateWallPrice(0, 0, 2);
+
+        // total price for Noise cancelling glass 1520kr
+        assertEquals("Lydglas 1520.0", wall.getSpecialGlassDetail());
+    }
+
+
+
+
 }
 
