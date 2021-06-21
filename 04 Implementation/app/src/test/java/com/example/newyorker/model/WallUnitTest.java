@@ -3,6 +3,8 @@ package com.example.newyorker.model;
 
 import android.util.Log;
 
+import com.example.newyorker.R;
+
 import junit.framework.TestSuite;
 import org.junit.Test;
 
@@ -191,5 +193,199 @@ public class WallUnitTest extends TestSuite {
 
 
 
+    /**
+     *Test of get door details method with single door.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsSingleDoor(){
+
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        String[] doorNames = {"Enkeltdør",
+        "Enkeltdør m. lås",
+        "Dobbeltdør",
+        "Dobbeltdør m. lås",
+        "Skydedør (enkelt)",
+        "Skydedør (enkelt) m. lås",
+       " Skydedør (dobbelt)",
+        "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Enkeltdør 2000.0", wall.getDoorDetail(doorNames));
+
+    }
+
+    /**
+     *Test of get door details method with Double door.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsDoubleDoor(){
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.calculateWallPrice(2,0,0);
+        String[] doorNames = {"Enkeltdør",
+                "Enkeltdør m. lås",
+                "Dobbeltdør",
+                "Dobbeltdør m. lås",
+                "Skydedør (enkelt)",
+                "Skydedør (enkelt) m. lås",
+                " Skydedør (dobbelt)",
+                "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Dobbeltdør 4000.0", wall.getDoorDetail(doorNames));
+
+    }
+    /**
+     *Test of get door details method with Sliding door.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsSlidingDoor(){
+
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.calculateWallPrice(4,0,0);
+        String[] doorNames = {"Enkeltdør",
+                "Enkeltdør m. lås",
+                "Dobbeltdør",
+                "Dobbeltdør m. lås",
+                "Skydedør (enkelt)",
+                "Skydedør (enkelt) m. lås",
+                " Skydedør (dobbelt)",
+                "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Skydedør (enkelt) 2480.0", wall.getDoorDetail(doorNames));
+
+    }
+    /**
+     *Test of get door details method with DoubleDoor with a lockbox.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsDoubleDoorWithLockbox(){
+
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.calculateWallPrice(3,0,0);
+        String[] doorNames = {"Enkeltdør",
+                "Enkeltdør m. lås",
+                "Dobbeltdør",
+                "Dobbeltdør m. lås",
+                "Skydedør (enkelt)",
+                "Skydedør (enkelt) m. lås",
+                " Skydedør (dobbelt)",
+                "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Dobbeltdør m. lås 5000.0", wall.getDoorDetail(doorNames));
+
+    }
+
+    /**
+     *Test of get door details method with Sliding door with a lockbox.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsSlidingDoorWithLockbox(){
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.calculateWallPrice(5,0,0);
+        String[] doorNames = {"Enkeltdør",
+                "Enkeltdør m. lås",
+                "Dobbeltdør",
+                "Dobbeltdør m. lås",
+                "Skydedør (enkelt)",
+                "Skydedør (enkelt) m. lås",
+                " Skydedør (dobbelt)",
+                "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Skydedør (enkelt) m. lås 2980.0", wall.getDoorDetail(doorNames));
+
+    }
+
+    /**
+     *Test of get door details method with Single door with lockbox.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsSingleDoorWithLockbox(){
+
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.calculateWallPrice(1,0,0);
+        String[] doorNames = {"Enkeltdør",
+                "Enkeltdør m. lås",
+                "Dobbeltdør",
+                "Dobbeltdør m. lås",
+                "Skydedør (enkelt)",
+                "Skydedør (enkelt) m. lås",
+                " Skydedør (dobbelt)",
+                "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Enkeltdør m. lås 2500.0", wall.getDoorDetail(doorNames));
+
+    }
+
+    /**
+     *Test of get door details method with DoubleSliding door.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsDoubleSlidingDoor(){
+
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.calculateWallPrice(6,0,0);
+        String[] doorNames = {"Enkeltdør",
+                "Enkeltdør m. lås",
+                "Dobbeltdør",
+                "Dobbeltdør m. lås",
+                "Skydedør (enkelt)",
+                "Skydedør (enkelt) m. lås",
+                "Skydedør (dobbelt)",
+                "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Skydedør (dobbelt) 4960.0", wall.getDoorDetail(doorNames));
+
+    }
+
+    /**
+     *Test of get door details method with DoubleSliding door with lockbox.
+     * @author Anders Hjordrup.
+     *
+     */
+    @Test
+    public void testGetDoorDetailsDoubleSlidingDoorWithLockbox(){
+
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.calculateWallPrice(7,0,0);
+        String[] doorNames = {"Enkeltdør",
+                "Enkeltdør m. lås",
+                "Dobbeltdør",
+                "Dobbeltdør m. lås",
+                "Skydedør (enkelt)",
+                "Skydedør (enkelt) m. lås",
+                " Skydedør (dobbelt)",
+                "Skydedør (dobbelt) m. lås"
+        };
+        assertEquals("Skydedør (dobbelt) m. lås 5460.0", wall.getDoorDetail(doorNames));
+
+    }
 
 }
