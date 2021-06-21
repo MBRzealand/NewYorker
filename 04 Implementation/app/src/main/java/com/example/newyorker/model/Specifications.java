@@ -15,6 +15,10 @@ public class Specifications implements Serializable {
         this.chosenStore = chosenStore;
     }
 
+    public String getChosenStore() {
+        return chosenStore;
+    }
+
     public ArrayList<String> getStores() {
         return listOfStores;
     }

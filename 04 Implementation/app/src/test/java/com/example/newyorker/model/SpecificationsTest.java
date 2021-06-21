@@ -2,12 +2,14 @@ package com.example.newyorker.model;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class SpecificationsTest {
 
     /**
-     * Test af addWall metode.
+     * Test of addWall method, while using/testing getSizeOfListOfWalls and getWall.
      * @author Lasse J. Kongsdal
      */
     @Test
@@ -22,7 +24,7 @@ public class SpecificationsTest {
     }
 
     /**
-     * Test af getTotalPrice metode, med en væg.
+     * Test of getTotalPrice method, with one wall.
      * @author Lasse J. Kongsdal
      */
     @Test
@@ -36,7 +38,7 @@ public class SpecificationsTest {
     }
 
     /**
-     * Test af getTotalPrice metode, med flere vægge.
+     * Test of getTotalPrice method, with more walls.
      * @author Lasse J. Kongsdal
      */
     @Test
@@ -54,7 +56,7 @@ public class SpecificationsTest {
     }
 
     /**
-     * Test af destroyWall metode.
+     * Test of destroyWall method.
      * @author Lasse J. Kongsdal
      */
     @Test
@@ -69,6 +71,32 @@ public class SpecificationsTest {
         specifications.destroyWall(0);
         assertEquals(1, specifications.getSizeOfListOfWalls());
         assertEquals(wall2, specifications.getWall(0));
+
+    }
+
+    /**
+     * Test of setChosenStore method, while using/testing getChosenStore.
+     * @author Lasse J. Kongsdal
+     */
+    @Test
+    public void setChosenStore() {
+
+        Specifications specifications = new Specifications();
+        specifications.setChosenStore("XL-BYG");
+        assertEquals("XL-BYG", specifications.getChosenStore());
+
+    }
+
+    /**
+     * Test of getStores method.
+     * @author Lasse J. Kongsdal
+     */
+    @Test
+    public void getStores() {
+
+        Specifications specifications = new Specifications();
+        ArrayList<String> expectedList = new ArrayList<>();
+        assertNull(specifications.getStores());
 
     }
 
