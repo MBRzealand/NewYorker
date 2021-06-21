@@ -258,6 +258,10 @@ public class Wall  implements Serializable{
         return listOfPanelCountWidth;
     }
 
+    public double getNumberOfPanels() {
+        return numberOfPanels;
+    }
+
     //</editor-fold>
 
     //<editor-folddesc="Setters">

@@ -64,9 +64,10 @@ public class WallUnitTest extends TestSuite {
 
 
     /**
-     * Test af wall klassens calculateWindowPanelsHeight metode laver den rigtige udregning med forskellige størrelser.
+     * Test of wall class calculateWindowPanelsHeight method.
      * @author Mikkel Boye Rasmussen
      */
+
     @Test
     public void testCalculateWindowHeight(){
         Wall wall = new Wall();
@@ -83,9 +84,10 @@ public class WallUnitTest extends TestSuite {
     }
 
     /**
-     * Test af wall klassens calculateWindowPanelsHeight metode laver den rigtige udregning med forskellige størrelser.
+     * Test of wall class calculateWindowPanelsWidth method.
      * @author Mikkel Boye Rasmussen
      */
+
     @Test
     public void testCalculateWindowWidth(){
         Wall wall = new Wall();
@@ -98,6 +100,25 @@ public class WallUnitTest extends TestSuite {
         expectedArray.add(14.2);
 
         assertEquals(expectedArray,wall.getFinalListOfPanelSizesWidth());
+
+    }
+
+    /**
+     * Test of wall class totalPanels method.
+     * @author Mikkel Boye Rasmussen
+     */
+
+    @Test
+    public void testCalculateTotalPanels(){
+        Wall wall = new Wall();
+        wall.setWallWidth(100);
+        wall.setWallHeight(100);
+        wall.totalPanels(3,4);
+
+        // price per panel 985kr
+        // delivery fee 800kr
+        assertEquals(12.0,wall.getNumberOfPanels());
+        assertEquals(12620.0,wall.getWallPrice());
 
     }
 
