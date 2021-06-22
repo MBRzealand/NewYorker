@@ -206,6 +206,7 @@ public class PreviewOrderActivity extends AppCompatActivity {
                 detailsTextview.setText("");
                 imageViewDrawing.setVisibility(View.INVISIBLE);
             }
+            totalPrice.setText(String.valueOf(controller.getTotalPrice()));
         }
     }
 
