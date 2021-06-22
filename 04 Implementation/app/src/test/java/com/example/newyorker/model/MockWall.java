@@ -1,10 +1,10 @@
 package com.example.newyorker.model;
 
-public class Wall {
+public class MockWall extends Wall {
 
     private double wallPrice;
 
-    public Wall() {
+    public MockWall() {
         this.wallPrice = 1000;
     }
 

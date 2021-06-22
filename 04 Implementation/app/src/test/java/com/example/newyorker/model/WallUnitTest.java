@@ -1,10 +1,6 @@
 package com.example.newyorker.model;
 
 
-import android.util.Log;
-
-import com.example.newyorker.R;
-
 import junit.framework.TestSuite;
 import org.junit.Test;
 

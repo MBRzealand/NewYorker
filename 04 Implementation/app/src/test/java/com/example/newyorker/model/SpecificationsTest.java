@@ -2,8 +2,6 @@ package com.example.newyorker.model;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.*;
 
 public class SpecificationsTest {
@@ -16,7 +14,7 @@ public class SpecificationsTest {
     public void addWall() {
 
         Specifications specifications = new Specifications();
-        Wall wall = new Wall();
+        MockWall wall = new MockWall();
         specifications.addWall(wall);
         assertEquals(1, specifications.getSizeOfListOfWalls());
         assertEquals(wall, specifications.getWall(0));
@@ -31,7 +29,7 @@ public class SpecificationsTest {
     public void getTotalPriceWithOneWall() {
 
         Specifications specifications = new Specifications();
-        Wall wall = new Wall();
+        MockWall wall = new MockWall();
         specifications.addWall(wall);
         assertEquals(1000, specifications.getTotalPrice(), 0.0);
 
@@ -45,9 +43,9 @@ public class SpecificationsTest {
     public void getTotalPriceWithMoreWalls() {
 
         Specifications specifications = new Specifications();
-        Wall wall1 = new Wall();
-        Wall wall2 = new Wall();
-        Wall wall3 = new Wall();
+        MockWall wall1 = new MockWall();
+        MockWall wall2 = new MockWall();
+        MockWall wall3 = new MockWall();
         specifications.addWall(wall1);
         specifications.addWall(wall2);
         specifications.addWall(wall3);
@@ -63,8 +61,8 @@ public class SpecificationsTest {
     public void destroyWall() {
 
         Specifications specifications = new Specifications();
-        Wall wall1 = new Wall();
-        Wall wall2 = new Wall();
+        MockWall wall1 = new MockWall();
+        MockWall wall2 = new MockWall();
         specifications.addWall(wall1);
         specifications.addWall(wall2);
         assertEquals(2, specifications.getSizeOfListOfWalls());
