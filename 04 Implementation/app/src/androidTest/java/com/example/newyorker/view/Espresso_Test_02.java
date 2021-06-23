@@ -13,10 +13,12 @@ import androidx.test.runner.AndroidJUnit4;
 import com.example.newyorker.R;
 
 import org.hamcrest.Description;
+import static org.hamcrest.Matchers.allOf;
+
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.internal.matchers.TypeSafeMatcher;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -29,7 +31,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.allOf;
+
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
